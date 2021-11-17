@@ -18,18 +18,18 @@ The event cards let you pick up or lose coin cards and introduce topics around s
 - 6 ETH (5 points each)
 - 20 unique altcoins/tokens (3 points each), each associated to one of the 5 use cases (makes groups of 4 for every use case)
 - 20 generic shitcoins (1 point each)
-- 10 “not your keys, not your coins” cards 
-- 10 wallet cards
-- 2 “lost your seed” cards
-- 21 general knowledge cards that let you pick up 1 coin card
-- 2 mining/staking cards, you need to own at least one PoW/PoS coin to pick up 2 coin cards
-- 5 use case cards, you need to own at least one of 4 coins associated with the use case to pick up 3 coin cards. The use cases and their associated coins are:
 
--- Medium of exchange: BCH, DOGE, LTC, XMR
--- Smart contract platform: DOT, ADA, ATOM, SOL
--- DeFi: AAVE, UNI, AVAX, LUNA
--- Web3: FIL, LINK, THETA, GRT
--- Metaverse: AXS, MANA, FLOW, ENJ
+*10 “not your keys, not your coins” cards* 
+*10 wallet cards*
+*2 “lost your seed” cards*
+*21 general knowledge cards that let you pick up 1 coin card*
+*2 mining/staking cards, you need to own at least one PoW/PoS coin to pick up 2 coin cards*
+*5 use case cards, you need to own at least one of 4 coins associated with the use case to pick up 3 coin cards. The use cases and their associated coins are:*
+- Medium of exchange: BCH, DOGE, LTC, XMR
+- Smart contract platform: DOT, ADA, ATOM, SOL
+- DeFi: AAVE, UNI, AVAX, LUNA
+- Web3: FIL, LINK, THETA, GRT
+- Metaverse: AXS, MANA, FLOW, ENJ
 
 ## Game mechanics
 
