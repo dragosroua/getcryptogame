@@ -1,0 +1,12 @@
+{
+  "NodeVersion": "0.0.1",
+  "ID": "getcryptogame-129898423",
+  "Name": "Get CryptoGame",
+  "Description": "A game to learn how crypto works",
+  "Developer": "Dragos",
+  "Level": "0",
+  "Sender": "dragos",
+  "SupportEmail": "support@getcryptogame.com",
+  "Version": "1.0.0",
+  "CostPerBlock": "0"
+}
