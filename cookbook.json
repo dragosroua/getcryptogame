@@ -1,12 +1,29 @@
 {
   "NodeVersion": "0.0.1",
-  "ID": "getcryptogame-129898423",
+  "ID": "getcryptogame12",
   "Name": "Get CryptoGame",
   "Description": "A game to learn how crypto works",
   "Developer": "CryptoGames Studio",
   "Level": "0",
   "Sender": "dragos",
   "SupportEmail": "support@getcryptogame.com",
-  "Version": "1.0.0",
-  "CostPerBlock": "0"
+  "Version": "0.0.1",
+  "CostPerBlock": "1"
 }
+
+/*
+{
+  "@type":"/Pylonstech.pylons.pylons.MsgCreateCookbook"
+  "creator":"pylo1u6j2eqszxna2wnvgldpfzchdqj2c7enu8s3kzf"
+  "ID":"getCryptoGame12"
+  "name":"Get CryptoGame"
+  "description":"A game to learn how crypto works"
+  "developer":"CryptoGames Studio"
+  "version":"v0.0.1"
+  "supportEmail":"support@getcryptogame.com"
+  "costPerBlock":{
+  "denom":"upylon",
+  "amount":"1000000"
+  }
+  "enabled":true
+}*/
