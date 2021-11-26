@@ -14,10 +14,6 @@ import DashboardScreen from './DashboardScreen';
 import StartGameScreen from './StartGameScreen';
 import HistoryScreen from './HistoryScreen';
 
-import KeepAwake from 'react-native-keep-awake';
-
-KeepAwake.activate()
-
 const DashboardStack = createStackNavigator(
     {
 	  dashboard: { screen: DashboardScreen, navigationOptions: { headerTintColor: '#C50300'} },

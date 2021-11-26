@@ -12,7 +12,6 @@ target 'GetCryptoGame' do
     :hermes_enabled => false
   )
 
-pod 'react-native-keep-awake', :path => '../node_modules/react-native-keep-awake'
 
 #  target 'GetCryptoGameTests' do
 #    inherit! :complete

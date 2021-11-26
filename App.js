@@ -3,11 +3,9 @@ import React, {useState} from 'react';
 import  {AppRegistry, useWindowDimensions, StyleSheet, View, Defaults } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { Provider } from 'react-redux';
 import DashboardStack from './app/DashboardStack';
 //import store from './app/store/store.js'
 import 'react-native-gesture-handler';
-import KeepAwake from 'react-native-keep-awake';
 
 
 
@@ -24,8 +22,6 @@ const AppContainer = createAppContainer(GetCryptoGame);
 const App: () => React$Node = () => {
 
   const window = useWindowDimensions();
-  
-  KeepAwake.activate()
   
   return(
     
