@@ -56,4 +56,11 @@ buck-out/
 *.jsbundle
 
 # CocoaPods
+./ios/Pods/
 /ios/Pods/
+/android/app/.classpath
+/android/app/.project
+/android/app/BUCK
+/android/app/debug.keystore
+/android/app/src/main/java/com/citylogisticcourierapp/HeartBeatTask.java
+/transactions.txt
