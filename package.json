@@ -1,0 +1,52 @@
+{
+  "name": "GetCryptoGame",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.1.6",
+    "@react-native-async-storage/async-storage": "^1.13.3",
+    "@reduxjs/toolkit": "^1.5.1",
+    "await-timeout": "^1.1.1",
+    "jsc-android": "^241213.1.0",
+    "moment": "^2.29.1",
+    "react": "17.0.1",
+    "react-dom": "^17.0.1",
+    "react-native": "0.64.1",
+    "react-native-keep-awake": "^4.0.0",
+    "react-native-safe-area-context": "^3.1.9",
+    "@react-native-community/masked-view": "^0.1.0",
+    "react-native-gesture-handler": "^1.5.0",
+    "react-native-reanimated": "^1.0.0",
+    "react-native-screens": "^2.15.2",
+    "react-native-svg": "^12.1.1",
+    "react-native-vector-icons": "^8.0.0",
+    "react-native-web": "^0.14.10",
+    "react-navigation": "^4.4.3",
+    "react-navigation-drawer": "^2.6.0",
+    "react-navigation-stack": "^2.10.2",
+    "react-navigation-tabs": "^2.10.1",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/runtime": "^7.14.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^27.0.1",
+    "eslint": "7.27.0",
+    "jest": "^27.0.1",
+    "metro-react-native-babel-preset": "^0.66.0",
+    "react-native-svg-transformer": "^0.14.3",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
