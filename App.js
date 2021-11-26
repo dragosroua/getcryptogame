@@ -4,7 +4,6 @@ import  {AppRegistry, useWindowDimensions, StyleSheet, View, Defaults } from 're
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import DashboardStack from './app/DashboardStack';
-//import store from './app/store/store.js'
 import 'react-native-gesture-handler';
 
 

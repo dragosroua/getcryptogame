@@ -19,7 +19,9 @@ const StartGameScreen = ({navigation}) => {
         console.log("createConnection called")
         const mnemonic = "surround miss nominee dream gap cross assault thank captain prosper drop duty group candy wealth weather scale put";
         const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic);
+        console.log('wallet ' + JSON.stringify(wallet))
         const [firstAccount] = await wallet.getAccounts();
+        console.log('firstAccount ' + JSON.stringify(firstAccount))
 
         const rpcEndpoint = "http://rpc.testnet.pylons.tech:26657/";
         const client = await SigningStargateClient.connectWithSigner(rpcEndpoint, wallet);

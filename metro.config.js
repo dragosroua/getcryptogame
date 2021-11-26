@@ -4,7 +4,12 @@
  *
  * @format
  */
-
+ const path = require('path');
+ 
+ const extraNodeModules = {
+  'crypto': path.resolve(__dirname + '/extra_modules/crypto'),
+  stream: require.resolve('stream-browserify'),
+};
  module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -14,6 +19,7 @@
       },
     }),
   },
+
 };
 
 const { getDefaultConfig } = require("metro-config");
@@ -28,7 +34,10 @@ module.exports = (async () => {
     },
     resolver: {
       assetExts: assetExts.filter(ext => ext !== "svg"),
-      sourceExts: [...sourceExts, "svg"]
-    }
+      sourceExts: [...sourceExts, "svg"],
+      extraNodeModules
+    },
+    
+     
   };
 })();
