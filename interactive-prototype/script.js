@@ -323,16 +323,19 @@ function round1_me_2(round) {
     let globaltimeRound5 = 0;
     let contentshow = round ? "round1-me-step2" : "round1-me-step1";
     let contenthide = round ? "round1-me-step1" : "round1-me-step2";
+    let newcard = round ? "new-on-hand2" : "new-on-hand1";
     let elem1 = document.getElementById("overlay");
     let elem2 = document.getElementById("aside-round1-me");
     let elem3 = document.getElementById(contentshow);
     let elem4 = document.getElementById(contenthide);
+    let elem5 = document.getElementById(newcard);
     elem1.style.display = "block";
     elem2.style.display = "block";
     elem3.style.display = "block";
     elem4.style.display = "none";
     let t1 = setTimeout(function() {
         elem1.classList.add("show");
+        elem5.classList.add("slidein");
     }, globaltimeRound5 + 20);
     globaltimeRound5 += 20;
     let t2 = setTimeout(function() {
@@ -759,11 +762,13 @@ function round1_ron_2() {
     let elem3 = document.getElementById("round1-ron-step1");
     let elem4 = document.getElementById("aside-round2-me");
     let elem5 = document.getElementById("aside-round2-me-2");
+    let elem6 = document.getElementById("round1-ron-step1-3");
     elem1.style.display = "block";
     elem2.style.display = "block";
     elem3.style.display = "block";
     elem4.style.display = "none";
     elem5.style.display = "none";
+    elem6.style.display = "none";
     let t1 = setTimeout(function() {
         elem1.classList.add("show");
     }, globaltimeRound + 20);
@@ -903,4 +908,4 @@ function toggle_pulsate(elem) {
 }
 
 round1_andrea_1();
-//round1_ron_1_1();
+//round1_natalia_3()

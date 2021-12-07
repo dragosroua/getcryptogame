@@ -15,6 +15,14 @@ img.card {
     width: 150px;
     margin: 5px;
 }
+.card.grid.newcard {
+    position: relative;
+    top: -50px;
+}
+.card.grid.newcard.slidein {
+    top: 0;
+    transition: all 0.2s 0s ease-in;
+}
 
 .off-turn {
     position: relative;
@@ -79,7 +87,7 @@ img.card {
     position: fixed;
 }
 .bottom.playing .hand {
-    bottom: 40%;
+    bottom: 35%;
     margin-left: -54px;
     transition: bottom 0.2s 0.2s ease-in;
 }
@@ -93,7 +101,7 @@ img.card {
 
 .stack {
     position: fixed;
-    bottom: 90px;
+    bottom: 85px;
     left: 50%;
     margin-left: -130px;
 }
@@ -180,6 +188,15 @@ img.card {
 @keyframes pulsate {
     0%   { box-shadow: 0 0 0 #9e93ff; }
     50%  { box-shadow: 0 0 30px #9e93ff; }
+    100% { box-shadow: 0 0 0 #9e93ff; }
+}
+.overlay .card.pulsate {
+    box-shadow: 0px 0px 30px 0px #9e93ff;
+    animation: pulsate-more 1s ease-out infinite;
+}
+@keyframes pulsate-more {
+    0%   { box-shadow: 0 0 0 #9e93ff; }
+    50%  { box-shadow: 0 0 30px 10px #9e93ff; }
     100% { box-shadow: 0 0 0 #9e93ff; }
 }
 
@@ -326,6 +343,7 @@ img.card {
     margin-left: 0;
     padding: 3px 7px;
     display: block;
+    line-height: 1;
 }
 .portfolio .info .coins .coin { 
     display: inline;
@@ -336,6 +354,7 @@ img.card {
     background-color: #9e93ff;
     border-radius: 10px;
     border: 1px solid #000;
+    line-height: 1.4;
     margin-left: -8px;
     padding: 0 7px;
 }
@@ -357,7 +376,7 @@ img.card {
     width: calc(100% - 20px);
 }
 .playing.top .on-turn {
-    height: 100%;
+    height: calc(90% + 15px);
     margin-top: 0;
 }
 .left .on-turn {
@@ -368,7 +387,7 @@ img.card {
 .playing.left .on-turn {
     margin-left: 0;
     top: 10px;
-    height: 100%;
+    height: calc(90% - 15px);
 }
 .bottom .on-turn {
     bottom: 0;
@@ -379,7 +398,7 @@ img.card {
 }
 .playing.bottom .on-turn {
     margin-bottom: 0;
-    height: 45%;
+    height: 40%;
 }
 .right .on-turn {
     right: -10px;
@@ -389,7 +408,7 @@ img.card {
 .playing.right .on-turn {
     margin-right: 0;
     top: 10px;
-    height: 100%;
+    height: calc(90% - 15px);
 }
 
 .portfolio {
@@ -631,15 +650,17 @@ img.card {
 }
 
 .round1 .step1 .over-notifications {
-    height: 135px;
+    height: 110px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 20px 0 10px;
+    box-sizing: border-box;
 }
 
 .round2 .step1 .over-notifications {
-    height: 80px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

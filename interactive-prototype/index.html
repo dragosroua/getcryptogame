@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css?v=1">
+        <link rel="stylesheet" href="style.css?v=5">
     </head>
     <body>
         <main id="table">
@@ -205,8 +205,8 @@
                             <em class="wallettotal">18</em> 
                             <span class="coins">
                                 <em class="coin show-round1">3</em>
-                                <em class="coin show-round2">1</em>
                                 <em class="coin show-round3">3</em>
+                                <em class="coin show-round2">1</em>
                                 <em class="coin">1</em>
                                 <em class="coin">1</em>
                             </span>
@@ -226,8 +226,8 @@
                             <em class="wallettotal">18</em> 
                             <span class="coins">
                                 <em class="coin show-round1">3</em>
-                                <em class="coin show-round2">1</em>
                                 <em class="coin show-round3">3</em>
+                                <em class="coin show-round2">1</em>
                                 <em class="coin">1</em>
                                 <em class="coin">1</em>
                             </span>
@@ -330,7 +330,7 @@
                         <span id="over-me-not2" class="button pulsate" style="display: none;" onclick="round1_me_3()">Confirm choice</span>
                     </section>
                     <section id="over-main" class="over-grid">
-                        <img src="img/defi-grid.png" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
+                        <img src="img/defi-grid.png" class="card grid newcard" id="new-on-hand1" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
                         <img src="img/wallet-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
                         <img src="img/keys-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
                         <img src="img/nft-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
@@ -342,7 +342,7 @@
                         <span id="over-me-not2-2x" class="button pulsate" style="display: none;" onclick="round1_me_3_2()">Confirm choice</span>
                     </section>
                     <section id="over-main" class="over-grid">
-                        <img src="img/satoshi-grid.png" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
+                        <img src="img/satoshi-grid.png" class="card grid newcard" id="new-on-hand2" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
                         <img src="img/wallet-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
                         <img src="img/keys-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
                         <img src="img/nft-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
@@ -401,7 +401,7 @@
                 </div>
                 <div id="round1-ron-step1-2" class="step1" style="display: none">
                     <section id="over-notifications-container" class="over-notifications">
-                        <span id="over-ron-notifi1-2" class="notifications show"  style="position:relative; top:40px;"> Ron played the following card:</span>
+                        <span id="over-ron-notifi1-2" class="notifications show"> Ron played the following card:</span>
                         <span id="over-ron-notifi2-2" class="notifications" style="display: none">Since you have a wallet in your portfolio,</span>
                         <span id="over-ron-notifi3-2" class="notifications" style="display: none">you too can now add one more card</span>
                         <span id="over-notifi4-2" class="button" onclick="round1_ron_2_3();">Go to portfolio</span>
