@@ -1,0 +1,702 @@
+body {
+    background-color: #eee;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}
+
+img.card {
+    box-shadow: 0px 0px 20px -3px rgb(0 0 0 / 40%);
+    border-radius: 8%;
+}
+.card.full {
+    width: 270px;
+}
+.card.grid {
+    width: 150px;
+    margin: 5px;
+}
+
+.off-turn {
+    position: relative;
+    z-index: 1;
+}
+
+.left,
+.right,
+.top {
+    position: relative;
+    top: 15px;
+}
+
+.playing .stats {
+    display: none;
+}
+.stats {
+    background-color: #9e93ff;
+    box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    display: inline-block;
+    position: fixed;
+}
+.left .stats {
+    height: 170px;
+    left: -10px;
+    top: 20%;
+    width: 50px;
+}
+.top .stats {
+    height: 50px;
+    margin-left: -85px;
+    top: -10px;
+    width: 170px;
+}
+.right .stats {
+    height: 170px;
+    left: auto;
+    right: -10px;
+    top: 20%;
+    width: 50px;
+}
+.bottom .stats {
+    bottom: -10px;
+    height: 50px;
+    margin-left: -160px;
+    width: 140px;
+}
+
+.left .stats .info,
+.right .stats .info,
+.left .stats .info .coins {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+}
+
+.bottom .hand {
+    bottom: -100px;
+    margin-left: 42px;
+    position: fixed;
+}
+.bottom.playing .hand {
+    bottom: 40%;
+    margin-left: -54px;
+    transition: bottom 0.2s 0.2s ease-in;
+}
+
+.bottom .hand img {
+    margin-left: -65px;
+}
+.bottom.playing .hand img {
+    margin-left: -50px;
+}
+
+.stack {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    margin-left: -130px;
+}
+
+.playing .stack {
+    bottom: auto;
+    top: 70px;
+}
+
+.stack img {
+    height: auto;
+    width: 120px;
+    margin: 0 5px;
+}
+
+.stack .cardstack {
+    display: inline-block;
+    opacity: 0;
+    position: relative;
+    top: -176px;
+}
+
+
+.stack .cardstack.pulsate {
+    opacity: 1;
+}
+
+.stack .cardstack img {
+    position: absolute;
+    height: auto;
+    width: 120px;
+    margin: 0 5px;
+    top: 0;
+    right: 0;
+}
+.stack .cardstack.pulsate.card-1 img:last-child {
+    top: -20px;
+    right: 30px;
+    transition: all 0.7s 0s ease-out;
+}
+
+.stack .cardstack.pulsate.card-3 img {
+    top: -40px;
+    right: 60px;
+    transition: all 0.7s 0s ease-out;
+}
+.stack .cardstack.pulsate.card-3 img:first-child {
+    top: -20px;
+    right: 30px;
+    transition: all 0.7s 0s ease-out;
+}
+.stack .cardstack.pulsate.card-3 img:last-child {
+    top: -60px;
+    right: 90px;
+    transition: all 0.7s 0s ease-out;
+}
+
+.playing .stack .cardstack.pulsate.card-1 img:last-child {
+    top: 20px;
+    right: 30px;
+    transition: all 0.7s 0s ease-out;
+}
+.playing .stack .cardstack.pulsate.card-3 img {
+    top: 40px;
+    right: 60px;
+    transition: all 0.7s 0s ease-out;
+}
+.playing .stack .cardstack.pulsate.card-3 img:first-child {
+    top: 20px;
+    right: 30px;
+    transition: all 0.7s 0s ease-out;
+}
+.playing .stack .cardstack.pulsate.card-3 img:last-child {
+    top: 60px;
+    right: 90px;
+    transition: all 0.7s 0s ease-out;
+}
+
+
+.pulsate {
+    box-shadow: 0px 0px 20px 0px #9e93ff;
+    animation: pulsate 1s ease-out infinite;
+}
+@keyframes pulsate {
+    0%   { box-shadow: 0 0 0 #9e93ff; }
+    50%  { box-shadow: 0 0 30px #9e93ff; }
+    100% { box-shadow: 0 0 0 #9e93ff; }
+}
+
+
+.info {
+    margin: 3px 5px;
+}
+.bottom .info {
+    margin: 5px;
+}
+.left .stats .info {
+    margin: 10px 0 0 8px;
+}
+.top .stats .info {
+    margin: 12px 5px 5px;
+}
+.right .stats .info {
+    margin: 10px 0 0 -10px;
+}
+.portfolio .info {
+    margin: 15px 0 35px -25px;
+}
+
+.info em {
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1;
+    padding: 7px 5px;
+}
+
+.info .pic {
+    border-radius: 50%;
+    height: auto;
+    vertical-align: middle;
+    width: 25px;
+    position: relative;
+    top: -3px;
+}
+.portfolio .info .pic {
+    vertical-align: middle;
+    border-radius: 25px;
+    width: 50px;
+}
+
+.info .name {
+    display: none;
+}
+.portfolio .info .name {
+    display: inline;
+}
+
+.top .info .total,
+.bottom .info .total,
+.portfolio .info .total {
+    border-right: 1px solid #000;
+}
+.left .info .total,
+.right .info .total {
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+}
+.portfolio .info .total {
+    border-bottom: none;
+}
+
+.right .portfolio .info .total {
+    margin-right: 20px; 
+}
+.playing.right .portfolio .info .total {
+    margin-right: 20px; 
+    padding-right: 10px;
+}
+
+.info .wallettotal {
+    color: #fff;
+    background-image: url(img/lock-violet.png);
+    background-position: 5px 0px;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    padding: 7px 0 15px 10px;
+    position: relative;
+    bottom: -2px;
+    margin-right: -15px;
+}
+ .info .wallettotal:after {
+    background-image: url(img/lock-violet.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    content: "";
+    display: inline-block;
+    height: 25px;
+    left: -14px;
+    opacity: 0;
+    position: relative;
+    top: 0px;
+    width: 25px;
+    width: 22px;
+    z-index: -1;
+} 
+.portfolio .info .wallettotal.onedigit {
+    padding-left: 12px;
+}
+
+.portfolio .info .wallettotal {
+    background-image: url(img/lock-grey.png);
+}
+.portfolio .info .wallettotal:after {
+    background-image: url(img/lock-grey.png);
+}
+.left .info .wallettotal,
+.right .info .wallettotal {
+    background-position: 5px center;
+    padding: 10px 0 15px 10px;
+}
+.left .stats .info .wallettotal, 
+.right .stats .info .wallettotal {
+    background-position: 2px 11px;
+    margin-top: -25px;
+}
+.right .portfolio .wallettotal.show-round2 {
+    padding: 10px 15px 15px 13px;
+}
+.portfolio .info .wallettotal {
+    padding: 7px 10px 0px 10px;
+}
+.right .info .wallettotal:after {
+    top: 1px;
+    left: -13px;
+}
+
+.info .coins {
+    padding: 0 0 0 10px;
+}
+.left .info .coins {
+    padding: 0;
+}
+.right .info .coins {
+    padding: 0 0 0 2px;
+}
+.left .info .coins .coin,
+.right .info .coins .coin {
+    margin-top: -6px;
+    margin-left: 0;
+    padding: 3px 7px;
+    display: block;
+}
+.portfolio .info .coins .coin { 
+    display: inline;
+    margin-left: -8px;
+    padding: 0 7px;
+}
+.info .coins .coin {
+    background-color: #9e93ff;
+    border-radius: 10px;
+    border: 1px solid #000;
+    margin-left: -8px;
+    padding: 0 7px;
+}
+.portfolio .info .coin {
+    background-color: #f5f5f5;
+}
+
+.on-turn {
+    position: fixed;
+    top: 0;
+}
+.playing .on-turn {
+    transition: all 0.2s 0.2s ease-in;
+}
+.top .on-turn {
+    height: 0;
+    left: 10px;
+    margin-top: -100%;
+    width: calc(100% - 20px);
+}
+.playing.top .on-turn {
+    height: 100%;
+    margin-top: 0;
+}
+.left .on-turn {
+    left: -10px;
+    margin-left: -100%;
+    width: calc(100% - 0px);
+}
+.playing.left .on-turn {
+    margin-left: 0;
+    top: 10px;
+    height: 100%;
+}
+.bottom .on-turn {
+    bottom: 0;
+    left: 10px;
+    margin-bottom: -100%;
+    top: auto;
+    width: calc(100% - 20px);
+}
+.playing.bottom .on-turn {
+    margin-bottom: 0;
+    height: 45%;
+}
+.right .on-turn {
+    right: -10px;
+    margin-right: -100%;
+    width: calc(100% - 0px);
+}
+.playing.right .on-turn {
+    margin-right: 0;
+    top: 10px;
+    height: 100%;
+}
+
+.portfolio {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px -3px rgb(0 0 0 / 40%);
+    box-sizing: border-box;   
+    height: 100%;
+    padding: 10px 30px 30px 70px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.top .portfolio {
+    height: 60%;
+    top: -10px;
+    /* width: calc(100% - 30px);
+    left: 15px; */
+}
+.right .portfolio,
+.left .portfolio {
+    height: 60%;
+    padding-top: 40px
+}
+.right .portfolio {
+    padding-left: 85px;
+}
+
+.portfolio .card {
+    margin-left: -25px;
+    position: relative;
+}
+
+.portfolio .card.wallet {
+    top: -10px;
+    position: relative;
+    z-index: 0;
+}
+
+.player .show-round2,
+.player .show-round3,
+.over-content .show-round2,
+.over-content .show-round3 {
+    display: none !important;
+}
+.player.round2 .show-round2,
+.round2 .over-content .show-round2 {
+    display: inline-block !important;
+}
+.player.round2 .show-round1,
+.round2 .over-content .show-round1 {
+    display: none !important;
+}
+.player.round2.round3 .show-round2,
+.round2.round3 .over-content .show-round2 {
+    display: inline-block !important;
+}
+.player.round3 .show-round3,
+.round3 .over-content .show-round3  {
+    display: inline-block !important;
+}
+
+.portfolio .row.ronwallet {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 10px 0 0 25px;
+    margin: -10px 0 0 -25px;
+}
+.portfolio .row.ronwallet.show {
+    max-height: 100px;
+    opacity: 1;
+    transition: max-height 0.6s 0s ease-out, opacity 0.3s 0.3s ease-out;
+}
+
+.portfolio .select {
+    padding-left: 15px;
+}
+.portfolio .select .card {
+    margin-left: -40px;
+}
+.portfolio .select .card.wallet {
+    top: -10px;
+    position: relative;
+    z-index: -1;
+}
+.portfolio .select .cardholder {
+    background-color: rgba(238,238,238,0.6);
+    border-radius: 8%;
+    display: inline-block;
+    padding-left: 50px;
+    margin-left: 5px;
+}
+.portfolio .select.confirmed .cardholder {
+    background-color: transparent;
+}
+.portfolio .select .cardholder .card {
+    display: block;
+    margin-left: -50px;
+    opacity: 0;
+}
+.portfolio .select.selected .cardholder .card {
+    opacity: 1;
+    transition: all 0.2s 0s ease-out;
+}
+.portfolio .select.confirmed .cardholder .card {
+    margin-left: -90px;
+    transition: all 0.2s 0s ease-out;
+}
+
+.portfolio .row {
+    display: block;
+    margin: 10px auto;
+    position: relative;
+}
+
+.playing.bottom .off-turn {
+    z-index: -1;
+}
+
+.notifications {
+    background-color: #9e93ff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px -3px rgb(0 0 0 / 80%);
+    display: inline-block;
+    opacity: 0;
+    padding: 0;
+    max-width: 0;
+    transition: all 0.02s 0s ease-in;
+    white-space: nowrap;
+    margin-bottom: 10px;
+    margin-left: -4px;
+}
+
+.show.notifications {
+    max-width: 100vw;
+    opacity: 1;
+    padding: 3px 10px 4px;
+    transition: all 0.1s 0s ease-out;
+}
+
+.bottom.playing .notification-container {
+    min-height: 41px;
+    position: relative;
+    top: -10px;
+}
+
+.button {
+    background-color: #eee;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px -3px rgb(0 0 0 / 80%);
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    opacity: 0;
+    padding: 0;
+    letter-spacing: -0.2px;
+    max-width: 0;
+    text-transform: uppercase;
+    transition: all 0.02s 0s ease-in;
+    white-space: nowrap;
+    margin: 5px auto 10px;
+}
+.show.button {
+    max-width: 100vw;
+    opacity: 1;
+    padding: 8px 15px 9px;
+    transition: all 0.1s 0s ease-out;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* OVERLAY */
+
+.overlay {
+    background-color: rgba(125,111,255,0.59);
+    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(155,155,155,0.6);
+    backdrop-filter: blur(10px);
+    display: none;
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    transition: all 0.1s 0s ease-out;
+    width: 100vw;
+    z-index: 5;
+}
+
+.overlay.show {
+    opacity: 1;
+    transition: all 0.3s 0s ease-in;
+}
+
+.overlay aside {
+    display: flex;
+    flex-direction: column; 
+    height: 100vh;
+}
+
+.over-nowplaying, 
+.over-nowtifications,
+.over-content {
+    margin: 20px;
+    padding: 10px;
+}
+.over-nowviewing {
+    margin: -20px 20px 20px;
+    padding: 10px;
+}
+.over-nowplaying, 
+.over-nowtifications,
+.over-nowviewing {
+    border-bottom: solid 1px #000;
+}
+
+.over-content {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.over-nowplaying,
+.over-nowviewing {
+    text-align: left;
+}
+.round2 .over-nowplaying {
+    padding-bottom: 15px;
+}
+
+.over-nowplaying .pic {
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.round1 .step1 .over-notifications {
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.round2 .step1 .over-notifications {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.over-select .cardholder {
+    background-color: rgba(238,238,238,0.6);
+    border-radius: 8%;
+    display: inline-block;
+    margin: 5px;
+}
+.over-select .cardholder .card {
+    display: block;
+    opacity: 0;
+}
+
+.overlay .portfolio {
+    background-color: transparent;
+    box-shadow: none;
+    display: block;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.over-nowplaying .portfolio-viewer {
+    position: relative;
+    top: -15px;
+    float: right;
+    margin-bottom: -15px;
+}
+
+.over-nowplaying .dropdown {
+    background-color: rgba(238,238,238,0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px -3px rgb(0 0 0 / 80%);
+    box-sizing: border-box;
+    max-height: 0;
+    margin-top: -7px;
+    padding: 2px 7px;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    transition: all 0.02s 0s ease-out;
+}
+.over-nowplaying .dropdown.show {
+    max-height: 200px;
+    opacity: 1;
+    transition: all 0.3s 0s ease-in;
+}
+
+.over-nowplaying .dropdown-button {
+    display: block;
+    padding: 5px;
+    border-top: solid 1px #000;
+}
+.over-nowplaying .dropdown-button:first-child {
+    border-top: none;
+}

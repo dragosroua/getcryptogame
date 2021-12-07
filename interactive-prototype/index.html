@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GetCrypto Game Demo</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css?v=1">
+    </head>
+    <body>
+        <main id="table">
+            
+            <!-- NATALIA: tag, portfolio-->
+            <section id="player-left" class="left player">
+                <div class="off-turn">
+                    <span class="stats">
+                        <div class="info">
+                            <img src="img/natalia.png" class="pic" />
+                            <em class="name">Natalia</em> 
+                            <em class="total show-round1">15</em> 
+                            <em class="total show-round2">16</em> 
+                            <em class="wallettotal onedigit">5</em> 
+                            <span class="coins">
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                            </span>
+                        </div>
+                    </span>
+                </div>
+                <div class="on-turn">
+                    <div class="portfolio" id="portfolio-natalia">
+                        <div class="info">
+                            <img src="img/natalia.png" class="pic" />
+                            <em class="name">Natalia</em> 
+                            <em class="total show-round1">15</em> 
+                            <em class="total show-round2">16</em> 
+                            <em class="wallettotal onedigit">5</em> 
+                            <span class="coins">
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                            </span>
+                        </div>
+                        <span class="walletrow row">
+                            <img src="img/wallet-table.png" class="card wallet" />
+                            <img src="img/ETH-table.png" class="card" />
+                        </span>
+                        <span class="cardrow row">
+                            <img src="img/AAVE-table.png" class="card" />
+                            <img src="img/XMR-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card show-round2" />
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANDREA: tag, portfolio-->
+            <section id="player-top" class="top player">
+                <div class="off-turn">
+                    <span class="stats">
+                        <div class="info">
+                            <img src="img/andrea.png" class="pic" />
+                            <em class="name">Andrea</em> 
+                            <em class="total show-round1">22</em> 
+                            <em class="total show-round2">25</em> 
+                            <em class="wallettotal">15</em> 
+                            <span class="coins">
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                            </span>
+                        </div>
+                    </span>
+                </div>
+                <div class="on-turn">
+                    <div class="portfolio">
+                        <div class="info">
+                            <img src="img/andrea.png" class="pic" />
+                            <em class="name">Andrea</em> 
+                            <em class="total show-round1">22</em> 
+                            <em class="total show-round2">25</em> 
+                            <em class="wallettotal">15</em> 
+                            <span class="coins">
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                            </span>
+                        </div>
+                        <span class="walletrow row">
+                            <img src="img/wallet-table.png" class="card wallet" />
+                            <img src="img/BTC-table.png" class="card" />
+                            <img src="img/ETH-table.png" class="card" />
+                        </span>
+                        <span class="cardrow row">
+                            <img src="img/FIL-table.png" class="card show-round2" />
+                            <img src="img/LINK-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RON: tag, portfolio-->
+            <section id="player-right" class="right player">
+                <div class="off-turn">
+                    <span class="stats">
+                        <div class="info">
+                            <img src="img/ron.png" class="pic" />
+                            <em class="name">Ron</em> 
+                            <em class="total">17</em> 
+                            <em class="wallettotal show-round2">5</em> 
+                            <span class="coins">
+                                <em class="coin">3</em>
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                            </span>
+                        </div>
+                    </span>
+                </div>
+                <div class="on-turn">
+                    <div class="portfolio">
+                        <div class="info">
+                            <img src="img/ron.png" class="pic" />
+                            <em class="name">Ron</em> 
+                            <em class="total">17</em> 
+                            <em class="wallettotal show-round2">5</em> 
+                            <span class="coins">
+                                <em class="coin">3</em>
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                            </span>
+                        </div>
+                        <span class="walletrow row ronwallet" id="ron-wallet-ani">
+                            <img src="img/wallet-table.png" class="card wallet" />
+                            <img src="img/ETH-table.png" class="card" />
+                        </span>
+                        <span class="cardrow row">
+                            <img src="img/ETH-table.png" class="card" id="ethereum" />
+                            <img src="img/DOT-table.png" class="card" />
+                            <img src="img/ENJ-table.png" class="card" />
+                            <img src="img/MANA-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ME/STACK: notifications, stack, tag, hand, portfolio-->
+            <section id="player-bottom" class="bottom player">
+                <div id="stack" class="stack">
+                    <div class="notification-container">
+                        <span class="round1">
+                            <span id="notifi-round1-1" class="notifications">It's Natalia's turn</span>
+                            <span id="notifi-round1-2" class="notifications">Natalia is picking up an event card</span>
+                            <span id="notifi-round1-3" class="notifications">Waiting for Natalia to select a card to play</span>
+                        </span>
+                        <span class="round2">
+                            <span id="notifi-round2-1" class="notifications">It's your turn, please pick up an event card</span>
+                            <span id="notifi-round2-2" class="notifications">You redeem 3 coin cards</span>
+                            <span id="notifi-round2-2-2" class="notifications">You redeem 1 coin card</span>
+                        </span>
+                        <span class="round3">
+                            <span id="notifi-round3-1" class="notifications">It's Ron's turn</span>
+                            <span id="notifi-round3-2" class="notifications">Ron is picking up an event card</span>
+                            <span id="notifi-round3-3" class="notifications">Waiting for Ron to select a card to play</span>
+                            <span id="notifi-round3-4" class="notifications">Ron redeems 1 coin card</span>
+                        </span>
+                        <span class="round4">
+                            <span id="notifi-round4-1" class="notifications">It's Andrea's turn</span>
+                            <span id="notifi-round4-2" class="notifications">Andrea is picking up an event card</span>
+                            <span id="notifi-round4-3" class="notifications">Waiting for Andrea to select a card to play</span>
+                            <span id="notifi-round4-4" class="notifications">Andrea redeems 1 coin card</span>
+                        </span>
+                        <span class="round5">
+                            <span id="notifi-round5-1" class="notifications">It's Natalia's turn</span>
+                            <span id="notifi-round5-2" class="notifications">Natalia is picking up an event card</span>
+                            <span id="notifi-round5-3" class="notifications">Waiting for Natalia to select a card to play</span>
+                            <span id="notifi-round5-4" class="notifications">Natalia redeems 1 coin card</span>
+                        </span>
+                    </div>
+                    <img src="img/anverso-questions.png" class="card" id="questionstack" />
+                    <img src="img/anverso-coins.png" class="card" id="cardstack"/>
+                    <div class="cardstack" id="cardstack-ani">
+                        <img src="img/anverso-coins.png" class="card"/>
+                        <img src="img/anverso-coins.png" class="card"/>
+                        <img src="img/anverso-coins.png" class="card"/>
+                    </div>
+                    
+                </div>
+                <div class="off-turn">
+                    <span class="stats">
+                        <div class="info">
+                            <em class="total show-round1">15</em> 
+                            <em class="total show-round2">20</em> 
+                            <em class="wallettotal">18</em> 
+                            <span class="coins">
+                                <em class="coin show-round1">3</em>
+                                <em class="coin show-round2">1</em>
+                                <em class="coin show-round3">3</em>
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                            </span>
+                        </div>
+                    </span>
+                    <span class="hand">
+                        <img src="img/wallet-hand.png" class="card" />
+                        <img src="img/keys-hand.png" class="card" />
+                        <img src="img/nft-hand.png" class="card" />
+                    </span>
+                </div>
+                <div class="on-turn">
+                    <div class="portfolio">
+                        <div class="info">
+                            <em class="total show-round1">15</em> 
+                            <em class="total show-round2">20</em> 
+                            <em class="wallettotal">18</em> 
+                            <span class="coins">
+                                <em class="coin show-round1">3</em>
+                                <em class="coin show-round2">1</em>
+                                <em class="coin show-round3">3</em>
+                                <em class="coin">1</em>
+                                <em class="coin">1</em>
+                            </span>
+                        </div>
+                        <span class="walletrow row">
+                            <img src="img/wallet-table.png" class="card wallet" />
+                            <img src="img/BTC-table.png" class="card" />
+                        </span>
+                        <span class="cardrow row">
+                            <img src="img/UNI-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                        </span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <!-- OVERLAY -->
+        <div id="overlay" class="overlay">
+
+            <!-- NATALIA: show played kard (keys) -->
+            <aside id="aside-round1-natalia" class="round1" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <img src="img/natalia.png" class="pic" />
+                    <em class="name">Natalia</em>
+                </section>
+                <div id="round1-natalia-step1" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-notifi1" class="notifications show"> Natalia played the following card:</span>
+                        <span id="over-notifi2" class="notifications " style="display: none"> This card affects you</span>
+
+                        <span id="over-notifi3" class="notifications " style="display: none">Please select 3 coin cards to give up</span>
+
+                        <span id="over-notifi4" class="button" style="display: none" onclick="round1_natalia_3();">Go to portfolio</span>
+                    </section>
+                    <section id="over-main" class="over-content">
+                        <img src="img/keys-full.png" class="card full" />
+                    </section>
+                </div>
+                <!-- NATALIA -> ME: select 3 cards to give up from portfolio -->
+                <div id="round1-natalia-step2" class="step2" style="display: none">
+                    <section id="now-viewing" class="over-nowviewing">
+                        Now viewing portfolio: 
+                        <em class="name">mine</em>
+                    </section>
+                    <section id="over-notifications-container" class="over-notifications" style="min-height: 60px;">
+                        <span id="select-not1" class="notifications show"> Please choose cards to give up</span>
+                        <span id="select-not2" class="button pulsate" style="display: none;" onclick="round1_me_1(true)">Confirm choice</span>
+                    </section>
+                    <section id="over-main" class="over-select">
+                        <span class="cardholder"><img src="img/SHIT-select.png" class="card" id="selectcard1" /></span>
+                        <span class="cardholder"><img src="img/SHIT-select.png" class="card" id="selectcard2" /></span>
+                        <span class="cardholder"><img src="img/SHIT-select.png" class="card" id="selectcard3" /></span>
+                    </section>
+                    <section id="over-main" class="over-portfolio">
+                        <div class="portfolio">
+                            <span class="walletrow row">
+                                <img src="img/wallet-table.png" class="card wallet" />
+                                <img src="img/coin-table.png" class="card" />
+                                <img src="img/UNI-table.png" class="card" />
+                            </span>
+                            <span class="cardrow row">
+                                <img src="img/ATOM-table.png" class="card" />
+                                <img src="img/SHIT-table.png" class="card" />
+                                <img src="img/SHIT-table.png" class="card" />
+                                <img src="img/SHIT-table.png" class="card" onclick="this.style.display='none'; show_selectd_card('selectcard3');showNextNotification('select-not1', 'select-not2');" />
+                                <img src="img/SHIT-table.png" class="card" onclick="this.style.display='none'; show_selectd_card('selectcard2');" />
+                                <img src="img/SHIT-table.png" class="card" onclick="this.style.display='none'; show_selectd_card('selectcard1');" />
+                            </span>
+                        </div>
+                    </section>
+                </div>
+            </aside>
+
+            <!-- ME: show hand, portfolio button -->
+            <aside id="aside-round1-me" class="round2" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <em class="name">Me</em>
+                    <div class="portfolio-viewer">
+                        <span class="button show" onclick="toggle_dropdown()">View portfolio</span>
+                        <div class="dropdown" id="dropdown" onclick="toggle_dropdown()">
+                            <span class="dropdown-button" onclick="show_portfolio('me')">Me</span>
+                            <span class="dropdown-button" onclick="show_portfolio('ron')">Ron (next)</span>
+                            <span class="dropdown-button" onclick="show_portfolio('andrea')">Andrea</span>
+                            <span class="dropdown-button" onclick="show_portfolio('natalia')">Natalia</span>
+                        </div>
+                    </div>
+                </section>
+                <section id="now-viewing" class="over-nowviewing">
+                    Now viewing: 
+                    <em class="name">my hand</em>
+                </section>
+                <div id="round1-me-step1" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-me-notifi1" class="notifications">Please choose which card to play</span>
+                        <span id="over-me-not2" class="button pulsate" style="display: none;" onclick="round1_me_3()">Confirm choice</span>
+                    </section>
+                    <section id="over-main" class="over-grid">
+                        <img src="img/defi-grid.png" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
+                        <img src="img/wallet-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
+                        <img src="img/keys-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
+                        <img src="img/nft-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');" />
+                    </section>
+                </div>
+                <div id="round1-me-step2" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-me-notifi1-2x" class="notifications">Please choose which card to play</span>
+                        <span id="over-me-not2-2x" class="button pulsate" style="display: none;" onclick="round1_me_3_2()">Confirm choice</span>
+                    </section>
+                    <section id="over-main" class="over-grid">
+                        <img src="img/satoshi-grid.png" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
+                        <img src="img/wallet-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
+                        <img src="img/keys-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
+                        <img src="img/nft-grid.png" class="card grid" class="card grid" onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');" />
+                    </section>
+                </div>
+            </aside>
+            
+            <!-- ME: show 1 newly picked up card -->
+            <aside id="aside-round2-me-2" class="round2" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <em class="name">Me</em>
+                </section>
+                <div class="step1">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-me-notifi-2-1" class="notifications">You picked up the following card</span>
+                    </section>
+                    <section id="over-main" class="over-grid">
+                        <img src="img/SHIT-full.png" class="card full" />
+                    </section>
+                </div>
+            </aside> 
+
+            <!-- ME: show 3 newly picked up cards -->
+            <aside id="aside-round2-me" class="round2" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <em class="name">Me</em>
+                </section>
+                <div class="step1">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-me-notifi-2-1-3cards" class="notifications">You picked up the following cards</span>
+                    </section>
+                    <section id="over-main" class="over-grid">
+                        <img src="img/ATOM-grid.png" class="card grid" />
+                        <img src="img/SHIT-grid.png" class="card grid" />
+                        <img src="img/SHIT-grid.png" class="card grid" />
+                    </section>
+                </div>
+            </aside>
+
+            <!-- RON:  show played card (question and wallet) -->
+            <aside id="aside-round1-ron" class="round1" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <img src="img/ron.png" class="pic" />
+                    <em class="name">Ron</em>
+                </section>
+                <div id="round1-ron-step1" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-ron-notifi1" class="notifications show"> Ron played the following card:</span>
+                    </section>
+                    <section id="over-main" class="over-content">
+                        <img src="img/send-full.png" class="card full" />
+                    </section>
+                </div>
+                <div id="round1-ron-step1-2" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-ron-notifi1-2" class="notifications show"  style="position:relative; top:40px;"> Ron played the following card:</span>
+                        <span id="over-ron-notifi2-2" class="notifications" style="display: none">Since you have a wallet in your portfolio,</span>
+                        <span id="over-ron-notifi3-2" class="notifications" style="display: none">you too can now add one more card</span>
+                        <span id="over-notifi4-2" class="button" onclick="round1_ron_2_3();">Go to portfolio</span>
+                    </section>
+                    <section id="over-main" class="over-content">
+                        <img src="img/wallet-full.png" class="card full" />
+                    </section>
+                </div>
+                <div id="round1-ron-step1-3" class="step2" style="display: none">
+                    <section id="now-viewing" class="over-nowviewing">
+                        Now viewing portfolio: 
+                        <em class="name">mine</em>
+                    </section>
+                    <section id="over-notifications-container" class="over-notifications" style="min-height: 60px;">
+                        <span id="select-not1-ron2" class="notifications show"> Please choose cards to add to wallet</span>
+                        <span id="select-not2-ron2" class="button pulsate" style="display: none;" onclick="round1_ron_2_4()">Confirm choice</span>
+                    </section>
+                    <section id="over-main" class="over-portfolio">
+                        <div class="portfolio">
+                            <span class="walletrow row select" id="walletcontainer">
+                                <img src="img/wallet-select.png" class="card wallet" />
+                                <img src="img/BTC-select.png" class="card" />
+                                <span class="cardholder"><img src="img/UNI-select.png" class="card" id="selectcard1" /></span>
+                            </span>
+                            <span class="cardrow row">
+                                <img src="img/UNI-table.png" class="card" onclick="this.style.display='none'; show_select_wallet();" />
+                                <img src="img/ATOM-table.png" class="card" />
+                                <img src="img/SHIT-table.png" class="card" />
+                                <img src="img/SHIT-table.png" class="card" />
+                                <img src="img/SHIT-table.png" class="card" />
+                                <img src="img/SHIT-table.png" class="card" />
+                                <img src="img/SHIT-table.png" class="card" />
+                            </span>
+                        </div>
+                    </section>
+                </div>
+            </aside>
+
+            <!-- RON:  show 1 newly picked up coin card -->
+            <aside id="aside-round1-ron-2" class="round1" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <img src="img/ron.png" class="pic" />
+                    <em class="name">Ron</em>
+                </section>
+                <div id="round1-ron-step2" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-ron-notifi1" class="notifications show">Ron picked up the following card</span>
+                    </section>
+                    <section id="over-main" class="over-content">
+                        <img src="img/DOGE-full.png" class="card full" />
+                    </section>
+                </div>
+            </aside>
+            
+            <!-- ANDREA: show played card (question) -->
+            <aside id="aside-round1-andrea" class="round1" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <img src="img/andrea.png" class="pic" />
+                    <em class="name">Andrea</em>
+                </section>
+                <div id="round1-andrea-step1" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-andrea-notifi1" class="notifications show"> Andrea played the following card:</span>
+                    </section>
+                    <section id="over-main" class="over-content">
+                        <img src="img/blockchain-full.png" class="card full show-round1" />
+                        <img src="img/tokens-full.png" class="card full show-round2" />
+                    </section>
+                </div>
+            </aside>
+
+            <!-- ANDREA:  show 1 newly picked up coin card -->
+            <aside id="aside-round1-andrea-2" class="round1" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <img src="img/andrea.png" class="pic" />
+                    <em class="name">Andrea</em>
+                </section>
+                <div id="round1-andrea-step2" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-andrea-notifi1" class="notifications show">Andrea picked up the following card</span>
+                    </section>
+                    <section id="over-main" class="over-content">
+                        <img src="img/FIL-full.png" class="card full show-round1" />
+                        <img src="img/SHIT-full.png" class="card full show-round2" />
+                    </section>
+                </div>
+            </aside>
+
+
+            <!-- NATALIA: show played card (question) -->
+            <aside id="aside-round1-natalia-2" class="round1" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <img src="img/natalia.png" class="pic" />
+                    <em class="name">Natalia</em>
+                </section>
+                <div id="round1-natalia-step1-2" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-natalia-notifi1-2" class="notifications show"> Natalia played the following card:</span>
+                    </section>
+                    <section id="over-main" class="over-content">
+                        <img src="img/ico-full.png" class="card full" />
+                    </section>
+                </div>
+            </aside>
+
+           <!-- NATALIA:  show 1 newly picked up coin card -->
+           <aside id="aside-round1-natalia-2-2" class="round1" style="display: none">
+                <section id="over-now-playing" class="over-nowplaying">
+                    Now playing: 
+                    <img src="img/natalia.png" class="pic" />
+                    <em class="name">Natalia</em>
+                </section>
+                <div id="round1-natalia-step2-2" class="step1" style="display: none">
+                    <section id="over-notifications-container" class="over-notifications">
+                        <span id="over-natalia-notifi1-2-2" class="notifications show">Natalia picked up the following card</span>
+                    </section>
+                    <section id="over-main" class="over-content">
+                        <img src="img/SHIT-full.png" class="card full" />
+                    </section>
+                </div>
+            </aside>
+
+
+            <!-- ME: show portfolio, back button -->
+            <aside id="portfolio-viewer-me" class="portfolio-viewer" style="display: none;">
+                <section id="over-nportfolio-me-playing" class="over-nowplaying">
+                    Now playing: 
+                    <em class="name">Me</em>
+                    <div class="portfolio-viewer">
+                        <span class="button show" onclick="round1_me_2()">Back</span>
+                    </div>
+                </section>
+                <section id="now-viewing" class="over-nowviewing">
+                    Now viewing portfolio: 
+                    <em class="name">mine</em>
+                </section>
+                <section id="over-main" class="over-portfolio">
+                    <div class="portfolio">
+                        <span class="walletrow row">
+                            <img src="img/wallet-table.png" class="card wallet" />
+                            <img src="img/BTC-table.png" class="card" />
+                        </span>
+                        <span class="cardrow row">
+                            <img src="img/UNI-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                            <img src="img/SHIT-table.png" class="card" />
+                        </span>
+                    </div>
+                </section>
+            </aside>
+
+            
+            
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
