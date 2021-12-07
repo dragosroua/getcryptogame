@@ -3,7 +3,7 @@ import {withNavigation} from 'react-navigation'
 import { HeaderBackButton } from 'react-navigation-stack';
 import { HeaderStyleInterpolators,TransitionPresets } from 'react-navigation-stack';
 import { Modal, TextInput, Dimensions, ScrollView, View, Text, Platform, StyleSheet, TouchableOpacity, Switch } from "react-native"
-
+require('stream').Transform
 import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { assertIsBroadcastTxSuccess, SigningStargateClient, StargateClient } from "@cosmjs/stargate";
 
@@ -19,7 +19,7 @@ const StartGameScreen = ({navigation}) => {
         console.log("createConnection called")
         const mnemonic = "surround miss nominee dream gap cross assault thank captain prosper drop duty group candy wealth weather scale put";
         const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic);
-        console.log('wallet ' + JSON.stringify(wallet))
+        console.log('wallet ' + JSON.stringify(wallet, null, 2))
         const [firstAccount] = await wallet.getAccounts();
         console.log('firstAccount ' + JSON.stringify(firstAccount))
 

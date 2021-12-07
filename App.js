@@ -1,11 +1,14 @@
 
-import React, {useState} from 'react';
+import React from 'react';
 import  {AppRegistry, useWindowDimensions, StyleSheet, View, Defaults } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import DashboardStack from './app/DashboardStack';
 import 'react-native-gesture-handler';
-
+global.crypto = require('crypto');
+//import process from 'process';
+import buffer from 'buffer';
+global.Buffer = buffer.Buffer
 
 
 const GetCryptoGame = createStackNavigator({
@@ -24,12 +27,9 @@ const App: () => React$Node = () => {
   
   return(
     
-      
         <View style={styles.container}>
           <AppContainer/>
         </View>
-      
-    
     
   );	
 }
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
 
 export default App;
 
-AppRegistry.registerComponent('GetCryptoGame', () => App)
+//AppRegistry.registerComponent('GetCryptoGame', () => App)

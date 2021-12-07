@@ -8,8 +8,10 @@
  
  const extraNodeModules = {
   'crypto': path.resolve(__dirname + '/extra_modules/crypto'),
-  stream: require.resolve('stream-browserify'),
+  'stream': require.resolve('stream-browserify'),
+  'Buffer': require.resolve('buffer'),
 };
+
  module.exports = {
   transformer: {
     getTransformOptions: async () => ({
