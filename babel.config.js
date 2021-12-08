@@ -1,4 +1,4 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
-  plugins: ["babel-plugin-react-native-nodeify-hack"]
-};
+  presets: ['@vue/cli-plugin-babel/preset'],
+  plugins: ["@babel/plugin-transform-runtime"]
+}
