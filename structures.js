@@ -431,6 +431,7 @@ var bitcoinCard = {
 */
 
 var gameVault = {
+    "gameBlockchain": "blockchainId", // ex: Pylons, Hive, Cronos
     "gameId": "unique",
     "gameTurn": 0, // updates at every turn
     "gameHost": "", // acct address, ex: "pylwwer903wnrkajne"
@@ -449,7 +450,7 @@ var gameVault = {
 
 function createGameVault(
     // generates the game vault, shuffles the deck and distributes the cards to the players
-    // @params: gameHost, playersArray
+    // @params: gameHost, playersArray, blockchain
 ) 
 
 
@@ -461,5 +462,26 @@ function playEventCard(
 
 function executeGameEvent(
     // implements the events
-    // @params: gameId, eventId, eventType, eventReceiver
+    // @params: gameId, eventType, eventReceiver
 )
+
+/** utils */
+
+function validateAction(
+    // validate a specific action, against the base parameters
+    // invoked before calling executeGameEvent
+    // @params: blockchainId, gameId, gameTurn, currentPlayer
+)
+
+const gameEventTypes = {
+    "not-wallet-not-keys" : [],
+    "wallet": [],
+    "lost-seed": [],
+    "knowledge": [],
+    "mining-staking": [],
+    "medium-exchange": [],
+    "smart-contract": [],
+    "defi": [],
+    "web3": [],
+    "metaverse": []
+}
