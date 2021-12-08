@@ -33,40 +33,6 @@ app.mixin({
       })(navigator.userAgent || navigator.vendor || window.opera)
       return check
     },
-    queryMyNFT: function () {
-      console.log('QUERY MY NFT')
-      return getNft
-        .bind(this)()
-        .then((nft) => {
-          if (nft === false) {
-            //this.notifyFail('No NFT', 'You have not uploaded a NFT yet.\n Please go to Upload NFT and do so.')
-            console.log('YOU DONT OWN NFT - GO TO "UPLOAD NFT" - DONT PASS GO - DONT COLLECT $400')
-            return false
-          } else {
-            this.$store.commit('setFighterNft', nft)
-            return nft
-          }
-        })
-        .catch((err) => {
-          this.notifyFail('LOGGED IN?', "'NOT LOGGED IN? IS IT POSSIBLE THAT YOU ARE NOT LOGGED IN YES?'")
-          console.log()
-          console.error(err)
-        })
-    },
-    queryMyItems: function () {
-      return getItems
-        .bind(this)()
-        .then((items) => {
-          let ownedItems = R.reject((x) => x.ItemType === 'nft', items)
-          if (ownedItems.length === 0) {
-            this.notifyFail(
-              'No Items owned',
-              "You don't have any equipment,\n do you want to stay naked your whole life?\n Go to the Forge and craft some.",
-            )
-          }
-          return ownedItems
-        })
-    },
     notifyFail: R.curry(function (title, text) {
       this.$notify({
         group: 'bottom-right-notification',
