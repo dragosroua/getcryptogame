@@ -5,17 +5,19 @@ const store = createStore({
   state: {
     gameDeck: {
       turn: 0,
-      cards: {},
-      players: {},
+      coinCards: [],
+      eventCards: [],
+      players: [],
     },
     isLoggedIn: false,
     isWinner: false,
   },
   mutations: {
-    setGameDeck(state, turn, cards, players) {
+    setGameDeck(state, turn, coinCards, eventCards, players) {
       state.gameDeck = {
         turn: turn,
-        cards: cards,
+        coinCards: coinCards,
+        eventCards: eventCards,
         players: players,
       }
     },
