@@ -218,30 +218,48 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
   var howManyEventsCards = 3
   if (playersArray.length === 2) howManyCoinCards = 8
 
-  // distribute cards to players
-  for (var gm = 0; gm < playersArray.length; gm++) {
-    for (var crd = 0; crd < howManyCoinCards; crd++) {
-      var currentCoinCard = coinCardsArray[crd]
-      currentCoinCard.player = playersArray[gm]
+  // distribute coin cards to players
+  for (var cc = 0; cc < 50; cc++) {
+    var currentCoinCard = coinCardsArray[cc]
+    currentCoinCard.inGameVault = false
+    if (cc >= 0 && cc < howManyCoinCards) {
+      currentCoinCard.player = playersArray[0]
+    } else if (cc >= howManyCoinCards && cc < howManyCoinCards * 2) {
+      currentCoinCard.player = playersArray[1]
       currentCoinCard.inGameVault = false
+    } else if (playersArray.length > 2) {
+      if (cc >= howManyCoinCards * 2 && cc < howManyCoinCards * 3) {
+        currentCoinCard.player = playersArray[2]
+        currentCoinCard.inGameVault = false
+      } else if (cc >= howManyCoinCards * 3 && cc < howManyCoinCards * 4) {
+        currentCoinCard.player = playersArray[3]
+        currentCoinCard.inGameVault = false
+      }
+    } else {
+      currentCoinCard.inCoinVault = true
     }
+  }
 
-    for (var erd = 0; erd < howManyEventsCards; erd++) {
-      var currentEventCard = eventCardsArray[erd]
-      currentEventCard.player = playersArray[gm]
+  // distribute event cards to players
+  for (var ee = 0; ee < 50; ee++) {
+    var currentEventCard = eventCardsArray[ee]
+    currentEventCard.inGameVault = false
+    if (cc >= 0 && cc < howManyEventsCards) {
+      currentEventCard.player = playersArray[0]
+    } else if (cc >= howManyEventsCards && cc < howManyEventsCards * 2) {
+      currentEventCard.player = playersArray[1]
       currentEventCard.inGameVault = false
+    } else if (playersArray.length > 2) {
+      if (cc >= howManyEventsCards * 2 && cc < howManyEventsCards * 3) {
+        currentEventCard.player = playersArray[2]
+        currentEventCard.inGameVault = false
+      } else if (cc >= howManyEventsCards * 3 && cc < howManyEventsCards * 4) {
+        currentEventCard.player = playersArray[3]
+        currentEventCard.inGameVault = false
+      }
+    } else {
+      currentEventCard.inEventVault = true
     }
-  }
-
-  // distribute the remaining cards to vaults
-  for (var rcrd = howManyCoinCards * playersArray.length - 1; rcrd < coinCardsArray.lenght; rcrd++) {
-    var remainingCoinCard = coinCardsArray[rcrd]
-    remainingCoinCard.inCoinVault = true
-  }
-
-  for (var rerd = howManyEventsCards * playersArray.lenght - 1; rerd < eventCardsArray.length; rerd++) {
-    var remainingEventCard = eventCardsArray[rerd]
-    remainingEventCard.inEventVault = true
   }
 
   console.log('coin cards ' + JSON.stringify(coinCardsArray, null, 2))
