@@ -1,4 +1,32 @@
-import createGameVault from './functions.js'
+//import { createGameDeck } from './functions.js'
+
+export function createGame() {
+  return this.$store.dispatch('Pylonstech.pylons.pylons/sendMsgExecuteRecipe', {
+    value: {
+      '@type': '/Pylonstech.pylons.pylons.MsgExecuteRecipe',
+      creator: this.$store.getters['common/wallet/address'],
+      cookbookID: 'getCryptoGame',
+      recipeID: 'creategame',
+      coinInputsIndex: '0',
+      itemIDs: [],
+      paymentInfos: [],
+    },
+  })
+}
+
+export function advanceGame() {
+  return this.$store.dispatch('Pylonstech.pylons.pylons/sendMsgExecuteRecipe', {
+    value: {
+      '@type': '/Pylonstech.pylons.pylons.MsgExecuteRecipe',
+      creator: this.$store.getters['common/wallet/address'],
+      cookbookID: 'getCryptoGame',
+      recipeID: 'advancegame',
+      coinInputsIndex: '0',
+      itemIDs: [],
+      paymentInfos: [],
+    },
+  })
+}
 
 export function getDeck() {
   return this.$store
@@ -65,32 +93,4 @@ export function getGame() {
       })
       return items
     })
-}
-
-export function createGame() {
-  return this.$store.dispatch('Pylonstech.pylons.pylons/sendMsgExecuteRecipe', {
-    value: {
-      '@type': '/Pylonstech.pylons.pylons.MsgExecuteRecipe',
-      creator: this.$store.getters['common/wallet/address'],
-      cookbookID: 'getCryptoGame',
-      recipeID: 'creategame',
-      coinInputsIndex: '0',
-      itemIDs: [],
-      paymentInfos: [],
-    },
-  })
-}
-
-export function advanceGame() {
-  return this.$store.dispatch('Pylonstech.pylons.pylons/sendMsgExecuteRecipe', {
-    value: {
-      '@type': '/Pylonstech.pylons.pylons.MsgExecuteRecipe',
-      creator: this.$store.getters['common/wallet/address'],
-      cookbookID: 'getCryptoGame',
-      recipeID: 'advancegame',
-      coinInputsIndex: '0',
-      itemIDs: [],
-      paymentInfos: [],
-    },
-  })
 }

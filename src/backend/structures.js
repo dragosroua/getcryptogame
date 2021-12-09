@@ -515,7 +515,7 @@ export var generalKnowledgeCard = {
   cardType: 'knowledge',
   cardLongDescription:
     'If a user plays a knowledge card, the card is put down open on a pile next to the event card stack and he can pick up 1 new coin card from the stack and add it to his portfolio (ideally he reads out loud the info on the card).',
-  'player]': null,
+  player: null,
   inGameVault: false,
   inEventVault: false,
   inNextEventVault: false,
