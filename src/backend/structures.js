@@ -10,6 +10,36 @@
  * event cards: 50
  */
 
+/** object constructors */
+
+export function coinCard(
+  cardName,
+  cardSymbol,
+  cardType,
+  points,
+  governance,
+  useCase,
+  player,
+  inWallet,
+  inGameVault,
+  inCoinVault,
+  inNextCoinVault,
+  inDumpster,
+) {
+  this.cardName = cardName
+  this.cardSymbol = cardSymbol
+  this.cardType = cardType
+  this.points = points
+  this.governance = governance
+  this.useCase = useCase
+  this.player = player
+  this.inWallet = inWallet
+  this.inGameVault = inGameVault
+  this.inCoinVault = inCoinVault
+  this.inNextCoinVault = inNextCoinVault
+  this.inDumpster = inDumpster
+}
+
 /***************** Coin cards ***************/
 
 /**
