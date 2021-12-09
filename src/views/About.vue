@@ -1,23 +1,7 @@
 <template>
   <div class="background">
     <div class="container">
-      <div class="title">About Crowd Control</div>
-      <div class="description">
-        Crowd Control is a DAO that develops a NFT trading card game made by players, built with Cosmos blockchain. The
-        CrowdControl team has build this contribution to the Hackatom VI.
-        <br /><br />
-        Find out more about us:
-        <a href="https://crowdcontrol.network/#/" target="_blank" class="cc"> Crowd Control Website</a>.
-        <br />
-        Or join our Discord server and get in touch!
-      </div>
-
-      <a target="_blank" href="https://discord.gg/ZKKbhUs">
-        <div class="awesome-button" style="margin-top: 65px; float: left">
-          <img class="img-fit" src="../assets/icon/discord.png" style="" />
-          <span class="awesome-button-text">JOIN US</span>
-        </div>
-      </a>
+      <div class="title">About Get CryptoGame</div>
     </div>
   </div>
 </template>
@@ -58,7 +42,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: $background-gradient;
+  background: white;
 }
 .container {
   padding: 90px 10%;

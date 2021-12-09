@@ -7,42 +7,17 @@
             <router-link to="/" style="padding: 1.8rem"> HOME </router-link>
           </li>
           <li>
-            <router-link to="/upload" style="padding: 1.8rem"> UPLOAD NFT </router-link>
+            <router-link to="/admin" style="padding: 1.8rem"> ADMIN </router-link>
           </li>
-          <li>
-            <router-link to="/workshop" style="padding: 1.8rem"> MY NFT HERO </router-link>
-          </li>
-          <li>
-            <router-link to="/market" style="padding: 1.8rem"> FORGE </router-link>
-          </li>
-          <li>
-            <router-link style="padding: 1.8rem" to="/arena"> ARENA </router-link>
-          </li>
-          <li>
-            <router-link style="padding: 1.8rem" to="/about"> CROWD CONTROL </router-link>
-          </li>
-          <li style="float: right">
-            <a class="discord-button" target="_blank" href="https://discord.gg/ZKKbhUs">
-              <picture style="color: black">
-                <source type="image/webp" srcset="../assets/icon/discord.webp" />
-                <source type="image/png" srcset="../assets/icon/discord.png" />
-                <img
-                  src="../assets/icon/discord.png"
-                  style="display: inline; max-height: 20px; transform: translateY(4px); filter: invert(1)"
-                  alt="Image description"
-                />
-                JOIN US
-              </picture>
-            </a>
-          </li>
+
           <li v-if="!getLoggedIn" style="float: right">
             <router-link class="login-button" to="/login" style="padding: 1.8rem">
-              <span class="text-please-be-back"> LOGIN </span>
+              <span class="text-black"> LOGIN </span>
             </router-link>
           </li>
           <li v-if="getLoggedIn" style="float: right">
             <router-link to="/login" class="wallet-button" style="padding: 1.8rem">
-              <span class="text-please-be-teal"> WALLET </span>
+              <span class="text-wallet"> WALLET </span>
             </router-link>
           </li>
         </ul>
@@ -83,26 +58,20 @@ export default {
 * {
   font-family: $font-family;
 }
-.text-please-be-back {
+.text-black {
   color: black;
 }
-.text-please-be-teal {
-  color: #29eddb;
-}
-.discord-button {
-  background-color: white;
-  color: black;
-  padding: 0;
-  font-size: 18px;
+.text-wallet {
+  color: $main-color-b;
 }
 .login-button {
-  background-color: #29eddb;
+  background-color: #cccccc;
   color: black;
   font-style: black;
   font-size: 18px;
 }
 .wallet-button {
-  color: #29eddb;
+  color: black;
   &:active {
     color: $minor-color-c;
   }
@@ -148,49 +117,6 @@ export default {
     font-size: $font-size;
     color: white;
     text-align: center;
-
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    position: relative;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: $animation-duration;
-    transition-duration: $animation-duration;
-    &:before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: $white;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transform-origin: 0 50%;
-      transform-origin: 0 50%;
-      -webkit-transition-property: transform;
-      transition-property: transform;
-      -webkit-transition-duration: $animation-duration;
-      transition-duration: $animation-duration;
-      -webkit-transition-timing-function: ease-out;
-      transition-timing-function: ease-out;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-      color: $minor-color-c;
-    }
-    &:hover:before,
-    &:focus:before,
-    &:active:before {
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-    }
   }
   &.nav__menu__item--exposed {
     transform: skewX(-15deg);
@@ -227,5 +153,6 @@ export default {
 }
 
 .nav__menu--hidden {
+  color: $black;
 }
 </style>

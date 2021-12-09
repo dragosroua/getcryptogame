@@ -1,7 +1,7 @@
 <template>
   <div class="background">
     <div class="container">
-      <div class="title">Get CryptoGame</div>
+      <div class="title">Admin</div>
 
       <router-link to="/login">
         <img class="image" src="../../interactive-prototype/img/ATOM-full.png" />
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'Home',
+  name: 'Admin',
   components: {},
 }
 </script>

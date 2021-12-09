@@ -1,15 +1,7 @@
 <template>
   <header>
     <div class="header-content-container">
-      <router-link to="/" class="nav__logo">
-        <img class="logo" alt="Crowd Control" src="../assets/logo2.gif" />
-      </router-link>
-
-      <!--router-link v-if="!getLoggedIn" to="/login">
-        <div class="awesome-button wide-small">
-          <span class="awesome-button-text">Login</span>
-        </div>
-      </router-link-->
+      <router-link to="/" class="nav__logo"> </router-link>
     </div>
   </header>
 </template>
@@ -61,9 +53,7 @@ export default {
 header {
   background-color: $header-gray;
   padding: 1% 5%;
-  //text-align: center;
   height: 10%;
-  //border-bottom: $border-thickness-bold solid $white;
 }
 .get-coins {
   text-decoration: none;
