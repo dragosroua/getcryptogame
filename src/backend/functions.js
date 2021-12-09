@@ -24,11 +24,13 @@ import {
   shitcoinCard,
   miningStakingCard,
   coinCard,
+  eventCard,
+  walletCard,
 } from './structures.js'
 
 import {
   nywnykCard,
-  walletCard,
+  walletCardObj,
   lostSeedCard,
   generalKnowledgeCard,
   useCaseMECard,
@@ -208,9 +210,19 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
 
   // 10 wallet cards
   for (var w = 1; w <= 10; w++) {
-    walletCard.player = gameHost
-    walletCard.inGameVault = true
-    eventCardsArray.push(walletCard)
+    var wl = new walletCard(
+      walletCardObj.cardName,
+      walletCardObj.cardType,
+      walletCardObj.cardLongDescription,
+      walletCardObj.player,
+      walletCardObj.protectedCoins,
+      walletCardObj.inGameVault,
+      walletCardObj.inEventVault,
+      walletCardObj.inNextEventVault,
+    )
+    wl.player = gameHost
+    wl.inGameVault = true
+    eventCardsArray.push(wl)
   }
 
   // 2 lost your seed cards
