@@ -14,9 +14,24 @@
 </template>
 
 <script>
+import { createGameDeck } from '../backend/functions.js'
 export default {
   name: 'Admin',
+
   components: {},
+  mounted() {
+    console.log('admin')
+    //console.log(this.$store)
+    this.initNewGame()
+  },
+  methods: {
+    initNewGame() {
+      let gameHost = this.$store.getters['common/wallet/address']
+      // to add oracles for getting other player's addresses
+      var playersArray = [gameHost, 'player 2']
+      createGameDeck(gameHost, playersArray)
+    },
+  },
 }
 </script>
 
