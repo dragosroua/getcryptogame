@@ -23,6 +23,7 @@ import {
   enjCard,
   shitcoinCard,
   miningStakingCard,
+  coinCard,
 } from './structures.js'
 
 import {
@@ -56,15 +57,43 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
 
   // 4 BTC cards
   for (var b = 1; b <= 4; b++) {
-    bitcoinCard.player = gameHost
-    bitcoinCard.inGameVault = true
-    coinCardsArray.push(bitcoinCard)
+    var btcCard = new coinCard(
+      bitcoinCard.cardName,
+      bitcoinCard.cardSymbol,
+      bitcoinCard.cardType,
+      bitcoinCard.points,
+      bitcoinCard.governance,
+      bitcoinCard.useCase,
+      bitcoinCard.player,
+      bitcoinCard.inWallet,
+      bitcoinCard.inGameVault,
+      bitcoinCard.inCoinVault,
+      bitcoinCard.inNextCoinVault,
+      bitcoinCard.inDumpster,
+    )
+    btcCard.player = gameHost
+    btcCard.inGameVault = true
+    coinCardsArray.push(btcCard)
   }
   // 6 ETH cards
   for (var e = 1; e <= 6; e++) {
-    ethereumCard.player = gameHost
-    ethereumCard.inGameVault = true
-    coinCardsArray.push(ethereumCard)
+    var ethCard = new coinCard(
+      ethereumCard.cardName,
+      ethereumCard.cardSymbol,
+      ethereumCard.cardType,
+      ethereumCard.points,
+      ethereumCard.governance,
+      ethereumCard.useCase,
+      ethereumCard.player,
+      ethereumCard.inWallet,
+      ethereumCard.inGameVault,
+      ethereumCard.inCoinVault,
+      ethereumCard.inNextCoinVault,
+      ethereumCard.inDumpster,
+    )
+    ethCard.player = gameHost
+    ethCard.inGameVault = true
+    coinCardsArray.push(ethCard)
   }
 
   bchCard.player = gameHost
@@ -149,9 +178,23 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
 
   // 20 shitcoin cards
   for (var s = 1; s <= 20; s++) {
-    shitcoinCard.player = gameHost
-    shitcoinCard.inGameVault = true
-    coinCardsArray.push(shitcoinCard)
+    var shtCard = new coinCard(
+      shitcoinCard.cardName,
+      shitcoinCard.cardSymbol,
+      shitcoinCard.cardType,
+      shitcoinCard.points,
+      shitcoinCard.governance,
+      shitcoinCard.useCase,
+      shitcoinCard.player,
+      shitcoinCard.inWallet,
+      shitcoinCard.inGameVault,
+      shitcoinCard.inCoinVault,
+      shitcoinCard.inNextCoinVault,
+      shitcoinCard.inDumpster,
+    )
+    shtCard.player = gameHost
+    shtCard.inGameVault = true
+    coinCardsArray.push(shtCard)
   }
 
   /** events cards array  */
@@ -217,7 +260,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
   var howManyCoinCards = 6
   var howManyEventsCards = 3
   if (playersArray.length === 2) howManyCoinCards = 8
-
+  console.log('playersArray ' + playersArray.length)
   // distribute coin cards to players
   for (var cc = 0; cc < 50; cc++) {
     var currentCoinCard = coinCardsArray[cc]
@@ -226,14 +269,11 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       currentCoinCard.player = playersArray[0]
     } else if (cc >= howManyCoinCards && cc < howManyCoinCards * 2) {
       currentCoinCard.player = playersArray[1]
-      currentCoinCard.inGameVault = false
     } else if (playersArray.length > 2) {
       if (cc >= howManyCoinCards * 2 && cc < howManyCoinCards * 3) {
         currentCoinCard.player = playersArray[2]
-        currentCoinCard.inGameVault = false
       } else if (cc >= howManyCoinCards * 3 && cc < howManyCoinCards * 4) {
         currentCoinCard.player = playersArray[3]
-        currentCoinCard.inGameVault = false
       }
     } else {
       currentCoinCard.inCoinVault = true
@@ -244,18 +284,16 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
   for (var ee = 0; ee < 50; ee++) {
     var currentEventCard = eventCardsArray[ee]
     currentEventCard.inGameVault = false
-    if (cc >= 0 && cc < howManyEventsCards) {
+    if (ee >= 0 && ee < howManyEventsCards) {
       currentEventCard.player = playersArray[0]
-    } else if (cc >= howManyEventsCards && cc < howManyEventsCards * 2) {
+      console.log(ee + ' ' + currentEventCard.cardName + ' ' + currentCoinCard.player)
+    } else if (ee >= howManyEventsCards && ee < howManyEventsCards * 2) {
       currentEventCard.player = playersArray[1]
-      currentEventCard.inGameVault = false
     } else if (playersArray.length > 2) {
-      if (cc >= howManyEventsCards * 2 && cc < howManyEventsCards * 3) {
+      if (ee >= howManyEventsCards * 2 && ee < howManyEventsCards * 3) {
         currentEventCard.player = playersArray[2]
-        currentEventCard.inGameVault = false
-      } else if (cc >= howManyEventsCards * 3 && cc < howManyEventsCards * 4) {
+      } else if (ee >= howManyEventsCards * 3 && ee < howManyEventsCards * 4) {
         currentEventCard.player = playersArray[3]
-        currentEventCard.inGameVault = false
       }
     } else {
       currentEventCard.inEventVault = true
