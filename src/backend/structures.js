@@ -40,6 +40,44 @@ export function coinCard(
   this.inDumpster = inDumpster
 }
 
+export function eventCard(
+  cardName,
+  cardType,
+  cardLongDescription,
+  player,
+  inGameVault,
+  inEventVault,
+  inNextEventVault,
+) {
+  this.cardName = cardName
+  this.cardType = cardType
+  this.cardLongDescription = cardLongDescription
+  this.player = player
+  this.inGameVault = inGameVault
+  this.inEventVault = inEventVault
+  this.inNextEventVault = inNextEventVault
+}
+
+export function walletCard(
+  cardName,
+  cardType,
+  cardLongDescription,
+  player,
+  protectedCoins,
+  inGameVault,
+  inEventVault,
+  inNextEventVault,
+) {
+  this.cardName = cardName
+  this.cardType = cardType
+  this.cardLongDescription = cardLongDescription
+  this.player = player
+  this.protectedCoins = protectedCoins
+  this.inGameVault = inGameVault
+  this.inEventVault = inEventVault
+  this.inNextEventVault = inNextEventVault
+}
+
 /***************** Coin cards ***************/
 
 /**
@@ -509,7 +547,7 @@ export var nywnykCard = {
  *  10 wallet available cards
  */
 
-export var walletCard = {
+export var walletCardObj = {
   cardName: 'Wallet',
   cardType: 'wallet',
   protectedCoins: [],
