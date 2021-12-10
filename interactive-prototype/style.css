@@ -11,15 +11,15 @@ img.card {
 .card.full {
     width: 270px;
 }
-.card.grid {
+.card.ggrid {
     width: 150px;
     margin: 5px;
 }
-.card.grid.newcard {
+.card.ggrid.newcard {
     position: relative;
     top: -50px;
 }
-.card.grid.newcard.slidein {
+.card.ggrid.newcard.slidein {
     top: 0;
     transition: all 0.2s 0s ease-in;
 }

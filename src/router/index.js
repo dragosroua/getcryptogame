@@ -5,7 +5,7 @@ import Types from '@/views/Types.vue'
 import Relayers from '@/views/Relayers.vue'
 import Login from '@/views/Login.vue'
 import About from '@/views/About.vue'
-import Admin from '@/views/Admin.vue'
+import Demo from '@/views/Demo.vue'
 
 const routes = [
   {
@@ -16,7 +16,7 @@ const routes = [
   { path: '/types', component: Types },
   { path: '/relayers', component: Relayers },
   { path: '/login', component: Login },
-  { path: '/admin', component: Admin },
+  { path: '/demo', component: Demo },
   { path: '/about', component: About },
 ]
 
