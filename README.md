@@ -39,3 +39,7 @@ If you want to have a look at the UI and see a prototype:
 `cd interactive-prototype`
 
 Open `index.html` in your browser and click around. (_this is just a prototype, there's no connection to the blockchain yet, cookbook and recipes haven't been deployed_).
+
+# Thanks and Acknowledgments
+
+Many thanks to Patrick Wieth from NFT Arena for letting us use in the last two days his starport-vue adaptation for the Pylons blockchain.
