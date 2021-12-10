@@ -308,7 +308,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
   var howManyCoinCards = 6
   var howManyEventsCards = 3
   if (playersArray.length === 2) howManyCoinCards = 8
-  console.log('playersArray ' + playersArray.length)
+  //console.log('playersArray ' + playersArray.length)
   // distribute coin cards to players
   for (var cc = 0; cc < 50; cc++) {
     var currentCoinCard = coinCardsArray[cc]
@@ -348,8 +348,8 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
     }
   }
 
-  console.log('coin cards ' + JSON.stringify(coinCardsArray, null, 2))
-  console.log('event cards ' + JSON.stringify(eventCardsArray, null, 2))
+  //console.log('coin cards ' + JSON.stringify(coinCardsArray, null, 2))
+  //console.log('event cards ' + JSON.stringify(eventCardsArray, null, 2))
 
   var gameDeck = {
     players: playersArray,

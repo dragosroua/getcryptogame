@@ -7,7 +7,7 @@
             <router-link to="/" style="padding: 1.8rem"> HOME </router-link>
           </li>
           <li>
-            <router-link to="/admin" style="padding: 1.8rem"> ADMIN </router-link>
+            <router-link to="/demo" style="padding: 1.8rem"> DEMO </router-link>
           </li>
 
           <li v-if="!getLoggedIn" style="float: right">
