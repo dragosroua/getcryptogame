@@ -27,6 +27,7 @@ export default {
   methods: {
     initNewGame() {
       let gameHost = this.$store.getters['common/wallet/address']
+      console.log('gameHost ' + gameHost)
       // to add oracles for getting other player's addresses
       var playersArray = [gameHost, 'player 2']
       createGameDeck(gameHost, playersArray)

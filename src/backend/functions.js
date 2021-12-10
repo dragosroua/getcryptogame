@@ -203,9 +203,18 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
 
   // 10 not your key not your coins cards
   for (var nk = 1; nk <= 10; nk++) {
-    nywnykCard.player = gameHost
-    nywnykCard.inGameVault = true
-    eventCardsArray.push(nywnykCard)
+    var nkyk = new eventCard(
+      nywnykCard.cardName,
+      nywnykCard.cardType,
+      nywnykCard.cardLongDescription,
+      nywnykCard.player,
+      nywnykCard.inGameVault,
+      nywnykCard.inEventVault,
+      nywnykCard.inNextEventVault,
+    )
+    nkyk.player = gameHost
+    nkyk.inGameVault = true
+    eventCardsArray.push(nkyk)
   }
 
   // 10 wallet cards
@@ -227,23 +236,50 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
 
   // 2 lost your seed cards
   for (var ls = 1; ls <= 2; ls++) {
-    lostSeedCard.player = gameHost
-    lostSeedCard.inGameVault = true
-    eventCardsArray.push(lostSeedCard)
+    var lc = new eventCard(
+      lostSeedCard.cardName,
+      lostSeedCard.cardType,
+      lostSeedCard.cardLongDescription,
+      lostSeedCard.player,
+      lostSeedCard.inGameVault,
+      lostSeedCard.inEventVault,
+      lostSeedCard.inNextEventVault,
+    )
+    lc.player = gameHost
+    lc.inGameVault = true
+    eventCardsArray.push(lc)
   }
 
   // 21 general knowledge cards
   for (var gk = 1; gk <= 21; gk++) {
-    generalKnowledgeCard.player = gameHost
-    generalKnowledgeCard.inGameVault = true
-    eventCardsArray.push(generalKnowledgeCard)
+    var gc = new eventCard(
+      generalKnowledgeCard.cardName,
+      generalKnowledgeCard.cardType,
+      generalKnowledgeCard.cardLongDescription,
+      generalKnowledgeCard.player,
+      generalKnowledgeCard.inGameVault,
+      generalKnowledgeCard.inEventVault,
+      generalKnowledgeCard.inNextEventVault,
+    )
+    gc.player = gameHost
+    gc.inGameVault = true
+    eventCardsArray.push(gc)
   }
 
   // 2 mining / staking cards
   for (var ms = 1; ms <= 2; ms++) {
-    miningStakingCard.player = gameHost
-    miningStakingCard.inGameVault = true
-    eventCardsArray.push(miningStakingCard)
+    var mc = new eventCard(
+      miningStakingCard.cardName,
+      miningStakingCard.cardType,
+      miningStakingCard.cardLongDescription,
+      miningStakingCard.player,
+      miningStakingCard.inGameVault,
+      miningStakingCard.inEventVault,
+      miningStakingCard.inNextEventVault,
+    )
+    mc.player = gameHost
+    mc.inGameVault = true
+    eventCardsArray.push(mc)
   }
 
   useCaseMECard.player = gameHost
