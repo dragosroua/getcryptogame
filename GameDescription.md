@@ -24,15 +24,15 @@
 *5 use case cards, you need to own at least one of 4 coins associated with the use case to pick up 3 coin cards. The use cases and their associated coins are:*
 - Medium of exchange: BCH, DOGE, LTC, XMR
 - Smart contract platform: DOT, ADA, ATOM, SOL
-- DeFi: AAVE, UNI, AVAX, LUNA
-- Web3: FIL, LINK, THETA, GRT
+- DeFi: AAVE, UNI, LUNA, LRC
+- Web3: FIL, LINK, HIVE, GRT
 - Metaverse: AXS, MANA, FLOW, ENJ
 
 ## Game mechanics
 
 ### Game setup:
 
-4 players receive 6 coincards, that lay open on the table (this is the portfolio) and 3 event cards that they hold covered in their hand (if only 2 players, they receive 8 coin cards each).
+4 players receive 6 coincards, that lay open on the table (this is the portfolio) and 3 event cards that they hold covered in their hand (if only 2 players, they receive 8 coin cards each. 3 players get 7 cards, etc.).
 On the table are two covered stacks with the remaining coin cards and remaining event cards.
 
 ### Game round:
