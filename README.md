@@ -12,7 +12,11 @@ For details and game mechanics, have a look at [Game Mechanics](GameDescription.
 
 Relevant files can be found in `backend/library.js`, `backend/structures.js` and `backend/functions.js`.
 
-Each card is an autonomous object that contains all the necessary metadata: description, points, and game state (if it's in the main deck, in a wallet, which player has it, etc). The deck contains all the coin cards aand event cards, a players array, and the game current turn. The initial turn is 0 (at this stage, the deck is initialized, shuffled and the cards are distributed to the players). Playing the game is a matter of updating the properties of each modified card in the deck after each turn.
+Each card is an autonomous object that contains all the necessary metadata: card description, points, current game state (if the card is still in the main deck, in a coin or event vault, if it's in a wallet, which player has it, etc). 
+
+The deck contains all the coin cards aand event cards, a players array, and the game current turn. 
+
+The initial turn is 0 (at this stage, the deck is initialized, shuffled and the cards are distributed to the players). Playing the game is a matter of updating the properties of each modified card in the deck after each turn.
 
 We got to a point where we initialize the game with the correct structures (coin cards, event cards, turn, players), we update the state with this object, called `gameDeck`, and we can start playing (which would have also involved some pairing with the UI). 
 
@@ -25,7 +29,7 @@ If we had more time, we would have deployed the `gameDeck` object via a recipe, 
 
 Our plan was to have just 2 recipes:
 
-- processGame - this will start and advance a game, and it contains only the gameDeck and some chain-related metada (ids, etc). The input param will be `gameDeck` and it will just update the structure. This object is owned by `gameHost` until the game ends.
+- processGame - this will start and advance a game, and it contains only the game deck and some chain-related metada (ids, etc). The input param will be `gameDeck` and the recipe will just update the old object with the new one. This object is owned by `gameHost` until the game ends.
 - finishGame - this will take all the cards that each players has at the end of the game (their points), turns them into individual NFTs and distributes theam to each player, so they can keep them in their wallet. These NFTs can't be used in another game, but it's a nice way to learn about blockchain.
 
 Should we had more time, we would have deployed the recipes too.
