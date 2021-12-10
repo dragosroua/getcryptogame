@@ -14,10 +14,11 @@
 </template>
 
 <script>
+import init from '@/store/config.js'
+import store from '../store/index'
 import { createGameDeck } from '../backend/functions.js'
 export default {
   name: 'Admin',
-
   components: {},
   mounted() {
     console.log('admin')
@@ -26,11 +27,19 @@ export default {
   },
   methods: {
     initNewGame() {
-      let gameHost = this.$store.getters['common/wallet/address']
+      let gameHost = this.$store.state.common.wallet.selectedAddress
       console.log('gameHost ' + gameHost)
       // to add oracles for getting other player's addresses
       var playersArray = [gameHost, 'player 2']
-      createGameDeck(gameHost, playersArray)
+      var initialGameDeck = createGameDeck(gameHost, playersArray)
+      var stateGameDeck = {
+        turn: 0,
+        coinCards: initialGameDeck.coinCardsArray,
+        eventCards: initialGameDeck.eventCardsArray,
+        players: playersArray,
+      }
+      this.$store.state.gameDeck = stateGameDeck
+      console.log('state gameDeck ' + JSON.stringify(this.$store.state.gameDeck))
     },
   },
 }

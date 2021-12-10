@@ -22,13 +22,11 @@ body {
 <script>
 import './scss/app.scss'
 import '@starport/vue/lib/starport-vue.css'
-//import Sidebar from './components/Sidebar'
 import PageMenu from './components/PageMenu'
 import PageHeader from './components/PageHeader'
 
 export default {
   components: {
-    //Sidebar,
     PageMenu,
     PageHeader,
   },
