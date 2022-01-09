@@ -353,6 +353,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
 
   var gameDeck = {
     players: playersArray,
+    currentPlayer: [],
     coinCardsArray: coinCardsArray,
     eventCardsArray: eventCardsArray,
   }
@@ -360,10 +361,34 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
   return gameDeck
 }
 
+export function setCurrentPlayer(gameDeck, playerAddress) {
+  return (gameDeck.currentPlayer = playerAddress)
+}
+
 // playes a card by a player and implements the game mechanic, increments gameTurn
-// @params: gameId, playerAddress, cardType
+// @params: gameId, playerAddress, gameDeck, xcardType
 // @returns: gameId, eventId, eventType, eventReceiver
-export function playEventCard() {}
+export function playEventCard(gameId, playerAddress, gameDeck, cardType) {
+  // to do: validate if the player had the card is playing
+  // card conditions
+  if (cardType === 'not-wallet-not-keys') {
+    // the card is put down open on a pile next to the event card stack and the player next in turn
+    // has to give up 3 unprotected coin cards from his portfolio. The player can choose which coins he gives up.
+    // If he has less than 3 unprotected cards, he just gives up all of them.
+    // Shitcoin cards lost this way, leave the game. All other coin cards go to a pile next to the coin card stack
+
+    // get the next player in turn
+    var nextIndex = gameDeck.players.indexOf(playerAddress)
+    // if this is the last player in the array, move the needle to the beginning
+    if (nextIndex === gameDeck.players.length - 1) {
+      nextIndex = 0
+    }
+    var nextPlayer = gameDeck.players[nextIndex]
+    // trigger a function of card transfers
+    setCurrentPlayer(gameDeck, nextPlayer)
+    playEventCard(gameId, nextPlayer, gameDeck, 'give-up-cards')
+  }
+}
 
 // implements the events
 // @params: gameId, eventType, eventReceiver
