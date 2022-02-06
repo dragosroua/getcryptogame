@@ -356,6 +356,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
     currentPlayer: [],
     coinCardsArray: coinCardsArray,
     eventCardsArray: eventCardsArray,
+    playedEventCardsArray: [], // initialize this as empty
   }
 
   return gameDeck
@@ -387,7 +388,26 @@ export function playEventCard(gameId, playerAddress, gameDeck, cardType) {
     // trigger a function of card transfers
     setCurrentPlayer(gameDeck, nextPlayer)
     playEventCard(gameId, nextPlayer, gameDeck, 'give-up-cards')
+  } else if (cardType === 'give-up-cards') {
+    // check if the player has unprotected cards, i.e. if there is a wallet card with cards in it
+    // check if the number of unprotected cards is higher or equal than 3
+    // get the id of the previous player, the one who will receive the cards
+    // wait for input from the current player in selecting the 3 cards
+    // tranfer the cards to the previous player
+    // wait for input in picking the next card from the event cards pile
   }
+}
+
+// wait for input from player to pick a card,
+// return the card picked
+
+export function pickEventCard(gameId, playerAddress, gameDeck) {
+  // validate the gameId and playerAddress
+  // check if the deck has cards in it, otherwise returns false, which means the end of the game
+  // returns the next available card from the current eventCard pile
+  var pickedCard = gameDeck['eventCardsArray'][0]
+  gameDeck['playedEventCardsArray'].push(pickedCard)
+  return pickedCard
 }
 
 // implements the events
