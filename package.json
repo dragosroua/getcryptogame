@@ -17,7 +17,7 @@
     "@cosmjs/proto-signing": "^0.27.0",
     "@cosmjs/stargate": "^0.27.0",
     "@kyvg/vue3-notification": "^2.3.4",
-    "@starport/vue": "^0.1.57",
+    "@starport/vue": "^0.3.2",
     "@starport/vuex": "^0.1.57",
     "axios": "^0.24.0",
     "core-js": "^3.20.3",
