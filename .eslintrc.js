@@ -8,6 +8,7 @@ module.exports = {
     parser: '@babel/eslint-parser',
   },
   rules: {
+    'vue/multi-word-component-names': 'warn',
     'no-tabs': 'warn',
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
