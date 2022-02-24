@@ -30,7 +30,7 @@
     "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "ansi-regex": ">=5.0.1",
+    "ansi-regex": ">=6.0.1",
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-transform-runtime": "^7.16.8",
