@@ -1,5 +1,4 @@
-$font-family: 'Arial', sans-serif;
-$font-family-header: 'Arial', serif;
+$font-family: 'Oswald', sans-serif;
 
 $font-size: 16px;
 $font-size-small: 16px;
@@ -8,23 +7,26 @@ $font-size-big: 19px;
 
 $animation-duration: 200ms;
 
-$border-thickness: 1px;
-$border-thickness-bold: $border-thickness * 2;
+$boxshadow: 0px 0px 20px -3px rgb(0 0 0 / 40%);
 
+$borderradius: 10px;
 
-$black: #050505;
-$black-transparent: rgba(0, 0, 0, 0.7);
-$header-gray: #262626;
-$dark-gray: #1a1a1a;
-$white: #F5F5F5;
-$main-color-a: #1B0650;
-$main-color-b: #307569;
-$main-color-c: #503506;
-$minor-color-a: #850763;
-$minor-color-b: #0dacac;
-$minor-color-c: #a32d06;
+$background: #efefef;
+$background-lighter: #f6f6f6;
 
+$violet: #9e93ff;
 
 $notification-info: #1f1f1f;
 $notification-fail: #D61224;
 $notification-success: #25d612;
+
+
+
+//keeping these to not break legacy styles
+$black: #050505;
+$white: #F5F5F5;
+$border-thickness: 1px;
+$border-thickness-bold: $border-thickness * 2;
+$main-color-b: #307569;
+$minor-color-c: #a32d06;
+$font-family-header: 'Arial', serif;

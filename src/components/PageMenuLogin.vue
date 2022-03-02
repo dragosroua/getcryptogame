@@ -1,10 +1,8 @@
 <template>
-  <div id="Drawer-menu">
-    <button class="drawer__open" @click="drawerVisible = true">
-      <i class="menu-icon"></i>
-    </button>
+  <div id="Drawer-login">
+    <button class="drawer__open" @click="drawerVisible = true">Login</button>
     <div
-      class="drawer drawer--left"
+      class="drawer drawer--right"
       :style="{
         width: drawerVisible ? '95vw' : '0',
         paddingLeft: drawerVisible ? '10px' : '0',
@@ -14,8 +12,13 @@
         <i class="close-icon"></i>
       </button>
       <div class="drawer__content">
-        <router-link to="/" style="padding: 1.8rem" @click="drawerVisible = false">Home</router-link>
-        <router-link to="/demo" style="padding: 1.8rem" @click="drawerVisible = false">Demo</router-link>
+        <!-- this should not contain a menu, but directly the wallet management pages, instead of loading them into the main window -->
+        <router-link class="login-button" to="/login" v-if="!getLoggedIn" @click="drawerVisible = false">
+          Login
+        </router-link>
+        <router-link to="/login" class="wallet-button" v-if="getLoggedIn" @click="drawerVisible = false">
+          <span class="text-wallet">Wallet</span>
+        </router-link>
       </div>
     </div>
     <div
@@ -31,7 +34,7 @@
 
 <script>
 export default {
-  name: 'PageMenu',
+  name: 'PageMenuLogin',
   data() {
     return {
       drawerVisible: false,

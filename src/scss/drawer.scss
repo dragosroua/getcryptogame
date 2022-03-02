@@ -1,0 +1,165 @@
+.drawer {
+    background: $background-lighter;
+    box-shadow: $boxshadow;
+    height: 100vh;
+    max-width: 400px;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s; /* for the animation */
+    width: 0; /* initially */
+    z-index: 200;
+  }
+  
+  .drawer--left {
+    border-right: 1px solid $background-lighter;
+    left: 0;
+    padding-right: 0; /* initially */
+  }
+  
+  .drawer--right {
+    border-left: 1px solid $background-lighter;
+    right: 0;
+    padding-left: 0; /* initially */
+  }
+
+  .drawer__open {
+    align-items: center;
+    background: none;
+	border: none;
+	color: #8f8f8f;
+	cursor: pointer;
+    display: flex;
+	font: inherit;
+    font-size: 14px;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    margin: 2px 10px;
+	outline: inherit;
+	padding: 0;
+    text-align: center;
+
+    &:active {
+       color: #666;
+    }
+  }
+  
+  .drawer__close {
+    align-items: center;
+    background: none;
+	border: none;
+	color: #8f8f8f;
+	cursor: pointer;
+    display: flex;
+	font: inherit;
+    font-size: 14px;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+	outline: inherit;
+	padding: 0;
+    text-align: center;
+
+    &:active {
+       color: #666;
+    }
+  }
+  .drawer--left .drawer__close {
+    float: right;
+  }
+  .drawer--right .drawer__close {
+    float: left;
+  }
+
+  .drawer__content {
+      padding: 40px;
+      text-align: left;
+      & a {
+          color: #8f8f8f;
+          display: block;
+          font-size: 20px;
+          text-decoration: none;
+          padding: 10px 0 !important;
+      }
+  }
+  
+  .drawer__mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0; /* initially */
+    height: 100vh;
+    background: #000;
+    opacity: 0.3;
+    z-index: 199;
+  }
+
+  .menu-icon {
+      background-color: #8f8f8f;
+      display: block;
+      height: 2px;
+      position: relative;
+      vertical-align: middle;
+      width: 20px;
+      &:before {
+          content: '';
+          background-color: #8f8f8f;
+          display: block;
+          height: 2px;
+          position: absolute;
+          top: -6px;
+          width: 20px;
+      }
+      &:after {  
+        content: '';
+        background-color: #8f8f8f;
+        display: block;
+        height: 2px;
+        position: absolute;
+        top: 6px;
+        width: 20px;
+      }
+      .drawer__open:active & {
+        background-color: #666;
+        &:before,
+        &:after {  
+            background-color: #666;
+        }
+      }
+  }
+
+  .close-icon {
+    display: block;
+    height: 24px;
+    position: relative;
+    vertical-align: middle;
+    width: 24px;
+    &:before {
+        content: '';
+        background-color: #8f8f8f;
+        display: block;
+        height: 2px;
+        position: absolute;
+        top: 12px;
+        transform: rotate(-45deg);
+        width: 22px;
+    }
+    &:after {  
+      content: '';
+      background-color: #8f8f8f;
+      display: block;
+      height: 2px;
+      position: absolute;
+      top: 12px;
+      transform: rotate(45deg);
+      width: 22px;
+    }
+    .drawer__open:active & {
+      background-color: #666;
+      &:before,
+      &:after {  
+          background-color: #666;
+      }
+    }
+}

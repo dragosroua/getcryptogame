@@ -1,8 +1,6 @@
 <template>
   <div class="background">
     <div class="container">
-      <div class="title">Demo</div>
-
       <main id="table">
         <!-- NATALIA: tag, portfolio-->
         <section id="player-left" class="left player">
