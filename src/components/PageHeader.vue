@@ -1,12 +1,14 @@
 <template>
-  <header>
-    <div class="header-content-container">
-      <router-link to="/" class="nav__logo"> </router-link>
-    </div>
+  <header class="app-header">
+    <PageMenu />
+    <PageMenuLogin />
   </header>
 </template>
 
 <script>
+import PageMenu from './PageMenu'
+import PageMenuLogin from './PageMenuLogin'
+
 export default {
   name: 'PageHeader',
   data() {
@@ -14,6 +16,10 @@ export default {
       isLoggedIn: false,
       walletName: '',
     }
+  },
+  components: {
+    PageMenu,
+    PageMenuLogin,
   },
   watch: {
     "$store.getters['common/wallet/walletName']": function () {
@@ -41,6 +47,21 @@ export default {
 
 <style scoped lang="scss">
 @import '../scss/variables';
+
+.app-header {
+  align-items: stretch;
+  background-color: $background;
+  box-shadow: $boxshadow;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+}
+
+/* --- I don't see this stuff beeing used...
 .wide-small {
   width: 180px;
   height: 40px;
@@ -48,12 +69,6 @@ export default {
   position: absolute;
   right: 10%;
   padding: 10px;
-}
-
-header {
-  background-color: $header-gray;
-  padding: 1% 5%;
-  height: 10%;
 }
 .get-coins {
   text-decoration: none;
@@ -110,5 +125,6 @@ header {
   position: absolute;
   top: 0;
   right: 2rem;
-}
+} 
+*/
 </style>

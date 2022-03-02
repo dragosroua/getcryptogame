@@ -4,8 +4,6 @@
       <template v-slot:header />
       <template v-slot:content>
         <PageHeader />
-        <PageMenu />
-        <!-- <SpWallet ref="wallet" v-on:dropdown-opened="$refs.menu.closeDropdown()" /> -->
         <router-view />
       </template>
     </SpLayout>
@@ -22,12 +20,10 @@ body {
 <script>
 import './scss/app.scss'
 import '@starport/vue/lib/starport-vue.css'
-import PageMenu from './components/PageMenu'
 import PageHeader from './components/PageHeader'
 
 export default {
   components: {
-    PageMenu,
     PageHeader,
   },
   data() {
@@ -175,6 +171,7 @@ export default {
 </script>
 <style lang="scss">
 @import './scss/variables';
+@import './scss/app';
 
 .notification--info {
   border-left: $border-thickness-bold solid $black !important;
@@ -193,7 +190,6 @@ export default {
   border-left: $border-thickness-bold solid darken($notification-success, 10%) !important;
   background: $notification-success !important;
 }
-
 .notification--alert {
   border-left: $border-thickness-bold solid darken($notification-fail, 10%) !important;
   background: $notification-fail !important;
