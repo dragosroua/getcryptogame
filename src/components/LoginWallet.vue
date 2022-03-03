@@ -1,18 +1,12 @@
 <template>
-  <div class="background">
-    <div class="container">
-      <div class="e60_72">Doing it the right way</div>
-      <div class="maintext">Let's create a wallet first.</div>
-      <div class="wrapper">
-        <SpWallet class="wallet--local" ref="wallet" v-on:dropdown-opened="$refs.menu.closeDropdown()" />
-      </div>
-    </div>
-  </div>
+  <div class="e60_72">Doing it the right way</div>
+  <div class="maintext">Let's create a wallet first.</div>
+  <SpWallet class="wallet--local" ref="wallet" v-on:dropdown-opened="$refs.menu.closeDropdown()" />
 </template>
 
 <script>
 export default {
-  name: 'Login',
+  name: 'LoginWallet',
   components: {},
   data() {
     return {}

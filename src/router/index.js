@@ -3,9 +3,11 @@ import Index from '@/views/Index.vue'
 import Landing from '@/views/Landing.vue'
 import Types from '@/views/Types.vue'
 import Relayers from '@/views/Relayers.vue'
-import Login from '@/views/Login.vue'
 import About from '@/views/About.vue'
 import Demo from '@/views/Demo.vue'
+
+//Template Views
+import Table from '@/views/Table.vue'
 
 const routes = [
   {
@@ -15,9 +17,10 @@ const routes = [
   { path: '/chain', component: Index },
   { path: '/types', component: Types },
   { path: '/relayers', component: Relayers },
-  { path: '/login', component: Login },
   { path: '/demo', component: Demo },
   { path: '/about', component: About },
+  //Template Views
+  { path: '/table', component: Table },
 ]
 
 const router = createRouter({

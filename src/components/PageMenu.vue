@@ -14,8 +14,13 @@
         <i class="close-icon"></i>
       </button>
       <div class="drawer__content">
-        <router-link to="/" style="padding: 1.8rem" @click="drawerVisible = false">Home</router-link>
-        <router-link to="/demo" style="padding: 1.8rem" @click="drawerVisible = false">Demo</router-link>
+        <router-link to="/" @click="drawerVisible = false">Home</router-link>
+        <router-link to="/demo" @click="drawerVisible = false">Demo</router-link>
+        <hr style="margin-top: 40px" />
+        <h3 style="font-weight: normal; color: #afafaf; font-size: 16px; font-style: italic; margin-bottom: 10px">
+          Template Views
+        </h3>
+        <router-link to="/table" @click="drawerVisible = false">Table</router-link>
       </div>
     </div>
     <div
