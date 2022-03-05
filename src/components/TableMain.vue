@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container player-count--4">
+  <div class="table-container player-count--2">
     <!-- this is going to be a loop that reads the player 
       array starting with the "isMe"-player and all the others 
       counter-clockwise from there -->
@@ -212,12 +212,20 @@ export default {
   }
 }
 @mixin player-tag--left-top {
+  @include player-tag--left;
+  margin-top: -200px;
 }
 @mixin player-tag--left-bottom {
+  @include player-tag--left;
+  margin-top: 0;
 }
 @mixin player-tag--right-top {
+  @include player-tag--right;
+  margin-top: -200px;
 }
 @mixin player-tag--right-bottom {
+  @include player-tag--right;
+  margin-top: 0;
 }
 
 .player-count--2 {
@@ -267,6 +275,48 @@ export default {
   .player--5,
   .player--6 {
     display: none;
+  }
+}
+
+.player-count--5 {
+  .player--1 {
+    @include player-tag--bottom;
+  }
+  .player--2 {
+    @include player-tag--right-bottom;
+  }
+  .player--3 {
+    @include player-tag--right-top;
+  }
+  .player--4 {
+    @include player-tag--left-top;
+  }
+  .player--5 {
+    @include player-tag--left-bottom;
+  }
+  .player--6 {
+    display: none;
+  }
+}
+
+.player-count--6 {
+  .player--1 {
+    @include player-tag--bottom;
+  }
+  .player--2 {
+    @include player-tag--right-bottom;
+  }
+  .player--3 {
+    @include player-tag--right-top;
+  }
+  .player--4 {
+    @include player-tag--top;
+  }
+  .player--5 {
+    @include player-tag--left-top;
+  }
+  .player--6 {
+    @include player-tag--left-bottom;
   }
 }
 </style>
