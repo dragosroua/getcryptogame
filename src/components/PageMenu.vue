@@ -1,5 +1,5 @@
 <template>
-  <div id="Drawer-menu">
+  <div class="drawer-container--menu">
     <button class="drawer__open" @click="drawerVisible = true">
       <i class="menu-icon"></i>
     </button>

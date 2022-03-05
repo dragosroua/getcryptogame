@@ -24,62 +24,6 @@ img.card {
     transition: all 0.2s 0s ease-in;
 }
 
-.off-turn {
-    position: relative;
-    z-index: 1;
-}
-
-.left,
-.right,
-.top {
-    position: relative;
-    top: 15px;
-}
-
-.playing .stats {
-    display: none;
-}
-.stats {
-    background-color: #9e93ff;
-    box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.4);
-    border-radius: 10px;
-    display: inline-block;
-    position: fixed;
-}
-.left .stats {
-    height: 170px;
-    left: -10px;
-    top: 20%;
-    width: 50px;
-}
-.top .stats {
-    height: 50px;
-    margin-left: -85px;
-    top: -10px;
-    width: 170px;
-}
-.right .stats {
-    height: 170px;
-    left: auto;
-    right: -10px;
-    top: 20%;
-    width: 50px;
-}
-.bottom .stats {
-    bottom: -10px;
-    height: 50px;
-    margin-left: -160px;
-    width: 140px;
-}
-
-.left .stats .info,
-.right .stats .info,
-.left .stats .info .coins {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 95%;
-}
 
 .bottom .hand {
     bottom: -100px;
@@ -201,21 +145,6 @@ img.card {
 }
 
 
-.info {
-    margin: 3px 5px;
-}
-.bottom .info {
-    margin: 5px;
-}
-.left .stats .info {
-    margin: 10px 0 0 8px;
-}
-.top .stats .info {
-    margin: 12px 5px 5px;
-}
-.right .stats .info {
-    margin: 10px 0 0 -10px;
-}
 .portfolio .info {
     margin: 15px 0 35px -25px;
 }
@@ -227,14 +156,6 @@ img.card {
     padding: 7px 5px;
 }
 
-.info .pic {
-    border-radius: 50%;
-    height: auto;
-    vertical-align: middle;
-    width: 25px;
-    position: relative;
-    top: -3px;
-}
 .portfolio .info .pic {
     vertical-align: middle;
     border-radius: 25px;
@@ -270,37 +191,6 @@ img.card {
     padding-right: 10px;
 }
 
-.info .wallettotal {
-    color: #fff;
-    background-image: url(../assets/img/lock-violet.png);
-    background-position: 5px 0px;
-    background-repeat: no-repeat;
-    background-size: 22px;
-    padding: 7px 0 15px 10px;
-    position: relative;
-    bottom: -2px;
-    margin-right: -15px;
-}
- .info .wallettotal:after {
-    background-image: url(../assets/img/lock-violet.png);
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
-    background-size: 22px;
-    content: "";
-    display: inline-block;
-    height: 25px;
-    left: -14px;
-    opacity: 0;
-    position: relative;
-    top: 0px;
-    width: 25px;
-    width: 22px;
-    z-index: -1;
-} 
-.portfolio .info .wallettotal.onedigit {
-    padding-left: 12px;
-}
-
 .portfolio .info .wallettotal {
     background-image: url(../assets/img/lock-grey.png);
 }
@@ -328,36 +218,13 @@ img.card {
     left: -13px;
 }
 
-.info .coins {
-    padding: 0 0 0 10px;
-}
-.left .info .coins {
-    padding: 0;
-}
-.right .info .coins {
-    padding: 0 0 0 2px;
-}
-.left .info .coins .coin,
-.right .info .coins .coin {
-    margin-top: -6px;
-    margin-left: 0;
-    padding: 3px 7px;
-    display: block;
-    line-height: 1;
-}
+
 .portfolio .info .coins .coin { 
     display: inline;
     margin-left: -8px;
     padding: 0 7px;
 }
-.info .coins .coin {
-    background-color: #9e93ff;
-    border-radius: 10px;
-    border: 1px solid #000;
-    line-height: 1.4;
-    margin-left: -8px;
-    padding: 0 7px;
-}
+
 .portfolio .info .coin {
     background-color: #f5f5f5;
 }
@@ -410,6 +277,8 @@ img.card {
     top: 10px;
     height: calc(90% - 15px);
 }
+
+
 
 .portfolio {
     background-color: #f5f5f5;

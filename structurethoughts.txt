@@ -1,0 +1,20 @@
+tableMain: (props: players, isPlaying, isMe)
+	-playerElements: (props: location, isPlaying, isMe)
+	-tableStacks (props: stackType, waitningToPlay, givingCards)
+	-tableNotifications: (props: msgArray(msg, duration))
+
+playerElement: (props: location, isPlaying, isMe, cards)
+	-playerTag (props: location, avatar, name, total, walletTotal, lowestCoins)
+	-playerPortfolio (props: location, isMe, avatar, coins, wallets)
+		-portfolioInfo  (props: location, isMe, avatar, total, walletTotal, lowestCoins)
+		-portfolioCards (props: coins)
+		-portfolioWallets (props: wallets)
+			-portfolioCards (props: coins)
+	-playerHand (props: isMe, isPlaying, hand
+
+
+cards = { hand: [..., ..., ...],
+	portfolio: 	wallets: [[..., ..., ..., etc],[ ..., etc], etc],
+		coins: [..., ..., ..., etc]
+
+how is the game info organized?

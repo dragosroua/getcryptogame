@@ -21,6 +21,9 @@ $notification-fail: #D61224;
 $notification-success: #25d612;
 
 
+$appheaderheight: 44px;
+$tableheight: calc(100vh - $appheaderheight);
+
 
 //keeping these to not break legacy styles
 $black: #050505;

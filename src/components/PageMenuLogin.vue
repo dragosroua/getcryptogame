@@ -1,5 +1,5 @@
 <template>
-  <div id="Drawer-login">
+  <div class="drawer-container--login">
     <button class="drawer__open" v-if="!getLoggedIn" @click="drawerVisible = true">Login</button>
     <button class="drawer__open" v-if="getLoggedIn" @click="drawerVisible = true">Wallet</button>
     <div

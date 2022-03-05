@@ -1,7 +1,6 @@
 <template>
   <div v-if="initialized">
     <SpLayout>
-      <template v-slot:header />
       <template v-slot:content>
         <PageHeader />
         <router-view />

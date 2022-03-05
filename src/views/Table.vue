@@ -1,7 +1,5 @@
 <template>
-  <div class="table-container">
-    <TableMain />
-  </div>
+  <TableMain />
 </template>
 
 <script>
