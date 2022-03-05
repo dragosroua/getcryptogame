@@ -8,15 +8,15 @@
       <em class="total">
         {{ total }}
       </em>
+      <!--this needs to be conditional on wallettoal -->
       <span class="walletcontainer">
         <em class="wallettotal">
-          <span class="wallettext">{{ walletTotal }}</span>
+          <span class="wallettext">{{ wallettotal }}</span>
         </em>
       </span>
+      <!--this needs to be conditional on lowestcoins -->
       <span class="coins">
-        <em class="coin">3</em>
-        <em class="coin">1</em>
-        <em class="coin">1</em>
+        <em v-for="(coinvalue, index) in lowestcoins" :key="index" class="coin">{{ coinvalue }}</em>
       </span>
     </div>
   </span>
@@ -25,7 +25,7 @@
 <script>
 export default {
   name: 'PlayerTag',
-  props: ['name', 'total', 'walletTotal'],
+  props: ['name', 'total', 'wallettotal', 'lowestcoins'],
   components: {},
   data() {
     return {}

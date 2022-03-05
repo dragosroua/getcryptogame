@@ -1,27 +1,22 @@
 <template>
-  <div class="table-container player-count--2">
-    <!-- this is going to be a loop that reads the player 
-      array starting with the "isMe"-player and all the others 
-      counter-clockwise from there -->
-
-    <div class="table-tag player--1">
-      <PlayerTag name="Natalia" total="15" walletTotal="5" />
-    </div>
-    <div class="table-tag player--2">
-      <PlayerTag name="Ron" total="80" walletTotal="20" />
-    </div>
-    <div class="table-tag player--3">
-      <PlayerTag name="Ron" total="8" walletTotal="0" />
-    </div>
-    <div class="table-tag player--4">
-      <PlayerTag name="Ron" total="8" walletTotal="2" />
-    </div>
-    <div class="table-tag player--5">
-      <PlayerTag name="Ron" total="8" walletTotal="0" />
-    </div>
-    <div class="table-tag player--6">
-      <PlayerTag name="Ron" total="8" walletTotal="0" />
-    </div>
+  <div v-bind:class="'table-container player-count--' + players.length">
+    <!-- printing all player tags in the right order and positions, except the isPlaying player -->
+    <template v-for="player in players.filter((player) => !player.isPlaying)" :key="player.id">
+      <div v-bind:class="'table-tag player--' + (player.id + 1)">
+        <PlayerTag
+          v-bind:name="player.name"
+          v-bind:total="player.total"
+          v-bind:wallettotal="player.wallettotal"
+          v-bind:lowestcoins="player.lowestcoinvalues"
+        />
+      </div>
+    </template>
+    <!-- printing portfolio for the isPlaying player -->
+    <template v-for="player in players.filter((player) => player.isPlaying)" :key="player.id">
+      <div class="portfolio-container">
+        <div v-bind:class="'portfolio player--' + (player.id + 1)">Portfolio</div>
+      </div>
+    </template>
 
     <div id="stack" class="stack">
       <div class="notification-container">
@@ -73,7 +68,71 @@ let coins = [3, 1, 1]
 export default {
   name: 'TableMain',
   data() {
-    return {}
+    return {
+      // The players array needs to start with the "isMe" player, the
+      // "id" of the player has to correspond with their position in the
+      // array (so we can have access to the order even when filtering).
+      // For every player we need to calculate the following values:
+      // -total
+      // -wallettotal
+      // -lowestcoinvalues
+      players: [
+        {
+          id: 0,
+          name: 'Dragos',
+          avatar: 'img',
+          adress: 'walletaddress',
+          isMe: 'true',
+          isPlaying: false,
+          total: 18,
+          wallettotal: 5,
+          lowestcoinvalues: [3, 1],
+          cards: {
+            hand: ['keys', 'wallet', 'q13'],
+            portfolio: {
+              cards: ['ETH', 'ADA', 'SHIT', 'SHIT'],
+              wallets: [['BTC'], ['ETH', 'UNI']],
+            },
+          },
+        },
+        {
+          id: 1,
+          name: 'Eva',
+          avatar: 'img',
+          adress: 'walletaddress',
+          isMe: 'false',
+          isPlaying: true,
+          total: 26,
+          wallettotal: 12,
+          lowestcoinvalues: [1, 1, 1],
+          cards: {
+            hand: ['q20', 'seed', 'q08'],
+            portfolio: {
+              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              wallets: [['FLOW']],
+            },
+          },
+        },
+        {
+          id: 2,
+          name: 'Maria',
+          avatar: 'img',
+          adress: 'walletaddress',
+          isMe: 'false',
+          isPlaying: false,
+          total: 20,
+          wallettotal: 8,
+          lowestcoinvalues: [3, 3, 1],
+          cards: {
+            hand: ['q20', 'seed', 'q08'],
+            portfolio: {
+              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              wallets: [['FLOW']],
+            },
+          },
+        },
+      ],
+    }
   },
   components: {
     PlayerTag,
@@ -228,95 +287,36 @@ export default {
   margin-top: 0;
 }
 
-.player-count--2 {
-  .player--1 {
-    @include player-tag--bottom;
-  }
-  .player--2 {
-    @include player-tag--top;
-  }
-  .player--3,
-  .player--4,
-  .player--5,
-  .player--6 {
-    display: none;
-  }
+.table-tag.player--1 {
+  @include player-tag--bottom;
 }
-.player-count--3 {
-  .player--1 {
-    @include player-tag--bottom;
-  }
-  .player--2 {
-    @include player-tag--right;
-  }
-  .player--3 {
-    @include player-tag--left;
-  }
-  .player--4,
-  .player--5,
-  .player--6 {
-    display: none;
-  }
+.player-count--2 .table-tag.player--2,
+.player-count--4 .table-tag.player--3,
+.player-count--6 .table-tag.player--4 {
+  @include player-tag--top;
 }
-
-.player-count--4 {
-  .player--1 {
-    @include player-tag--bottom;
-  }
-  .player--2 {
-    @include player-tag--right;
-  }
-  .player--3 {
-    @include player-tag--top;
-  }
-  .player--4 {
-    @include player-tag--left;
-  }
-  .player--5,
-  .player--6 {
-    display: none;
-  }
+.player-count--3 .table-tag.player--2,
+.player-count--4 .table-tag.player--2 {
+  @include player-tag--right;
 }
-
-.player-count--5 {
-  .player--1 {
-    @include player-tag--bottom;
-  }
-  .player--2 {
-    @include player-tag--right-bottom;
-  }
-  .player--3 {
-    @include player-tag--right-top;
-  }
-  .player--4 {
-    @include player-tag--left-top;
-  }
-  .player--5 {
-    @include player-tag--left-bottom;
-  }
-  .player--6 {
-    display: none;
-  }
+.player-count--5 .table-tag.player--2,
+.player-count--6 .table-tag.player--2 {
+  @include player-tag--right-bottom;
 }
-
-.player-count--6 {
-  .player--1 {
-    @include player-tag--bottom;
-  }
-  .player--2 {
-    @include player-tag--right-bottom;
-  }
-  .player--3 {
-    @include player-tag--right-top;
-  }
-  .player--4 {
-    @include player-tag--top;
-  }
-  .player--5 {
-    @include player-tag--left-top;
-  }
-  .player--6 {
-    @include player-tag--left-bottom;
-  }
+.player-count--5 .table-tag.player--3,
+.player-count--6 .table-tag.player--3 {
+  @include player-tag--right-top;
+}
+.player-count--3 .table-tag.player--3,
+.player-count--4 .table-tag.player--4 {
+  @include player-tag--left;
+}
+.player-count--5 .table-tag.player--4,
+.player-count--6 .table-tag.player--5 {
+  @include player-tag--left-top;
+}
+.player-count--5 .table-tag.player--5,
+.player-count--6 .table-tag.player--6 {
+  @include player-tag--left-bottom;
 }
 </style>
