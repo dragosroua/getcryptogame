@@ -23,8 +23,6 @@
 </template>
 
 <script>
-let test = 'ron'
-
 export default {
   name: 'PlayerTag',
   props: ['player', 'name', 'img', 'avatar', 'total', 'wallettotal', 'lowestcoins'],
@@ -57,6 +55,10 @@ export default {
   vertical-align: middle;
   width: 25px;
   position: relative;
+}
+
+.info .name {
+  display: none;
 }
 
 .info .coins .coin {

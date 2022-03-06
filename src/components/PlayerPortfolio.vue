@@ -18,15 +18,22 @@
           <em v-for="(coinvalue, index) in lowestcoins" :key="index" class="coin">{{ coinvalue }}</em>
         </span>
       </div>
+
+      <PortfolioCardRow v-for="(wallet, index) in wallets" :key="index" v-bind:coins="wallet" isWallet="true" />
+      <PortfolioCardRow v-bind:coins="coins" />
     </div>
   </div>
 </template>
 
 <script>
+import PortfolioCardRow from './PortfolioCardRow'
+
 export default {
   name: 'PlayerPortfolio',
-  props: ['player', 'name', 'avatar', 'total', 'wallettotal', 'lowestcoins', 'cards'],
-  components: {},
+  props: ['player', 'name', 'avatar', 'total', 'wallettotal', 'lowestcoins', 'cards', 'wallets', 'coins'],
+  components: {
+    PortfolioCardRow,
+  },
   computed: {
     getImgUrl() {
       return require('../assets/img/' + this.avatar)
@@ -72,6 +79,16 @@ export default {
   }
 }
 
+.portfolio .info .pic {
+  vertical-align: middle;
+  border-radius: 20px;
+  width: 40px;
+}
+
+.portfolio .info .name {
+  display: inline;
+}
+
 .portfolio .info .total {
   border-bottom: none;
   border-right: solid 1px #000;
@@ -90,30 +107,6 @@ export default {
 
 .portfolio .info .coin {
   background-color: #f5f5f5;
-}
-
-.portfolio .card {
-  margin-left: -25px;
-  position: relative;
-}
-
-.portfolio .card.wallet {
-  top: -10px;
-  position: relative;
-  z-index: 0;
-}
-
-.portfolio .row.ronwallet {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  padding: 10px 0 0 25px;
-  margin: -10px 0 0 -25px;
-}
-.portfolio .row.ronwallet.show {
-  max-height: 100px;
-  opacity: 1;
-  transition: max-height 0.6s 0s ease-out, opacity 0.3s 0.3s ease-out;
 }
 
 @mixin player-portfolio--bottom {

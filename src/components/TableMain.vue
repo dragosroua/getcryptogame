@@ -8,6 +8,8 @@
       v-bind:total="playingPlayer[0].total"
       v-bind:wallettotal="playingPlayer[0].wallettotal"
       v-bind:lowestcoins="playingPlayer[0].lowestcoinvalues"
+      v-bind:wallets="playingPlayer[0].cards.portfolio.wallets"
+      v-bind:coins="playingPlayer[0].cards.portfolio.coins"
     />
 
     <!--
@@ -105,7 +107,7 @@ export default {
           cards: {
             hand: ['keys', 'wallet', 'q13'],
             portfolio: {
-              cards: ['ETH', 'ADA', 'SHIT', 'SHIT'],
+              coins: ['ETH', 'ADA', 'SHIT', 'SHIT'],
               wallets: [['BTC'], ['ETH', 'UNI']],
             },
           },
@@ -123,8 +125,8 @@ export default {
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
-              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['FLOW']],
+              coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              wallets: [['DOGE'], ['FIL', 'SHIT']],
             },
           },
         },
@@ -141,7 +143,7 @@ export default {
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
-              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
               wallets: [['FLOW']],
             },
           },
@@ -159,7 +161,7 @@ export default {
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
-              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
               wallets: [['FLOW']],
             },
           },
@@ -177,7 +179,7 @@ export default {
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
-              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
               wallets: [['FLOW']],
             },
           },
@@ -195,7 +197,7 @@ export default {
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
-              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
               wallets: [['FLOW']],
             },
           },

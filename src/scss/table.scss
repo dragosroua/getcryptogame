@@ -11,6 +11,7 @@ img.card {
 .card.full {
     width: 270px;
 }
+
 .card.ggrid {
     width: 150px;
     margin: 5px;
@@ -158,24 +159,6 @@ img.card {
     padding: 7px 5px;
 }
 
-.portfolio .info .pic {
-    vertical-align: middle;
-    border-radius: 25px;
-    width: 50px;
-}
-
-.info .name {
-    display: none;
-}
-.portfolio .info .name {
-    display: inline;
-}
-.on-turn {
-    position: fixed;
-    top: 0;
-}
-
-
 .portfolio .select {
     padding-left: 15px;
 }
@@ -211,11 +194,6 @@ img.card {
     transition: all 0.2s 0s ease-out;
 }
 
-.portfolio .row {
-    display: block;
-    margin: 10px auto;
-    position: relative;
-}
 
 .playing.bottom .off-turn {
     z-index: -1;
