@@ -2,7 +2,7 @@
   <div v-bind:class="'table-tag player--' + player">
     <span class="stats">
       <div class="info">
-        <img src="../assets/img/natalia.png" class="pic" />
+        <img v-bind:src="getImgUrl" class="pic" />
         <em class="name"> {{ name }}</em>
         <em class="total">
           {{ total }}
@@ -23,9 +23,16 @@
 </template>
 
 <script>
+let test = 'ron'
+
 export default {
   name: 'PlayerTag',
-  props: ['player', 'name', 'avatar', 'total', 'wallettotal', 'lowestcoins'],
+  props: ['player', 'name', 'img', 'avatar', 'total', 'wallettotal', 'lowestcoins'],
+  computed: {
+    getImgUrl() {
+      return require('../assets/img/' + this.avatar)
+    },
+  },
   components: {},
   data() {
     return {}

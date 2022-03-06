@@ -2,7 +2,7 @@
   <div class="portfolio-container">
     <div v-bind:class="'portfolio player--' + player">
       <div class="info">
-        <img src="../assets/img/natalia.png" class="pic" />
+        <img v-bind:src="getImgUrl" class="pic" />
         <em class="name"> {{ name }} </em>
         <em class="total">
           {{ total }}
@@ -27,6 +27,11 @@ export default {
   name: 'PlayerPortfolio',
   props: ['player', 'name', 'avatar', 'total', 'wallettotal', 'lowestcoins', 'cards'],
   components: {},
+  computed: {
+    getImgUrl() {
+      return require('../assets/img/' + this.avatar)
+    },
+  },
   data() {
     return {}
   },
@@ -69,6 +74,7 @@ export default {
 
 .portfolio .info .total {
   border-bottom: none;
+  border-right: solid 1px #000;
   padding: 0px 4px;
 }
 

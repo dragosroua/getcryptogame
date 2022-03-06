@@ -95,7 +95,7 @@ export default {
         {
           id: 0,
           name: 'Dragos',
-          avatar: '../assets/img/ron.png',
+          avatar: 'ron.png',
           adress: 'walletaddress',
           isMe: false,
           isPlaying: false,
@@ -113,7 +113,7 @@ export default {
         {
           id: 1,
           name: 'Eva',
-          avatar: '../assets/img/natalia.png',
+          avatar: 'natalia.png',
           adress: 'walletaddress',
           isMe: false,
           isPlaying: true,
@@ -131,7 +131,7 @@ export default {
         {
           id: 2,
           name: 'Maria',
-          avatar: '../assets/img/andrea.png',
+          avatar: 'andrea.png',
           adress: 'walletaddress',
           isMe: false,
           isPlaying: false,
@@ -149,7 +149,7 @@ export default {
         {
           id: 3,
           name: 'Maria',
-          avatar: '../assets/img/andrea.png',
+          avatar: 'andrea.png',
           adress: 'walletaddress',
           isMe: false,
           isPlaying: false,
@@ -167,7 +167,7 @@ export default {
         {
           id: 4,
           name: 'Maria',
-          avatar: '../assets/img/andrea.png',
+          avatar: 'ron.png',
           adress: 'walletaddress',
           isMe: false,
           isPlaying: false,
@@ -185,7 +185,7 @@ export default {
         {
           id: 5,
           name: 'Maria',
-          avatar: '../assets/img/andrea.png',
+          avatar: 'natalia.png',
           adress: 'walletaddress',
           isMe: false,
           isPlaying: false,
