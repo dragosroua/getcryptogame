@@ -1,13 +1,31 @@
 <template>
   <div class="portfolio-container">
-    <div v-bind:class="'portfolio player--' + player">Portfolio</div>
+    <div v-bind:class="'portfolio player--' + player">
+      <div class="info">
+        <img src="../assets/img/natalia.png" class="pic" />
+        <em class="name"> {{ name }} </em>
+        <em class="total">
+          {{ total }}
+        </em>
+        <!--this needs to be conditional on wallettoal -->
+        <span class="walletcontainer">
+          <em class="wallettotal">
+            <span class="wallettext">{{ wallettotal }}</span>
+          </em>
+        </span>
+        <!--this needs to be conditional on lowestcoins -->
+        <span class="coins">
+          <em v-for="(coinvalue, index) in lowestcoins" :key="index" class="coin">{{ coinvalue }}</em>
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'PlayerPortfolio',
-  props: ['player', 'cards'],
+  props: ['player', 'name', 'avatar', 'total', 'wallettotal', 'lowestcoins', 'cards'],
   components: {},
   data() {
     return {}
@@ -25,6 +43,7 @@ export default {
   height: 100%;
   width: 100%;
 }
+
 .portfolio {
   background-color: #f5f5f5;
   border-radius: 10px;
@@ -36,19 +55,35 @@ export default {
   text-align: left;
   width: 100%;
 }
-.top .portfolio {
-  height: 60%;
-  top: -10px;
-  /* width: calc(100% - 30px);
-    left: 15px; */
+
+.portfolio .info {
+  margin: 5px 0 15px -25px;
 }
-.right .portfolio,
-.left .portfolio {
-  height: 60%;
-  padding-top: 40px;
+.player-count--2 .portfolio.player--2,
+.player-count--4 .portfolio.player--3,
+.player-count--6 .portfolio.player--4 {
+  .info {
+    margin: 25px 0 10px -25px;
+  }
 }
-.right .portfolio {
-  padding-left: 85px;
+
+.portfolio .info .total {
+  border-bottom: none;
+  padding: 0px 4px;
+}
+
+.portfolio .info .walletcontainer {
+  margin: 8px 9px 10px 2px;
+}
+
+.portfolio .info .coins .coin {
+  display: inline;
+  margin-left: -8px;
+  padding: 0 7px;
+}
+
+.portfolio .info .coin {
+  background-color: #f5f5f5;
 }
 
 .portfolio .card {
@@ -93,7 +128,6 @@ export default {
 }
 @mixin player-portfolio--top {
   top: -25px;
-  left: 45px;
   width: calc(100% - 20px);
 }
 @mixin player-portfolio--left {
