@@ -1,31 +1,31 @@
 <template>
-  <span class="stats">
-    <div class="info">
-      <img src="../assets/img/natalia.png" class="pic" />
-      <em class="name">
-        {{ name }}
-      </em>
-      <em class="total">
-        {{ total }}
-      </em>
-      <!--this needs to be conditional on wallettoal -->
-      <span class="walletcontainer">
-        <em class="wallettotal">
-          <span class="wallettext">{{ wallettotal }}</span>
+  <div v-bind:class="'table-tag player--' + player">
+    <span class="stats">
+      <div class="info">
+        <img src="../assets/img/natalia.png" class="pic" />
+        <em class="name"> {{ name }} -- {{ avatar }} </em>
+        <em class="total">
+          {{ total }}
         </em>
-      </span>
-      <!--this needs to be conditional on lowestcoins -->
-      <span class="coins">
-        <em v-for="(coinvalue, index) in lowestcoins" :key="index" class="coin">{{ coinvalue }}</em>
-      </span>
-    </div>
-  </span>
+        <!--this needs to be conditional on wallettoal -->
+        <span class="walletcontainer">
+          <em class="wallettotal">
+            <span class="wallettext">{{ wallettotal }}</span>
+          </em>
+        </span>
+        <!--this needs to be conditional on lowestcoins -->
+        <span class="coins">
+          <em v-for="(coinvalue, index) in lowestcoins" :key="index" class="coin">{{ coinvalue }}</em>
+        </span>
+      </div>
+    </span>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'PlayerTag',
-  props: ['name', 'total', 'wallettotal', 'lowestcoins'],
+  props: ['player', 'name', 'avatar', 'total', 'wallettotal', 'lowestcoins'],
   components: {},
   data() {
     return {}
@@ -105,5 +105,176 @@ export default {
   left: -6px;
   text-align: center;
   width: 22px;
+}
+
+.table-tag {
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+}
+
+//position specific styles with mixins
+
+@mixin player-tag--horizontal {
+  height: 50px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  .info {
+    margin: 7px 10px;
+  }
+  .info .pic {
+    margin-top: -6px;
+  }
+  .info .walletcontainer {
+    margin-right: -7px;
+  }
+  .info .coins {
+    padding: 0 0 0 15px;
+    .coin {
+      margin-left: -6px;
+    }
+  }
+  .info .total:after {
+    border-right: 1px solid #000;
+    content: '';
+    height: 90%;
+    padding: 0 4px;
+    vertical-align: middle;
+  }
+}
+
+@mixin player-tag--vertical {
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  margin-top: -100px;
+  top: 50%;
+  width: 50px;
+  .info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    padding: 3px 5px;
+  }
+  .info .pic {
+    margin-top: 6px;
+  }
+  .info .total {
+    border-bottom: 1px solid #000;
+    line-height: 1;
+    text-align: center;
+    width: 80%;
+    padding: 2px 0 4px;
+  }
+  .info .walletcontainer {
+    margin-bottom: 7px;
+  }
+  .info .coins {
+    margin: 0 2px;
+    padding: 0 0 7px 1px;
+    .coin {
+      margin-top: -6px;
+      padding: 3px 7px;
+      display: block;
+      line-height: 1;
+    }
+  }
+}
+
+@mixin player-tag--bottom {
+  bottom: 0;
+  @include player-tag--horizontal;
+  .stats {
+    bottom: -13px;
+    padding-bottom: 5px;
+    .info {
+      margin-top: 1px;
+    }
+  }
+}
+@mixin player-tag--top {
+  top: 0;
+  @include player-tag--horizontal;
+  .stats {
+    top: -17px;
+    padding-top: 5px;
+    .info {
+      margin: 10px 10px -9px;
+    }
+  }
+}
+@mixin player-tag--left {
+  left: 0;
+  @include player-tag--vertical;
+  .stats {
+    left: -12px;
+    padding-left: 5px;
+    .info {
+      padding-left: 10px;
+    }
+  }
+}
+@mixin player-tag--right {
+  right: 0;
+  @include player-tag--vertical;
+  .stats {
+    right: -12px;
+    padding-right: 6px;
+    .info {
+      padding-right: 10px;
+    }
+  }
+}
+@mixin player-tag--left-top {
+  @include player-tag--left;
+  margin-top: -200px;
+}
+@mixin player-tag--left-bottom {
+  @include player-tag--left;
+  margin-top: 0;
+}
+@mixin player-tag--right-top {
+  @include player-tag--right;
+  margin-top: -200px;
+}
+@mixin player-tag--right-bottom {
+  @include player-tag--right;
+  margin-top: 0;
+}
+
+.table-tag.player--1 {
+  @include player-tag--bottom;
+}
+.player-count--2 .table-tag.player--2,
+.player-count--4 .table-tag.player--3,
+.player-count--6 .table-tag.player--4 {
+  @include player-tag--top;
+}
+.player-count--3 .table-tag.player--2,
+.player-count--4 .table-tag.player--2 {
+  @include player-tag--right;
+}
+.player-count--5 .table-tag.player--2,
+.player-count--6 .table-tag.player--2 {
+  @include player-tag--right-bottom;
+}
+.player-count--5 .table-tag.player--3,
+.player-count--6 .table-tag.player--3 {
+  @include player-tag--right-top;
+}
+.player-count--3 .table-tag.player--3,
+.player-count--4 .table-tag.player--4 {
+  @include player-tag--left;
+}
+.player-count--5 .table-tag.player--4,
+.player-count--6 .table-tag.player--5 {
+  @include player-tag--left-top;
+}
+.player-count--5 .table-tag.player--5,
+.player-count--6 .table-tag.player--6 {
+  @include player-tag--left-bottom;
 }
 </style>
