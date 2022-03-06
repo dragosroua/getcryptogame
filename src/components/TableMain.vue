@@ -1,22 +1,20 @@
 <template>
   <div v-bind:class="'table-container player-count--' + players.length">
     <!-- printing portfolio for the isPlaying player -->
-    <template v-for="player in players.filter((player) => player.isPlaying)" :key="player.id">
-      <PlayerPortfolio
-        v-bind:player="player.id + 1"
-        v-bind:name="player.name"
-        v-bind:avatar="player.avatar"
-        v-bind:total="player.total"
-        v-bind:wallettotal="player.wallettotal"
-        v-bind:lowestcoins="player.lowestcoinvalues"
-      />
+    <PlayerPortfolio
+      v-bind:player="playingPlayer[0].id + 1"
+      v-bind:name="playingPlayer[0].name"
+      v-bind:avatar="playingPlayer[0].avatar"
+      v-bind:total="playingPlayer[0].total"
+      v-bind:wallettotal="playingPlayer[0].wallettotal"
+      v-bind:lowestcoins="playingPlayer[0].lowestcoinvalues"
+    />
 
-      <!--
+    <!--
         <div class="portfolio-container">
             <div v-bind:class="'portfolio player--' + (player.id + 1)">Portfolio</div>
         </div>
         -->
-    </template>
 
     <!-- printing all player tags in the right order and positions, except the isPlaying player -->
     <template v-for="player in players.filter((player) => !player.isPlaying)" :key="player.id">
@@ -30,7 +28,7 @@
       />
     </template>
 
-    <div id="stack" class="stack">
+    <div id="stack" v-bind:class="'stack isplaying--' + (playingPlayer[0].id + 1)">
       <div class="notification-container">
         <span class="round1">
           <span id="notifi-round1-1" class="notifications">It's Natalia's turn</span>
@@ -99,7 +97,7 @@ export default {
           name: 'Dragos',
           avatar: '../assets/img/ron.png',
           adress: 'walletaddress',
-          isMe: 'true',
+          isMe: false,
           isPlaying: false,
           total: 18,
           wallettotal: 5,
@@ -117,11 +115,11 @@ export default {
           name: 'Eva',
           avatar: '../assets/img/natalia.png',
           adress: 'walletaddress',
-          isMe: 'false',
+          isMe: false,
           isPlaying: true,
           total: 26,
           wallettotal: 12,
-          lowestcoinvalues: [1, 1, 1],
+          lowestcoinvalues: [3, 3, 3],
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
@@ -135,7 +133,61 @@ export default {
           name: 'Maria',
           avatar: '../assets/img/andrea.png',
           adress: 'walletaddress',
-          isMe: 'false',
+          isMe: false,
+          isPlaying: false,
+          total: 20,
+          wallettotal: 8,
+          lowestcoinvalues: [3, 3, 1],
+          cards: {
+            hand: ['q20', 'seed', 'q08'],
+            portfolio: {
+              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              wallets: [['FLOW']],
+            },
+          },
+        },
+        {
+          id: 3,
+          name: 'Maria',
+          avatar: '../assets/img/andrea.png',
+          adress: 'walletaddress',
+          isMe: false,
+          isPlaying: false,
+          total: 20,
+          wallettotal: 8,
+          lowestcoinvalues: [3, 3, 1],
+          cards: {
+            hand: ['q20', 'seed', 'q08'],
+            portfolio: {
+              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              wallets: [['FLOW']],
+            },
+          },
+        },
+        {
+          id: 4,
+          name: 'Maria',
+          avatar: '../assets/img/andrea.png',
+          adress: 'walletaddress',
+          isMe: false,
+          isPlaying: false,
+          total: 20,
+          wallettotal: 8,
+          lowestcoinvalues: [3, 3, 1],
+          cards: {
+            hand: ['q20', 'seed', 'q08'],
+            portfolio: {
+              cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+              wallets: [['FLOW']],
+            },
+          },
+        },
+        {
+          id: 5,
+          name: 'Maria',
+          avatar: '../assets/img/andrea.png',
+          adress: 'walletaddress',
+          isMe: false,
           isPlaying: false,
           total: 20,
           wallettotal: 8,
@@ -156,6 +208,9 @@ export default {
     PlayerPortfolio,
   },
   computed: {
+    playingPlayer: function () {
+      return this.players.filter((player) => player.isPlaying)
+    },
     playersComputed: function () {
       // transform this.players. for example it could calculate the total,
       // the wallettotal and the lowestcoinsvalues for each player and write

@@ -44,17 +44,21 @@ img.card {
 }
 
 .stack {
-    bottom: 85px;
     left: 50%;
     margin-left: -45vw;
     position: fixed;
+    top: calc(85% - 200px);
     width: 90vw;
 }
 
-.playing .stack {
-    bottom: auto;
-    top: 70px;
+.isplaying--1,
+.player-count--5 .isplaying--2,
+.player-count--6 .isplaying--2,
+.player-count--5 .isplaying--5,
+.player-count--6 .isplaying--6 {
+    top: 85px;
 }
+
 
 .stack img {
     height: auto;
@@ -166,89 +170,11 @@ img.card {
 .portfolio .info .name {
     display: inline;
 }
-
-.top .info .total,
-.bottom .info .total,
-.portfolio .info .total {
-    border-right: 1px solid #000;
-}
-.left .info .total,
-.right .info .total {
-    border-bottom: 1px solid #000;
-    margin-bottom: 20px;
-}
-
 .on-turn {
     position: fixed;
     top: 0;
 }
-.playing .on-turn {
-    transition: all 0.2s 0.2s ease-in;
-}
-.top .on-turn {
-    height: 0;
-    left: 10px;
-    margin-top: -100%;
-    width: calc(100% - 20px);
-}
-.playing.top .on-turn {
-    height: calc(90% + 15px);
-    margin-top: 0;
-}
-.left .on-turn {
-    left: -10px;
-    margin-left: -100%;
-    width: calc(100% - 0px);
-}
-.playing.left .on-turn {
-    margin-left: 0;
-    top: 10px;
-    height: calc(90% - 15px);
-}
-.bottom .on-turn {
-    bottom: 0;
-    left: 10px;
-    margin-bottom: -100%;
-    top: auto;
-    width: calc(100% - 20px);
-}
-.playing.bottom .on-turn {
-    margin-bottom: 0;
-    height: 40%;
-}
-.right .on-turn {
-    right: -10px;
-    margin-right: -100%;
-    width: calc(100% - 0px);
-}
-.playing.right .on-turn {
-    margin-right: 0;
-    top: 10px;
-    height: calc(90% - 15px);
-}
 
-.player .show-round2,
-.player .show-round3,
-.over-content .show-round2,
-.over-content .show-round3 {
-    display: none !important;
-}
-.player.round2 .show-round2,
-.round2 .over-content .show-round2 {
-    display: inline-block !important;
-}
-.player.round2 .show-round1,
-.round2 .over-content .show-round1 {
-    display: none !important;
-}
-.player.round2.round3 .show-round2,
-.round2.round3 .over-content .show-round2 {
-    display: inline-block !important;
-}
-.player.round3 .show-round3,
-.round3 .over-content .show-round3  {
-    display: inline-block !important;
-}
 
 .portfolio .select {
     padding-left: 15px;

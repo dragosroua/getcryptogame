@@ -3,8 +3,7 @@
     <span class="stats">
       <div class="info">
         <img src="../assets/img/natalia.png" class="pic" />
-
-        <em class="name"> {{ name }} -- {{ avatar }} </em>
+        <em class="name"> {{ name }}</em>
         <em class="total">
           {{ total }}
         </em>
