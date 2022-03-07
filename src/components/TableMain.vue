@@ -12,11 +12,11 @@
       v-bind:coins="playingPlayer[0].cards.portfolio.coins"
     />
 
-    <!--
-        <div class="portfolio-container">
-            <div v-bind:class="'portfolio player--' + (player.id + 1)">Portfolio</div>
-        </div>
-        -->
+    <div v-bind:class="'hand isplaying--' + (playingPlayer[0].id + 1)">
+      <img src="../assets/img/wallet-hand.png" class="card" />
+      <img src="../assets/img/keys-hand.png" class="card" />
+      <img src="../assets/img/nft-hand.png" class="card" />
+    </div>
 
     <!-- printing all player tags in the right order and positions, except the isPlaying player -->
     <template v-for="player in players.filter((player) => !player.isPlaying)" :key="player.id">
@@ -30,7 +30,7 @@
       />
     </template>
 
-    <div id="stack" v-bind:class="'stack isplaying--' + (playingPlayer[0].id + 1)">
+    <div v-bind:class="'stack isplaying--' + (playingPlayer[0].id + 1)">
       <div class="notification-container">
         <span class="round1">
           <span id="notifi-round1-1" class="notifications">It's Natalia's turn</span>
@@ -100,14 +100,14 @@ export default {
           avatar: 'ron.png',
           adress: 'walletaddress',
           isMe: false,
-          isPlaying: false,
+          isPlaying: true,
           total: 18,
           wallettotal: 5,
-          lowestcoinvalues: [3, 1],
+          lowestcoinvalues: [3, 3, 3],
           cards: {
             hand: ['keys', 'wallet', 'q13'],
             portfolio: {
-              coins: ['ETH', 'ADA', 'SHIT', 'SHIT'],
+              coins: ['ETH', 'AAVE', 'SHIT', 'SHIT'],
               wallets: [['BTC'], ['ETH', 'UNI']],
             },
           },
@@ -118,10 +118,10 @@ export default {
           avatar: 'natalia.png',
           adress: 'walletaddress',
           isMe: false,
-          isPlaying: true,
+          isPlaying: false,
           total: 26,
           wallettotal: 12,
-          lowestcoinvalues: [3, 3, 3],
+          lowestcoinvalues: [1, 1],
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
@@ -139,12 +139,12 @@ export default {
           isPlaying: false,
           total: 20,
           wallettotal: 8,
-          lowestcoinvalues: [3, 3, 1],
+          lowestcoinvalues: [3, 3],
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['FLOW']],
+              wallets: [['DOGE']],
             },
           },
         },
@@ -162,7 +162,7 @@ export default {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['FLOW']],
+              wallets: [['DOGE']],
             },
           },
         },
@@ -175,12 +175,12 @@ export default {
           isPlaying: false,
           total: 20,
           wallettotal: 8,
-          lowestcoinvalues: [3, 3, 1],
+          lowestcoinvalues: [1, 1, 1],
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['FLOW']],
+              wallets: [['DOGE']],
             },
           },
         },
@@ -193,12 +193,12 @@ export default {
           isPlaying: false,
           total: 20,
           wallettotal: 8,
-          lowestcoinvalues: [3, 3, 1],
+          lowestcoinvalues: [3, 3, 3],
           cards: {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['FLOW']],
+              wallets: [['DOGE']],
             },
           },
         },

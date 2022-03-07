@@ -194,8 +194,11 @@ export default {
 }
 
 @mixin player-tag--bottom {
-  bottom: 0;
   @include player-tag--horizontal;
+  margin-left: -200px;
+  margin-left: max(-63vw, -200px);
+  bottom: 0;
+  text-align: right;
   .stats {
     bottom: -13px;
     padding-bottom: 5px;

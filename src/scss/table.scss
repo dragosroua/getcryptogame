@@ -25,23 +25,37 @@ img.card {
     transition: all 0.2s 0s ease-in;
 }
 
+.table-container .hand {
+    bottom: 0;
+    left: 50%;
+    margin-right: calc(50vw - 200px);
+    max-height: 75px;
+    max-width: 50vw;
+    overflow: hidden;
+    padding-left: calc(150px - 50vw);
+    position: absolute;
+    text-align: left;
+    width: 200px;
+}
 
-.bottom .hand {
-    bottom: -100px;
-    margin-left: 42px;
-    position: fixed;
-}
-.bottom.playing .hand {
-    bottom: 35%;
-    margin-left: -54px;
-    transition: bottom 0.2s 0.2s ease-in;
+.hand .card {
+    left: calc(15% + 20px);
+    margin-left: -20%;
+    position: relative;
+    top: 20px;
+    width: 42%;
 }
 
-.bottom .hand img {
-    margin-left: -65px;
-}
-.bottom.playing .hand img {
-    margin-left: -50px;
+.hand.isplaying--1 {
+    bottom: 45%;
+    margin-bottom: -15px;
+    max-width: none;
+    padding-left: 0px;
+    margin-left: -100px;
+    text-align: center;
+    .card {
+        left: 20px;
+    }
 }
 
 .stack {
@@ -52,14 +66,13 @@ img.card {
     width: 90vw;
 }
 
-.isplaying--1,
-.player-count--5 .isplaying--2,
-.player-count--6 .isplaying--2,
-.player-count--5 .isplaying--5,
-.player-count--6 .isplaying--6 {
+.stack.isplaying--1,
+.player-count--5 .stack.isplaying--2,
+.player-count--6 .stack.isplaying--2,
+.player-count--5 .stack.isplaying--5,
+.player-count--6 .stack.isplaying--6 {
     top: 85px;
 }
-
 
 .stack img {
     height: auto;
@@ -74,7 +87,6 @@ img.card {
     position: relative;
     top: -176px;
 }
-
 
 .stack .cardstack.pulsate {
     opacity: 1;
