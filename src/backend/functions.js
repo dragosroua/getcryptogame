@@ -369,10 +369,10 @@ export function setCurrentPlayer(gameDeck, playerAddress) {
 // playes a card by a player and implements the game mechanic, increments gameTurn
 // @params: gameId, playerAddress, gameDeck, xcardType
 // @returns: gameId, eventId, eventType, eventReceiver
-export function playEventCard(gameId, playerAddress, gameDeck, cardType) {
+export function playEventCard(gameId, playerAddress, gameDeck, eventCard) {
   // to do: validate if the player had the card is playing
   // card conditions
-  if (cardType === 'not-wallet-not-keys') {
+  if (eventCard.cardType === 'not-wallet-not-keys') {
     // the card is put down open on a pile next to the event card stack and the player next in turn
     // has to give up 3 unprotected coin cards from his portfolio. The player can choose which coins he gives up.
     // If he has less than 3 unprotected cards, he just gives up all of them.
@@ -387,15 +387,16 @@ export function playEventCard(gameId, playerAddress, gameDeck, cardType) {
     var nextPlayer = gameDeck.players[nextIndex]
     // trigger a function of card transfers
     setCurrentPlayer(gameDeck, nextPlayer)
-    playEventCard(gameId, nextPlayer, gameDeck, 'give-up-cards')
-  } else if (cardType === 'give-up-cards') {
     // check if the player has unprotected cards, i.e. if there is a wallet card with cards in it
     // check if the number of unprotected cards is higher or equal than 3
     // get the id of the previous player, the one who will receive the cards
     // wait for input from the current player in selecting the 3 cards
-    // tranfer the cards to the previous player
-    // wait for input in picking the next card from the event cards pile
+    // transfer the cards to the previous player
   }
+  // the event card is added to the playedEventCards array
+  gameDeck.playedEventCardsArray.push(eventCard)
+
+  // wait for input in picking the next card from the event cards pile
 }
 
 // wait for input from player to pick a card,
