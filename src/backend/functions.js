@@ -412,7 +412,10 @@ export function pickEventCard(gameId, playerAddress, gameDeck) {
 
 // implements the events
 // @params: gameId, eventType, eventReceiver
-export function executeGameEvent() {}
+export function executeGameEvent(gameDeck) {
+  // it returns the modified gameDeck, it's the task of the caller to update the state with this new object
+  return gameDeck
+}
 
 /** utils */
 

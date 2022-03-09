@@ -3,26 +3,21 @@ import init from './config'
 
 const store = createStore({
   state: {
-    gameDeck: {
-      turn: 0,
-      coinCards: [],
-      eventCards: [],
-      players: [],
-    },
+    gameDeck: {},
     isLoggedIn: false,
     isWinner: false,
   },
   mutations: {
-    setGameDeck(state, turn, coinCards, eventCards, players) {
-      state.gameDeck = {
-        turn: turn,
-        coinCards: coinCards,
-        eventCards: eventCards,
-        players: players,
-      }
+    SET_GAMEDECK(state, gameDeckData) {
+      state.gameDeck = gameDeckData
     },
   },
-  actions: {},
+  actions: {
+    updateGameDeck: (state, gameDeckData) => {
+      state.gameDeck = Object.assign({}, gameDeckData)
+      //context.commit('SET_GAMEDECK', gameDeckData)
+    },
+  },
   getters: {
     getGameDeck: (state) => {
       return state.gameDeck
