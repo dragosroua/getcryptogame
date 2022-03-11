@@ -9,6 +9,7 @@ const store = createStore({
       eventCards: [],
       players: [],
     },
+    users: [],
     isLoggedIn: false,
     isWinner: false,
   },

@@ -8,7 +8,7 @@ import * as R from 'ramda'
 
 import Notifications from '@kyvg/vue3-notification'
 
-import { createDeck, getDeck, createGame, getGame, advanceGame } from './backend/library.js'
+import { createDeck, getDeck, createGame, getGame, advanceGame } from './backend/chainlibrary.js'
 
 const app = createApp(App)
 app.config.globalProperties.$axios = axios

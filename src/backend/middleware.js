@@ -38,6 +38,24 @@ import { createGameDeck, getCurrentGameDeck } from './functions'
 }
  */
 
-export function getPlayerData() {
-  //var currentGameDeck =
+export function getPlayerData(gameDeck) {
+  var players = []
+  var playerObj = {
+    id: '',
+    name: '',
+    avatar: '',
+    cards: {
+      hand: [],
+      portfolio: {
+        cards: [],
+        wallets: [],
+      },
+    },
+  }
+  for (var i = 0; i < gameDeck.players.length; i++) {
+    playerObj.id = 'player' + i
+    playerObj.name = 'tmp'
+  }
 }
+
+export function getUserName(gameId) {}
