@@ -1,0 +1,39 @@
+{
+    players: [
+        {
+            id: "player0",
+            name: "Dragos",
+            avatar: "img",
+            adress: "walletaddress",
+            isMe: "true",
+            isPlaying: "false",
+            cards: {
+                hand: ["keys","wallet", "q13"],
+                portfolio: {
+                    cards: ["ETH", "ADA", "SHIT", "SHIT"],
+                    wallets: [
+                        ["BTC"],
+                        ["ETH", "UNI"],
+                    ],
+                },
+            },
+        },
+        {
+            id: "player1",
+            name: "Eva",
+            avatar: "img",
+            adress: "walletaddress",
+            isMe: "false",
+            isPlaying: "true",
+            cards: {
+                hand: ["q20","seed", "q08"],
+                portfolio: {
+                    cards: ["ETH", "ATOM", "SHIT", "SHIT"],
+                    wallets: [
+                        ["FLOW"],
+                    ],
+                },
+            },
+        },
+    ]
+}

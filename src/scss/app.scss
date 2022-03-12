@@ -1,44 +1,13 @@
-.fight-button:hover {
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
-  }
-  .fight-button:active {
-    box-shadow: none;
-  }
-  .button-shadow{
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-  }
-  .awesome-button {
-    cursor: pointer;
-    width: 180px;
-    height: 180px;
-    font-weight: bold;
-    text-decoration: none;
+@import 'variables';
+
+body {
+    background-color: #eee;
     text-align: center;
-    font-size: 18px;
-    font-style: white;
-    padding: 20px;
-    margin: auto;
-    background-color: black;
-    // background-color: #d61224;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 0px 6px 6px rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    filter: invert(1);
-    -webkit-filter: invert(1);
-  }
-  .awesome-button:hover {
-    box-shadow: 0px 10px 10px rgba(255, 255, 255, 0.5);
-  }
-  .awesome-button:active {
-    box-shadow: none;
-  }
-  .awesome-button-text {
-    text-align:center;
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    margin: auto;
-  }
+    font-family: $font-family !important;
+}
+
+.sp-fill {
+    overflow: auto;
+    padding-top: 0;
+}
+  
