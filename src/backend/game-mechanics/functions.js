@@ -27,6 +27,7 @@ import {
   eventCard,
   walletCard,
 } from './structures.js'
+import { uuidv4 } from 'uuidv4'
 
 import {
   nywnykCard,
@@ -44,6 +45,7 @@ import {
 
 // generates the game vault, shuffles the deck and distributes the cards to the players
 // @params: gameHost, playersArray (alreaady contains gameHost), blockchain
+//
 export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
   if (gameHost === null && gameHost === undefined) {
     gameHost = this.$store.getters['common/wallet/address']
@@ -352,10 +354,14 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
   //console.log('event cards ' + JSON.stringify(eventCardsArray, null, 2))
 
   var gameDeck = {
+    blockchain: blockchain,
+    id: generateGameId(),
+    turn: 0,
+    host: gameHost,
     players: playersArray,
-    currentPlayer: [],
     coinCardsArray: coinCardsArray,
     eventCardsArray: eventCardsArray,
+    currentPlayer: {},
     playedEventCardsArray: [], // initialize this as empty
   }
 
@@ -424,3 +430,8 @@ export function executeGameEvent(gameDeck) {
 // invoked before calling executeGameEvent
 // @params: blockchainId, gameId, gameTurn, currentPlayer
 export function validateAction() {}
+
+export function generateGameId() {
+  var gameId = uuidv4()
+  return gameId
+}
