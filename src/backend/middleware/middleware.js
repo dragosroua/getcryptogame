@@ -51,25 +51,49 @@ import { createGameDeck, getCurrentGameDeck } from '../game-mechanics/functions'
  *  @param {} players
  */
 
-export function formatPlayerCards(gameDeck) {
+export function getPlayersWithCards(gameDeck) {
   var playerCards = {
-    hand: [],
-    portfolio: {
-      cards: [],
-      wallets: [],
+    cards: {
+      hand: [],
+      portfolio: {
+        cards: [],
+        wallets: [],
+      },
     },
   }
+
   for (var i = 0; i < gameDeck.players.length; i++) {
     var currentPlayer = gameDeck.player[i]
+    // reset player hand to an empty object
+    currentPlayer.cards = playerCards.cards
     for (var m = 0; m < gameDeck.coinCards.length; m++) {
       var currentCard = gameDeck.coinCards[m]
-      if (currentCard.player === currentPlayer.id) {
-        console.log('smth')
+      if (currentCard.inGameVault === false && currentCard.player === currentPlayer.id) {
+        if (currentCard.inWallet === false) {
+          console.log('coin card')
+          currentPlayer.cards.portfolio.cards.push(currentCard)
+        } else if (currentCard.inWallet === true) {
+          console.log('coin card in a wallet')
+          currentPlayer.cards.portfolio.wallet.push(currentCard)
+        }
       }
     }
+    gameDeck.player[i] = currentPlayer
   }
 
-  return playerCards
+  for (var ii = 0; i < gameDeck.players.length; ii++) {
+    var cPlayer = gameDeck.player[ii]
+    for (var mm = 0; m < gameDeck.eventCards.length; mm++) {
+      var cCard = gameDeck.eventCards[m]
+      if (cCard.inGameVault === false && cCard.player === cPlayer.id) {
+        console.log('event card')
+        cPlayer.cards.hand.push(cCard)
+      }
+    }
+    gameDeck.player[i] = cPlayer
+  }
+
+  return gameDeck.players
 }
 
 export function getUserName(gameId) {}
