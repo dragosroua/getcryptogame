@@ -40,18 +40,24 @@ import {
   useCaseW3Card,
   useCaseMVCard,
 } from './structures.js'
+import { gamePlayer, playerStruct } from './structures.js'
 
 /** game mechanics scaffold */
 
 // generates the game vault, shuffles the deck and distributes the cards to the players
-// @params: gameHost, playersArray (alreaady contains gameHost), blockchain
+// @params: gameHost, playersArray (should alreaady contain gameHost if properly initialized), blockchain
 //
 export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
   if (gameHost === null && gameHost === undefined) {
-    gameHost = this.$store.getters['common/wallet/address']
+    gameHost = new gamePlayer(playerStruct)
+    gameHost.id = generatePlayerId()
+    gameHost.address = this.$store.getters['common/wallet/address']
   }
+  // fall back to a minimum array of 2 players
   if (playersArray === null && playersArray === undefined) {
-    playersArray = [gameHost, 'player 2']
+    var player2 = new gamePlayer(playerStruct)
+    player2.id = generatePlayerId()
+    playersArray = [gameHost, player2]
   }
 
   var coinCardsArray = []
@@ -75,7 +81,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       bitcoinCard.inNextCoinVault,
       bitcoinCard.inDumpster,
     )
-    btcCard.player = gameHost
+    btcCard.player = gameHost.id
     btcCard.inGameVault = true
     coinCardsArray.push(btcCard)
   }
@@ -95,88 +101,88 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       ethereumCard.inNextCoinVault,
       ethereumCard.inDumpster,
     )
-    ethCard.player = gameHost
+    ethCard.player = gameHost.id
     ethCard.inGameVault = true
     coinCardsArray.push(ethCard)
   }
 
-  bchCard.player = gameHost
+  bchCard.player = gameHost.id
   bchCard.inGameVault = true
   coinCardsArray.push(bchCard)
 
-  dogeCard.player = gameHost
+  dogeCard.player = gameHost.id
   dogeCard.inGameVault = true
   coinCardsArray.push(dogeCard)
 
-  ltcCard.player = gameHost
+  ltcCard.player = gameHost.id
   ltcCard.inGameVault = true
   coinCardsArray.push(ltcCard)
 
-  xmrCard.player = gameHost
+  xmrCard.player = gameHost.id
   xmrCard.inGameVault = true
   coinCardsArray.push(xmrCard)
 
-  dotCard.player = gameHost
+  dotCard.player = gameHost.id
   dotCard.inGameVault = true
   coinCardsArray.push(dotCard)
 
-  adaCard.player = gameHost
+  adaCard.player = gameHost.id
   adaCard.inGameVault = true
   coinCardsArray.push(adaCard)
 
-  atomCard.player = gameHost
+  atomCard.player = gameHost.id
   atomCard.inGameVault = true
   coinCardsArray.push(atomCard)
 
-  solCard.player = gameHost
+  solCard.player = gameHost.id
   solCard.inGameVault = true
   coinCardsArray.push(solCard)
 
-  aaveCard.player = gameHost
+  aaveCard.player = gameHost.id
   aaveCard.inGameVault = true
   coinCardsArray.push(aaveCard)
 
-  uniswapCard.player = gameHost
+  uniswapCard.player = gameHost.id
   uniswapCard.inGameVault = true
   coinCardsArray.push(uniswapCard)
 
-  avaxCard.player = gameHost
+  avaxCard.player = gameHost.id
   avaxCard.inGameVault = true
   coinCardsArray.push(avaxCard)
 
-  lunaCard.player = gameHost
+  lunaCard.player = gameHost.id
   lunaCard.inGameVault = true
   coinCardsArray.push(lunaCard)
 
-  filCard.player = gameHost
+  filCard.player = gameHost.id
   filCard.inGameVault = true
   coinCardsArray.push(filCard)
 
-  linkCard.player = gameHost
+  linkCard.player = gameHost.id
   linkCard.inGameVault = true
   coinCardsArray.push(linkCard)
 
-  thetaCard.player = gameHost
+  thetaCard.player = gameHost.id
   thetaCard.inGameVault = true
   coinCardsArray.push(thetaCard)
 
-  grtCard.player = gameHost
+  grtCard.player = gameHost.id
   grtCard.inGameVault = true
   coinCardsArray.push(grtCard)
 
-  axsCard.player = gameHost
+  axsCard.player = gameHost.id
   axsCard.inGameVault = true
   coinCardsArray.push(axsCard)
 
-  manaCard.player = gameHost
+  manaCard.player = gameHost.id
   manaCard.inGameVault = true
   coinCardsArray.push(manaCard)
 
-  flowCard.player = gameHost
+  flowCard.player = gameHost.id
   flowCard.inGameVault = true
   coinCardsArray.push(flowCard)
 
-  enjCard.player = gameHost
+  enjCard.player = gameHost.id
   enjCard.inGameVault = true
   coinCardsArray.push(enjCard)
 
@@ -196,7 +202,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       shitcoinCard.inNextCoinVault,
       shitcoinCard.inDumpster,
     )
-    shtCard.player = gameHost
+    shtCard.player = gameHost.id
     shtCard.inGameVault = true
     coinCardsArray.push(shtCard)
   }
@@ -214,7 +220,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       nywnykCard.inEventVault,
       nywnykCard.inNextEventVault,
     )
-    nkyk.player = gameHost
+    nkyk.player = gameHost.id
     nkyk.inGameVault = true
     eventCardsArray.push(nkyk)
   }
@@ -231,7 +237,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       walletCardObj.inEventVault,
       walletCardObj.inNextEventVault,
     )
-    wl.player = gameHost
+    wl.player = gameHost.id
     wl.inGameVault = true
     eventCardsArray.push(wl)
   }
@@ -247,7 +253,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       lostSeedCard.inEventVault,
       lostSeedCard.inNextEventVault,
     )
-    lc.player = gameHost
+    lc.player = gameHost.id
     lc.inGameVault = true
     eventCardsArray.push(lc)
   }
@@ -263,7 +269,7 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       generalKnowledgeCard.inEventVault,
       generalKnowledgeCard.inNextEventVault,
     )
-    gc.player = gameHost
+    gc.player = gameHost.id
     gc.inGameVault = true
     eventCardsArray.push(gc)
   }
@@ -279,28 +285,28 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
       miningStakingCard.inEventVault,
       miningStakingCard.inNextEventVault,
     )
-    mc.player = gameHost
+    mc.player = gameHost.id
     mc.inGameVault = true
     eventCardsArray.push(mc)
   }
 
-  useCaseMECard.player = gameHost
+  useCaseMECard.player = gameHost.id
   useCaseMECard.inGameVault = true
   eventCardsArray.push(useCaseMECard)
 
-  useCaseSCPCard.player = gameHost
+  useCaseSCPCard.player = gameHost.id
   useCaseSCPCard.inGameVault = true
   eventCardsArray.push(useCaseSCPCard)
 
-  useCaseDFCard.player = gameHost
+  useCaseDFCard.player = gameHost.id
   useCaseDFCard.inGameVault = true
   eventCardsArray.push(useCaseDFCard)
 
-  useCaseW3Card.player = gameHost
+  useCaseW3Card.player = gameHost.id
   useCaseW3Card.inGameVault = true
   eventCardsArray.push(useCaseW3Card)
 
-  useCaseMVCard.player = gameHost
+  useCaseMVCard.player = gameHost.id
   useCaseMVCard.inGameVault = true
   eventCardsArray.push(useCaseMVCard)
 
@@ -431,7 +437,14 @@ export function executeGameEvent(gameDeck) {
 // @params: blockchainId, gameId, gameTurn, currentPlayer
 export function validateAction() {}
 
+// identifier for the game should be truly randomized
 export function generateGameId() {
   var gameId = uuidv4()
   return gameId
+}
+
+// identifiers for game players should be truly randomized
+export function generatePlayerId() {
+  var playerId = uuidv4()
+  return playerId
 }
