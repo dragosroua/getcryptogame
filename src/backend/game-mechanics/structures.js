@@ -78,6 +78,16 @@ export function walletCard(
   this.inNextEventVault = inNextEventVault
 }
 
+export function gamePlayer(id, name, avatar, address, cards, isCurrent, isWinner) {
+  this.id = id
+  this.name = name
+  this.avatar = avatar
+  this.addess = address
+  this.cards = cards
+  this.isCurrent = isCurrent
+  this.isWinner = isWinner
+}
+
 /***************** Coin cards ***************/
 
 /**
@@ -729,15 +739,15 @@ export var gameStruct = {
 }
 
 export var playerStruct = {
-  id: 'player0',
-  name: 'Eva',
-  avatar: 'img',
-  address: 'xyz',
+  id: '0',
+  name: '',
+  avatar: '',
+  address: '',
   cards: {
-    hand: ['q20', 'seed', 'q08'],
+    hand: [],
     portfolio: {
-      cards: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-      wallets: [['FLOW']],
+      cards: [],
+      wallets: [],
     },
   },
   isCurrent: false,
