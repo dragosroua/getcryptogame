@@ -1,0 +1,176 @@
+/* OVERLAY */
+.card.full {
+    width: 270px;
+}
+.card.ggrid {
+    margin: 5px;
+    max-width: 150px;
+    width: 43vw;
+    @media (max-height: 600px) and (orientation: portrait) {
+        width: 34vw;
+    }
+}
+.card.ggrid.newcard {
+    animation: slideintop 0.4s ease-out 0.2s forwards;
+    left: -50px;
+    opacity: 0;
+    position: relative;
+    top: -100px;
+    transform: rotate(-10deg);
+}
+.card.ggrid.newcard.stopani {
+    animation: none;
+    left: 0;
+    opacity: 1;
+    top: 0;
+    transform: rotate(0);
+}
+
+/*
+.card.ggrid.newcard.slidein {
+    left: 0;
+    opacity: 1;
+    top: 0;
+    transform: rotate(0);
+    transition: all 0.2s 0s ease-in;
+}
+*/
+
+@keyframes slideintop {
+    0% {
+        left: -50px;
+        opacity: 0;
+        position: relative;
+        top: -100px;
+        transform: rotate(-10deg);
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+        top: 0;
+        transform: rotate(0);
+    }
+}
+
+
+.overlay .aside {
+    display: flex;
+    flex-direction: column; 
+    height: 100vh;
+}
+
+
+.over-nowplaying, 
+.over-nowviewing,
+.over-nowtifications,
+.over-content {
+    margin: 0 15px;
+    padding: 10px 0;
+}
+.over-nowplaying {
+    margin-top: 15px;
+}
+.over-nowplaying, 
+.over-nowtifications,
+.over-nowviewing {
+    border-bottom: solid 1px #000;
+}
+
+.over-content {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.over-nowplaying,
+.over-nowviewing {
+    text-align: left;
+}
+.round2 .over-nowplaying {
+    padding-bottom: 15px;
+}
+
+.over-nowplaying .pic {
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.round1 .step1 .over-notifications {
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0 10px;
+    box-sizing: border-box;
+}
+
+.round2 .step1 .over-notifications {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.over-select .cardholder {
+    background-color: rgba(238,238,238,0.6);
+    border-radius: 8%;
+    display: inline-block;
+    margin: 5px;
+}
+.over-select .cardholder .card {
+    display: block;
+    opacity: 0;
+}
+
+.overlay .portfolio {
+    background-color: transparent;
+    box-shadow: none;
+    display: block;
+    text-align: left;
+    margin: 40px;
+}
+
+.over-nowplaying .portfolio-viewer {
+    float: right;
+    position: relative;
+    text-align: right;
+    top: -20px;
+}
+
+.over-nowplaying .dropdown {
+    background-color: rgba(238,238,238,0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px -3px rgb(0 0 0 / 80%);
+    box-sizing: border-box;
+    margin-top: -7px;
+    max-height: 0;
+    min-width: 100%;
+    padding: 2px 7px;
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    text-align: left;
+    transition: all 0.02s 0s ease-out;
+    z-index: 10;
+}
+.over-nowplaying .dropdown.show {
+    max-height: 200px;
+    opacity: 1;
+    transition: all 0.3s 0s ease-in;
+}
+
+.over-nowplaying .dropdown-button {
+    cursor: pointer;
+    display: block;
+    padding: 5px;
+    border-top: solid 1px #000;
+}
+.over-nowplaying .dropdown-button:first-child {
+    border-top: none;
+}

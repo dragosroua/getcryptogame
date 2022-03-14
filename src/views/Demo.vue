@@ -204,7 +204,7 @@
             <span class="hand">
               <img src="../assets/img/wallet-hand.png" class="card" />
               <img src="../assets/img/keys-hand.png" class="card" />
-              <img src="../assets/img/nft-hand.png" class="card" />
+              <img src="../assets/img/q2-hand.png" class="card" />
             </span>
           </div>
           <div class="on-turn">
@@ -338,7 +338,7 @@
             </section>
             <section id="over-main" class="over-grid">
               <img
-                src="../assets/img/defi-grid.png"
+                src="../assets/img/u1-grid.png"
                 class="card ggrid newcard"
                 id="new-on-hand1"
                 onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');"
@@ -354,7 +354,7 @@
                 onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');"
               />
               <img
-                src="../assets/img/nft-grid.png"
+                src="../assets/img/q2-grid.png"
                 class="card ggrid"
                 onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');"
               />
@@ -369,7 +369,7 @@
             </section>
             <section id="over-main" class="over-grid">
               <img
-                src="../assets/img/satoshi-grid.png"
+                src="../assets/img/q3-grid.png"
                 class="card ggrid newcard"
                 id="new-on-hand2"
                 onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');"
@@ -385,7 +385,7 @@
                 onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');"
               />
               <img
-                src="../assets/img/nft-grid.png"
+                src="../assets/img/q2-grid.png"
                 class="card ggrid"
                 onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1-2x', 'over-me-not2-2x');"
               />
@@ -439,7 +439,7 @@
               <span id="over-ron-notifi1" class="notifications show"> Ron played the following card:</span>
             </section>
             <section id="over-main" class="over-content">
-              <img src="../assets/img/send-full.png" class="card full" />
+              <img src="../assets/img/q4-full.png" class="card full" />
             </section>
           </div>
           <div id="round1-ron-step1-2" class="step1" style="display: none">
@@ -524,8 +524,8 @@
               <span id="over-andrea-notifi1" class="notifications show"> Andrea played the following card:</span>
             </section>
             <section id="over-main" class="over-content">
-              <img src="../assets/img/blockchain-full.png" class="card full show-round1" />
-              <img src="../assets/img/tokens-full.png" class="card full show-round2" />
+              <img src="../assets/img/q6-full.png" class="card full show-round1" />
+              <img src="../assets/img/q7-full.png" class="card full show-round2" />
             </section>
           </div>
         </aside>
@@ -560,7 +560,7 @@
               <span id="over-natalia-notifi1-2" class="notifications show"> Natalia played the following card:</span>
             </section>
             <section id="over-main" class="over-content">
-              <img src="../assets/img/ico-full.png" class="card full" />
+              <img src="../assets/img/q1-full.png" class="card full" />
             </section>
           </div>
         </aside>
