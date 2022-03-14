@@ -24,5 +24,8 @@ export default {
 .card.portfolio {
   max-height: 9vh;
   width: auto;
+  .overlay & {
+    max-height: 12vh;
+  }
 }
 </style>

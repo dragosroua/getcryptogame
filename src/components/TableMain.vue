@@ -1,21 +1,21 @@
 <template>
   <div v-bind:class="'table-container player-count--' + players.length">
     <!-- printing portfolio for the isPlaying player -->
-    <PlayerPortfolio
-      v-bind:player="playingPlayer[0].id + 1"
-      v-bind:name="playingPlayer[0].name"
-      v-bind:avatar="playingPlayer[0].avatar"
-      v-bind:total="playingPlayer[0].total"
-      v-bind:wallettotal="playingPlayer[0].wallettotal"
-      v-bind:lowestcoins="playingPlayer[0].lowestcoinvalues"
-      v-bind:wallets="playingPlayer[0].cards.portfolio.wallets"
-      v-bind:coins="playingPlayer[0].cards.portfolio.coins"
+    <TablePortfolio
+      v-bind:player="playingPlayer.id + 1"
+      v-bind:name="playingPlayer.name"
+      v-bind:avatar="playingPlayer.avatar"
+      v-bind:total="playingPlayer.total"
+      v-bind:wallettotal="playingPlayer.wallettotal"
+      v-bind:lowestcoins="playingPlayer.lowestcoinvalues"
+      v-bind:wallets="playingPlayer.cards.portfolio.wallets"
+      v-bind:coins="playingPlayer.cards.portfolio.coins"
     />
 
-    <div v-bind:class="'hand isplaying--' + (playingPlayer[0].id + 1)">
+    <div v-bind:class="'hand isplaying--' + (playingPlayer.id + 1)">
       <img src="../assets/img/wallet-hand.png" class="card" />
       <img src="../assets/img/keys-hand.png" class="card" />
-      <img src="../assets/img/nft-hand.png" class="card" />
+      <img src="../assets/img/q2-hand.png" class="card" />
     </div>
 
     <!-- printing all player tags in the right order and positions, except the isPlaying player -->
@@ -30,57 +30,28 @@
       />
     </template>
 
-    <div v-bind:class="'stack isplaying--' + (playingPlayer[0].id + 1)">
+    <div v-bind:class="'stack isplaying--' + (playingPlayer.id + 1)">
       <div class="notification-container">
-        <span class="round1">
-          <span id="notifi-round1-1" class="notifications">It's Natalia's turn</span>
-          <span id="notifi-round1-2" class="notifications">Natalia is picking up an event card</span>
-          <span id="notifi-round1-3" class="notifications">Waiting for Natalia to select a card to play</span>
-        </span>
-        <span class="round2">
-          <span id="notifi-round2-1" class="notifications">It's your turn, please pick up an event card</span>
-          <span id="notifi-round2-2" class="notifications">You redeem 3 coin cards</span>
-          <span id="notifi-round2-2-2" class="notifications">You redeem 1 coin card</span>
-        </span>
-        <span class="round3">
-          <span id="notifi-round3-1" class="notifications">It's Ron's turn</span>
-          <span id="notifi-round3-2" class="notifications">Ron is picking up an event card</span>
-          <span id="notifi-round3-3" class="notifications">Waiting for Ron to select a card to play</span>
-          <span id="notifi-round3-4" class="notifications">Ron redeems 1 coin card</span>
-        </span>
-        <span class="round4">
-          <span id="notifi-round4-1" class="notifications">It's Andrea's turn</span>
-          <span id="notifi-round4-2" class="notifications">Andrea is picking up an event card</span>
-          <span id="notifi-round4-3" class="notifications">Waiting for Andrea to select a card to play</span>
-          <span id="notifi-round4-4" class="notifications">Andrea redeems 1 coin card</span>
-        </span>
-        <span class="round5">
-          <span id="notifi-round5-1" class="notifications">It's Natalia's turn</span>
-          <span id="notifi-round5-2" class="notifications">Natalia is picking up an event card</span>
-          <span id="notifi-round5-3" class="notifications">Waiting for Natalia to select a card to play</span>
-          <span id="notifi-round5-4" class="notifications">Natalia redeems 1 coin card</span>
-        </span>
+        <FeedbackNotifications v-bind:feedback="feedbackType" />
       </div>
-      <img src="../assets/img/anverso-questions.png" class="card" id="questionstack" />
-      <img src="../assets/img/anverso-coins.png" class="card" id="cardstack" />
-      <div class="cardstack" id="cardstack-ani">
+      <img src="../assets/img/anverso-questions.png" class="card" />
+      <img src="../assets/img/anverso-coins.png" class="card" />
+      <div class="cardstack">
         <img src="../assets/img/anverso-coins.png" class="card" />
         <img src="../assets/img/anverso-coins.png" class="card" />
         <img src="../assets/img/anverso-coins.png" class="card" />
       </div>
     </div>
   </div>
+
+  <OverlayContainer v-show="showOverlay" v-bind:data="{ players, nexteventcard, next3coincards }" />
 </template>
 
 <script>
 import PlayerTag from './PlayerTag'
-import PlayerPortfolio from './PlayerPortfolio'
-
-// helperfunction GetCardValues() { gets card values from their ticker with a switch statement}
-// helperfunction GetCardArrayTotal() {gets the total of a ticker array using GetCardValues and adding them up}
-// GetWalletTotal() { adds array walue of all wallets }
-// GetTotal() { adds array walue of coins and of all wallets }
-// Get LowestCoins() { transforms a ticker array to a value array and then finds the 3 lowest values}
+import TablePortfolio from './TablePortfolio'
+import OverlayContainer from './OverlayContainer'
+import FeedbackNotifications from './FeedbackNotifications'
 
 export default {
   name: 'TableMain',
@@ -99,13 +70,13 @@ export default {
           name: 'Dragos',
           avatar: 'ron.png',
           adress: 'walletaddress',
-          isMe: false,
+          isMe: true,
           isPlaying: true,
           total: 18,
           wallettotal: 5,
           lowestcoinvalues: [3, 3, 3],
           cards: {
-            hand: ['keys', 'wallet', 'q13'],
+            hand: ['keys', 'wallet', 'q7'],
             portfolio: {
               coins: ['ETH', 'AAVE', 'SHIT', 'SHIT'],
               wallets: [['BTC'], ['ETH', 'UNI']],
@@ -126,7 +97,7 @@ export default {
             hand: ['q20', 'seed', 'q08'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['DOGE'], ['FIL', 'SHIT']],
+              wallets: [['DOGE'], ['XMR', 'SHIT']],
             },
           },
         },
@@ -203,28 +174,31 @@ export default {
           },
         },
       ],
+      // nexteventcard contains the type of the next card on the event stack
+      nexteventcard: 'u1',
+      // next3coincards contains the type of the 3 next card on the coin stack
+      next3coincards: ['BTC', 'FIL', 'SHIT'],
     }
   },
   components: {
     PlayerTag,
-    PlayerPortfolio,
+    TablePortfolio,
+    OverlayContainer,
+    FeedbackNotifications,
   },
   computed: {
     playingPlayer: function () {
-      return this.players.filter((player) => player.isPlaying)
+      let arr = this.players.filter((player) => player.isPlaying)
+      return arr[0]
     },
-    playersComputed: function () {
-      // transform this.players. for example it could calculate the total,
-      // the wallettotal and the lowestcoinsvalues for each player and write
-      // a new array with those values added to each player. It could use
-      // helperfunctions located outside the vue-object to increase readability
-
-      // OR: Do this with filters instead!!!
-
-      // OR: Create a computed property for each player, so Vue can update only
-      // the necessary elements!!!
-
-      return []
+    feedbackType: function () {
+      // this function selects the right feedback notification series for each
+      // move in the game. For the moment it just returns something static.
+      return 'otherTurnStart'
+    },
+    showOverlay: function () {
+      // this function shows the overlay when needed. For the moment it reads the params of the URL.
+      return this.$route.params.variant
     },
   },
 }
