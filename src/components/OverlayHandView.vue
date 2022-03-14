@@ -12,8 +12,9 @@
             showportfolio = false
             portfolioId = -1
           "
-          >Back</span
         >
+          Back
+        </span>
       </div>
 
       <!-- portfolio viewer dropdown -->
