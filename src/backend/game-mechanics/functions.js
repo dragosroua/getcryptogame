@@ -369,19 +369,20 @@ export function createGameDeck(gameHost, playersArray, blockchain = 'pylons') {
     eventCardsArray: eventCardsArray,
     currentPlayer: {},
     playedEventCardsArray: [], // initialize this as empty
+    playedCoinCardsArray: [], // initialize this as empty, coins lost via "not your keys" / "lost your seed" event cards
   }
 
   return gameDeck
 }
 
-export function setCurrentPlayer(gameDeck, playerAddress) {
-  return (gameDeck.currentPlayer = playerAddress)
+export function setCurrentPlayer(gameDeck, player) {
+  return (gameDeck.currentPlayer = player)
 }
 
 // playes a card by a player and implements the game mechanic, increments gameTurn
 // @params: gameId, playerAddress, gameDeck, xcardType
 // @returns: gameId, eventId, eventType, eventReceiver
-export function playEventCard(gameId, playerAddress, gameDeck, eventCard) {
+export function playEventCard(gameId, player, gameDeck, eventCard) {
   // to do: validate if the player had the card is playing
   // card conditions
   if (eventCard.cardType === 'not-wallet-not-keys') {
@@ -391,7 +392,7 @@ export function playEventCard(gameId, playerAddress, gameDeck, eventCard) {
     // Shitcoin cards lost this way, leave the game. All other coin cards go to a pile next to the coin card stack
 
     // get the next player in turn
-    var nextIndex = gameDeck.players.indexOf(playerAddress)
+    var nextIndex = gameDeck.players.indexOf(player)
     // if this is the last player in the array, move the needle to the beginning
     if (nextIndex === gameDeck.players.length - 1) {
       nextIndex = 0
@@ -407,20 +408,43 @@ export function playEventCard(gameId, playerAddress, gameDeck, eventCard) {
   }
   // the event card is added to the playedEventCards array
   gameDeck.playedEventCardsArray.push(eventCard)
-
+  // update game turn
+  gameDeck.turn++
   // wait for input in picking the next card from the event cards pile
 }
 
 // wait for input from player to pick a card,
 // return the card picked
 
-export function pickEventCard(gameId, playerAddress, gameDeck) {
+export function pickEventCard(gameId, player, gameDeck) {
   // validate the gameId and playerAddress
-  // check if the deck has cards in it, otherwise returns false, which means the end of the game
-  // returns the next available card from the current eventCard pile
-  var pickedCard = gameDeck['eventCardsArray'][0]
-  gameDeck['playedEventCardsArray'].push(pickedCard)
-  return pickedCard
+  // check if the coinCardsArray has cards in it, otherwise returns false, which means the end of the game
+  if (gameDeck['coinCardsArray'].length === 0) {
+    return false
+  } else {
+    if (gameDeck['eventCardsArray'].length === 0) {
+      // shuffle the playedEventCardsArray
+      gameDeck['playedEventCardsArray'].sort(() => Math.random() - 0.5)
+      gameDeck['eventCardsArray'] = gameDeck['playedEventCardsArray']
+      gameDeck['playedEventCardsArray'] = []
+      // picks the next available card from the current eventCard pile
+      var pickedCard = gameDeck['eventCardsArray'][0]
+      pickedCard.player = player.id
+    }
+    return true
+  }
+}
+
+// identifier for the game should be truly randomized
+export function generateGameId() {
+  var gameId = uuidv4()
+  return gameId
+}
+
+// identifiers for game players should be truly randomized
+export function generatePlayerId() {
+  var playerId = uuidv4()
+  return playerId
 }
 
 // implements the events
@@ -436,15 +460,3 @@ export function executeGameEvent(gameDeck) {
 // invoked before calling executeGameEvent
 // @params: blockchainId, gameId, gameTurn, currentPlayer
 export function validateAction() {}
-
-// identifier for the game should be truly randomized
-export function generateGameId() {
-  var gameId = uuidv4()
-  return gameId
-}
-
-// identifiers for game players should be truly randomized
-export function generatePlayerId() {
-  var playerId = uuidv4()
-  return playerId
-}
