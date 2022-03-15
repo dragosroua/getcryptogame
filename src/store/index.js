@@ -13,6 +13,7 @@ const store = createStore({
       eventCardsArray: [],
       currentPlayer: {},
       playedEventCardsArray: [],
+      playedCoinCardsArray: [],
     },
     users: [],
     isLoggedIn: false,
