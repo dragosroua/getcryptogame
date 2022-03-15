@@ -21,6 +21,7 @@ const routes = [
   { path: '/about', component: About },
   //Template Views
   { path: '/table', component: Table },
+  { path: '/table/:variant', component: Table },
 ]
 
 const router = createRouter({

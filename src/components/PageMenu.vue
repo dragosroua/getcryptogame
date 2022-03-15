@@ -21,6 +21,10 @@
           Template Views
         </h3>
         <router-link to="/table" @click="drawerVisible = false">Table</router-link>
+        <h3 style="font-weight: normal; color: #afafaf; font-size: 14px; font-style: italic; margin-bottom: 10px">
+          Overlay Template Views
+        </h3>
+        <router-link to="/table/selectcardtoplay" @click="drawerVisible = false">Select Card To play</router-link>
       </div>
     </div>
     <div
