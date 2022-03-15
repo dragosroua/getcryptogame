@@ -736,6 +736,7 @@ export var gameStruct = {
   eventCardsArray: [], // all event cards, each cards has a prop that says which player has it
   currentPlayer: {},
   playedEventCardsArray: [], // initialize this as empty
+  playedCoinCardsArray: [], // initialize this as empty, coins lost via "not your keys" / "lost your seed" event cards
 }
 
 export var playerStruct = {
