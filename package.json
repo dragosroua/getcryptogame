@@ -51,7 +51,7 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.6",
     "node-polyfill-webpack-plugin": "^1.1.4",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0"
   },
