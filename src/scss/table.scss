@@ -117,24 +117,7 @@
 }
 
 
-.pulsate {
-    box-shadow: 0px 0px 20px 0px #9e93ff;
-    animation: pulsate 1s ease-out infinite;
-}
-@keyframes pulsate {
-    0%   { box-shadow: 0 0 0 #9e93ff; }
-    50%  { box-shadow: 0 0 30px #9e93ff; }
-    100% { box-shadow: 0 0 0 #9e93ff; }
-}
-.overlay .card.pulsate {
-    box-shadow: 0px 0px 30px 0px #9e93ff;
-    animation: pulsate-more 1s ease-out infinite;
-}
-@keyframes pulsate-more {
-    0%   { box-shadow: 0 0 0 #9e93ff; }
-    50%  { box-shadow: 0 0 30px 10px #9e93ff; }
-    100% { box-shadow: 0 0 0 #9e93ff; }
-}
+
 
 
 .info em {

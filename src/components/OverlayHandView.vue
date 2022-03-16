@@ -6,15 +6,7 @@
       <em class="name">{{ playingPlayer.name }}</em>
 
       <div v-if="showportfolio" class="portfolio-viewer">
-        <span
-          class="button show"
-          @click="
-            showportfolio = false
-            portfolioId = -1
-          "
-        >
-          Back
-        </span>
+        <span class="button show" @click="unsetPortfolio"> Back </span>
       </div>
 
       <!-- portfolio viewer dropdown -->
@@ -25,23 +17,12 @@
           v-bind:class="showdropdown ? 'dropdown show' : 'dropdown'"
           @click="showdropdown = false"
         >
-          <span
-            class="dropdown-button"
-            @click="
-              showportfolio = true
-              portfolioId = 0
-            "
-          >
-            Me
-          </span>
+          <span class="dropdown-button" @click="setPortfolio(0)"> Me </span>
           <span
             v-for="player in players.filter((player) => !player.isPlaying)"
             :key="player.id"
             class="dropdown-button others"
-            @click="
-              showportfolio = true
-              portfolioId = player.id
-            "
+            @click="setPortfolio(player.id)"
           >
             {{ player.name }}
             <template v-if="player.id == 1">(next)</template>
@@ -76,22 +57,27 @@
       <!-- feedback notifications -->
       <section class="over-notifications">
         <FeedbackNotifications v-bind:feedback="feedbackType" />
+        <span
+          v-bind:class="playedCard !== '' ? 'button pulsate show' : 'button pulsate'"
+          @click="emitPlayedCardAndClose"
+          >Confirm choice</span
+        >
       </section>
       <!-- card grid -->
       <section class="over-grid">
         <!-- print newly picked up card -->
         <VueImg
           v-bind:imgsrc="newcardurl"
-          imgclasses="card ggrid newcard"
-          imgonclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');"
+          v-bind:class="playedCard === newcard ? 'newcard card ggrid pulsate' : 'newcard card ggrid'"
+          @click="playedCard = newcard"
         />
         <!-- print existing hand cards -->
         <VueImg
           v-for="(card, index) in playingPlayer.cards.hand"
           :key="index"
           v-bind:imgsrc="card + '-grid.png'"
-          imgclasses="card ggrid"
-          imgonclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');"
+          v-bind:class="playedCard === card ? 'card ggrid pulsate' : 'card ggrid'"
+          @click="playedCard = card"
         />
       </section>
     </div>
@@ -128,11 +114,29 @@ export default {
       return 'selectCardFromHand'
     },
   },
+  methods: {
+    setPortfolio: function (playerId) {
+      this.showportfolio = true
+      this.portfolioId = playerId
+    },
+    unsetPortfolio: function () {
+      this.showportfolio = false
+      this.portfolioId = -1
+    },
+    emitPlayedCardAndClose: function () {
+      // this function is going to pass the played card back to the table component.
+      // For now it just navigates to home
+      console.log(this.playedCard)
+      this.$router.push('/table')
+      this.playedCard = ''
+    },
+  },
   data() {
     return {
       showdropdown: false,
       showportfolio: false,
       portfolioId: -1,
+      playedCard: '',
     }
   },
 }
