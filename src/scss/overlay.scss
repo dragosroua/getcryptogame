@@ -25,17 +25,6 @@
     top: 0;
     transform: rotate(0);
 }
-
-/*
-.card.ggrid.newcard.slidein {
-    left: 0;
-    opacity: 1;
-    top: 0;
-    transform: rotate(0);
-    transition: all 0.2s 0s ease-in;
-}
-*/
-
 @keyframes slideintop {
     0% {
         left: -50px;
@@ -51,6 +40,33 @@
         transform: rotate(0);
     }
 }
+.card.ggrid.newcard.pulsate {
+    left: 0;
+    opacity: 1;
+    top: 0;
+    transform: rotate(0);
+}
+
+.overlay .card.pulsate {
+    box-shadow: 0px 0px 30px 0px #9e93ff;
+    animation: pulsate-more 1s ease-out infinite;
+}
+@keyframes pulsate-more {
+    0%   { box-shadow: 0 0 0 #9e93ff; }
+    50%  { box-shadow: 0 0 30px 10px #9e93ff; }
+    100% { box-shadow: 0 0 0 #9e93ff; }
+}
+
+/*
+.card.ggrid.newcard.slidein {
+    left: 0;
+    opacity: 1;
+    top: 0;
+    transform: rotate(0);
+    transition: all 0.2s 0s ease-in;
+}
+*/
+
 
 
 .overlay .aside {
