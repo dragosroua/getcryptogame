@@ -35,7 +35,7 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@vue/cli-plugin-babel": "~5.0.1",
     "@vue/cli-plugin-eslint": "~5.0.1",
-    "@vue/cli-plugin-router": "~5.0.1",
+    "@vue/cli-plugin-router": "~5.0.3",
     "@vue/cli-plugin-unit-jest": "~5.0.1",
     "@vue/cli-plugin-vuex": "~5.0.1",
     "@vue/cli-service": "~5.0.1",
@@ -51,7 +51,7 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.5",
     "node-polyfill-webpack-plugin": "^1.1.4",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0"
   },
