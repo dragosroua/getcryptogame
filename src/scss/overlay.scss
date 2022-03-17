@@ -78,7 +78,7 @@
 
 .over-nowplaying, 
 .over-nowviewing,
-.over-nowtifications,
+.over-notifications,
 .over-content {
     margin: 0 15px;
     padding: 10px 0;
@@ -87,9 +87,12 @@
     margin-top: 15px;
 }
 .over-nowplaying, 
-.over-nowtifications,
 .over-nowviewing {
     border-bottom: solid 1px #000;
+}
+
+.hand-view-select .over-notifications {
+    padding: 15px 5px 5px;
 }
 
 .over-content {
@@ -112,24 +115,6 @@
 .over-nowplaying .pic {
     border-radius: 50%;
     vertical-align: middle;
-}
-
-.round1 .step1 .over-notifications {
-    height: 110px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 0 10px;
-    box-sizing: border-box;
-}
-
-.round2 .step1 .over-notifications {
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .over-select .cardholder {

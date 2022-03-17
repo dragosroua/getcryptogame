@@ -1,5 +1,5 @@
 <template>
-  <aside class="round2">
+  <aside class="hand-view-select">
     <!-- overlay header: now playing -->
     <section class="over-nowplaying">
       Now playing:
@@ -56,7 +56,7 @@
     <div v-else>
       <!-- feedback notifications -->
       <section class="over-notifications">
-        <FeedbackNotifications v-bind:feedback="feedbackType" />
+        <NotificationMsg feedback="Please choose which card to play" v-bind:show="playedCard === ''" />
         <span
           v-bind:class="playedCard !== '' ? 'button pulsate show' : 'button pulsate'"
           @click="emitPlayedCardAndClose"
@@ -86,14 +86,14 @@
 
 <script>
 import VueImg from './VueImg'
-import FeedbackNotifications from './FeedbackNotifications'
+import NotificationMsg from './NotificationMsg'
 import PlayerPortfolio from './PlayerPortfolio'
 
 export default {
   name: 'OverlayHandView',
   components: {
     VueImg,
-    FeedbackNotifications,
+    NotificationMsg,
     PlayerPortfolio,
   },
   props: ['players', 'newcard'],

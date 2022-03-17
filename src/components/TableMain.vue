@@ -32,7 +32,7 @@
 
     <div v-bind:class="'stack isplaying--' + (playingPlayer.id + 1)">
       <div class="notification-container">
-        <FeedbackNotifications v-bind:feedback="feedbackType" />
+        <NotificationAnimation v-bind:feedback="feedbackType" />
       </div>
       <img src="../assets/img/anverso-questions.png" class="card" />
       <img src="../assets/img/anverso-coins.png" class="card" />
@@ -51,7 +51,7 @@
 import PlayerTag from './PlayerTag'
 import TablePortfolio from './TablePortfolio'
 import OverlayContainer from './OverlayContainer'
-import FeedbackNotifications from './FeedbackNotifications'
+import NotificationAnimation from './NotificationAnimation'
 
 export default {
   name: 'TableMain',
@@ -184,7 +184,7 @@ export default {
     PlayerTag,
     TablePortfolio,
     OverlayContainer,
-    FeedbackNotifications,
+    NotificationAnimation,
   },
   computed: {
     playingPlayer: function () {
