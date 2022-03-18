@@ -1,10 +1,12 @@
 <template>
-  <span class="round1">
-    <span id="notifi-round1-1" class="notifications">It's Natalia's turn</span>
-    <span id="notifi-round1-2" class="notifications">Natalia is picking up an event card</span>
-    <span id="notifi-round1-3" class="notifications">Waiting for Natalia to select a card to play</span>
-  </span>
+  <NotificationMsg v-bind:msg="feedback" />
   <!--
+  <span class="round1">
+    <span class="notifications">It's Natalia's turn</span>
+    <span class="notifications">Natalia is picking up an event card</span>
+    <span class="notifications">Waiting for Natalia to select a card to play</span>
+  </span>
+ 
     <span class="yourturn">
         <span id="notifi-round2-1" class="notifications">It's your turn, please pick up an event card</span>
         <span id="notifi-round2-2" class="notifications">You redeem 3 coin cards</span>
@@ -19,10 +21,14 @@
 </template>
 
 <script>
+import NotificationMsg from './NotificationMsg'
+
 export default {
-  name: 'FeedbackNotifications',
+  name: 'NotificationAnimation',
   props: ['feedback'],
-  components: {},
+  components: {
+    NotificationMsg,
+  },
   data() {
     return {}
   },
