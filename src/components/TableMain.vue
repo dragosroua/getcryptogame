@@ -44,14 +44,26 @@
     </div>
   </div>
 
-  <OverlayContainer v-show="showOverlay" v-bind:data="{ players, nexteventcard, next3coincards }" />
+  <div class="overlay" v-bind:class="{ show: showOverlayType }">
+    <OverlayHandView
+      v-show="showOverlayType === 'selectcardtoplay'"
+      v-bind:players="players"
+      v-bind:newcard="nexteventcard"
+    />
+    <OverlayPlayedCard
+      v-show="showOverlayType === 'showplayedcard'"
+      v-bind:player="playingPlayer"
+      v-bind:card="playedCard"
+    />
+  </div>
 </template>
 
 <script>
 import PlayerTag from './PlayerTag'
 import TablePortfolio from './TablePortfolio'
-import OverlayContainer from './OverlayContainer'
 import NotificationAnimation from './NotificationAnimation'
+import OverlayHandView from './OverlayHandView'
+import OverlayPlayedCard from './OverlayPlayedCard'
 
 export default {
   name: 'TableMain',
@@ -183,8 +195,9 @@ export default {
   components: {
     PlayerTag,
     TablePortfolio,
-    OverlayContainer,
     NotificationAnimation,
+    OverlayHandView,
+    OverlayPlayedCard,
   },
   computed: {
     playingPlayer: function () {
@@ -196,9 +209,32 @@ export default {
       // move in the game. For the moment it just returns something static.
       return 'otherTurnStart'
     },
-    showOverlay: function () {
+    showOverlayType: function () {
       // this function shows the overlay when needed. For the moment it reads the params of the URL.
-      return this.$route.params.variant
+      let overlaytype = false
+      switch (this.$route.params.variant) {
+        case 'selectcardtoplay':
+          overlaytype = 'selectcardtoplay'
+          break
+        case 'showplayedcard':
+          overlaytype = 'showplayedcard'
+          break
+        case 'selectcardstogiveup':
+          overlaytype = false
+          break
+        case 'selectcardtopaddtowallet':
+          overlaytype = false
+          break
+        case 'selectcwallettogiveup':
+          overlaytype = false
+          break
+      }
+      return overlaytype
+    },
+    playedCard: function () {
+      // this function will listen to the card-played event and return the played card.
+      // For now it just retuns something static
+      return 'q1'
     },
   },
 }
@@ -207,6 +243,7 @@ export default {
 <style lang="scss">
 @import '../scss/variables';
 @import '../scss/table';
+@import '../scss/overlay';
 
 .table-container {
   height: $tableheight;
@@ -276,5 +313,26 @@ export default {
   left: -6px;
   text-align: center;
   width: 22px;
+}
+
+.overlay {
+  background-color: rgba(125, 111, 255, 0.59);
+  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(155, 155, 155, 0.6);
+  backdrop-filter: blur(10px);
+  height: $tableheight;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: $appheaderheight;
+  transition: all 0.1s 0s ease-out;
+  width: 100vw;
+  z-index: 5;
+}
+
+.overlay.show {
+  opacity: 1;
+  transition: all 0.3s 0s ease-in;
+  display: block;
 }
 </style>

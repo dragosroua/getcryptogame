@@ -25,6 +25,16 @@
           Overlay Template Views
         </h3>
         <router-link to="/table/selectcardtoplay" @click="drawerVisible = false">Select Card To play</router-link>
+        <router-link to="/table/showplayedcard" @click="drawerVisible = false">Display Played Card</router-link>
+        <router-link to="/table/selectcardstogiveup" @click="drawerVisible = false"
+          >Select Cards To Give Up</router-link
+        >
+        <router-link to="/table/selectcardtopaddtowallet" @click="drawerVisible = false"
+          >Select Card To Add to Wallet</router-link
+        >
+        <router-link to="/table/selectcwallettogiveup" @click="drawerVisible = false"
+          >Select Wallet to Give up</router-link
+        >
       </div>
     </div>
     <div

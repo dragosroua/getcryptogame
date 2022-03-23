@@ -1,15 +1,16 @@
 <template>
   <aside class="hand-view-select">
-    <!-- overlay header: now playing -->
+    <!-- START overlay header: now playing -->
     <section class="over-nowplaying">
       Now playing:
       <em class="name">{{ playingPlayer.name }}</em>
 
+      <!-- IF portfolio is showing, show back button -->
       <div v-if="showportfolio" class="portfolio-viewer">
         <span class="button show" @click="unsetPortfolio"> Back </span>
       </div>
 
-      <!-- portfolio viewer dropdown -->
+      <!-- ELSE portfolio is hidden, show portfolio select dropdown -->
       <div v-else class="portfolio-viewer">
         <span @click="showdropdown = !showdropdown" class="button show">View portfolio</span>
         <div
@@ -30,11 +31,10 @@
           </span>
         </div>
       </div>
-
-      <!-- portfolio viewer back button -->
     </section>
+    <!-- END overlay header: now playing -->
 
-    <!-- overlay header: now viewing -->
+    <!-- START overlay header: now viewing -->
     <section v-if="showportfolio" class="over-nowviewing">
       Now viewing portfolio:
       <em v-if="portfolioId == 0" class="name">Mine</em>
@@ -44,15 +44,18 @@
       Now viewing:
       <em class="name">my hand</em>
     </section>
+    <!-- END overlay header: now viewing -->
 
-    <!-- overlay main content -->
-    <div v-if="showportfolio" class="portfolio">
+    <!-- START overlay main content -->
+    <!-- IF portfolio is showing, show portfolio -->
+    <div v-if="showportfolio" class="portfolio-container">
       <PlayerPortfolio
         v-bind:wallets="players[portfolioId].cards.portfolio.wallets"
         v-bind:coins="players[portfolioId].cards.portfolio.coins"
       />
     </div>
 
+    <!-- ELSE portfolio is hidden, show hand selection screen -->
     <div v-else>
       <!-- feedback notifications -->
       <section class="over-notifications">
@@ -81,6 +84,8 @@
         />
       </section>
     </div>
+
+    <!-- START overlay main content -->
   </aside>
 </template>
 
@@ -144,5 +149,4 @@ export default {
 
 <style scoped lang="scss">
 @import '../scss/variables';
-@import '../scss/overlay';
 </style>

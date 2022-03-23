@@ -1,6 +1,7 @@
 /* OVERLAY */
 .card.full {
-    width: 270px;
+    max-width: 270px;
+    width: calc(100% - 30px);
 }
 .card.ggrid {
     margin: 5px;
@@ -128,7 +129,7 @@
     opacity: 0;
 }
 
-.overlay .portfolio {
+.overlay .portfolio-container {
     background-color: transparent;
     box-shadow: none;
     display: block;
