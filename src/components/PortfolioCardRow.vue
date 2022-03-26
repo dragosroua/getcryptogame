@@ -1,7 +1,12 @@
 <template>
   <span v-bind:class="[isWallet ? 'walletrow row' : 'cardrow row']">
     <PortfolioCard v-if="isWallet" ticker="wallet" />
-    <PortfolioCard v-for="(ticker, index) in coins" :key="index" v-bind:ticker="ticker" />
+    <PortfolioCard
+      v-for="(ticker, index) in coins"
+      :key="index"
+      v-bind:ticker="ticker"
+      @click="emitEvent({ eventtype: 'cardselected', ticker: ticker, index: index })"
+    />
   </span>
 </template>
 
@@ -13,6 +18,14 @@ export default {
   props: ['coins', 'isWallet'],
   components: {
     PortfolioCard,
+  },
+  emits: ['cardselected'],
+  methods: {
+    emitEvent: function (payload) {
+      if (!this.isWallet) {
+        this.$emit('cardselected', payload)
+      }
+    },
   },
   data() {
     return {

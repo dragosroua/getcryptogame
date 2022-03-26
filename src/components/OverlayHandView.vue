@@ -102,6 +102,7 @@ export default {
     PlayerPortfolio,
   },
   props: ['players', 'newcard'],
+  emits: ['cardtoplayselected'],
   computed: {
     playingPlayer: function () {
       let arr = this.players.filter((player) => player.isPlaying)
@@ -129,9 +130,10 @@ export default {
       this.portfolioId = -1
     },
     emitPlayedCardAndClose: function () {
-      // this function is going to pass the played card back to the table component.
-      // For now it just navigates to home
+      // this function emits an event with the tickers of the played card.
+      // than it navigates back to table.
       console.log(this.playedCard)
+      this.$emit('cardstogiveupselected', this.playedCard)
       this.$router.push('/table')
       this.playedCard = ''
     },

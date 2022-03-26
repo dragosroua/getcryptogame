@@ -79,7 +79,6 @@
 
 .over-nowplaying, 
 .over-nowviewing,
-.over-notifications,
 .over-content {
     margin: 0 15px;
     padding: 10px 0;
@@ -92,7 +91,8 @@
     border-bottom: solid 1px #000;
 }
 
-.hand-view-select .over-notifications {
+.over-notifications {
+    margin: 0 15px;
     padding: 15px 5px 5px;
 }
 
@@ -118,16 +118,43 @@
     vertical-align: middle;
 }
 
-.over-select .cardholder {
+.cardholder-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.cardholder {
     background-color: rgba(238,238,238,0.6);
     border-radius: 8%;
     display: inline-block;
+    height: 106px;
     margin: 5px;
+    width: 70px;
 }
-.over-select .cardholder .card {
+.cardholder.selected:after {
+    background-color: rgba(225, 225, 225, 0.8);
+    box-shadow: $boxshadow; 
+    border-radius: 50%;
+    content: '\00d7';
+    display: inline-block;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 35px;
+    height: 35px;
+    line-height: 1;
+    padding: 3px;
+    position: relative;
+    top: -20px;
+    width: 35px;
+}
+
+.selected .cardholder-img {
     display: block;
-    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
 }
+
 
 .overlay .portfolio-container {
     background-color: transparent;

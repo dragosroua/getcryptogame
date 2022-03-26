@@ -1,0 +1,12 @@
+PortfolioCard: receives the ticker and constructs the image name from there.
+        IMPORTANT: the images have to start with uppercase ticker and continue with 
+        one of the sizes: -table.png, -select.png, -hand.png, -grid.png or -full.png
+
+PortfolioCardRow: receives an array of card tickers and (only if necessary) the 
+        indication prop 'isWallet'. 
+        Emits: 'cardselected' only on cards NOT in a wallet 
+
+PlayerPortfolio: receive a (multidmensional) array of all wallets (and the card tickers in them) 
+        and an array of all unprotected cards (tickers). Also it receives if necessary the prop 'emits', 
+        that can be set to 'all', 'walletselected' or 'cardselected'.
+        Emits: 'cardselected' and 'walletselected' if configured for it with the prop 'emits'
