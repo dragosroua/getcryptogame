@@ -19,9 +19,9 @@
     <div>
       <!-- feedback notifications -->
       <section class="over-notifications">
-        <NotificationMsg v-bind:feedback="feedbackMessage" v-bind:show="this.selectedWallet.length < 3" />
+        <NotificationMsg v-bind:feedback="feedbackMessage" v-bind:show="this.selectedWallet.length < 1" />
         <span
-          v-bind:class="this.selectedWallet.length == 3 ? 'button pulsate show' : 'button pulsate'"
+          v-bind:class="this.selectedWallet.length == 1 ? 'button pulsate show' : 'button pulsate'"
           @click="emitselectedWalletAndClose"
           >Confirm choice</span
         >
@@ -29,8 +29,8 @@
       <!-- print cardholders -->
       <div class="walletholder-container">
         <span
-          class="walletholder deletable selected"
-          v-bind:class="{ selected: selectedWallet }"
+          class="walletholder deletable"
+          v-bind:class="{ selected: selectedWallet !== false }"
           @click="removeSelected"
         >
           <PortfolioCardRow v-if="selectedWalletCards.length > 0" v-bind:coins="selectedWalletCards" isWallet="true" />
