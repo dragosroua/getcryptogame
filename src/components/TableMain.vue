@@ -55,11 +55,11 @@
       v-bind:player="playingPlayer"
       v-bind:card="playedCard"
     />
-    <OverlayGiveUpCards
-      v-show="showOverlayType === 'selectcardstogiveup'"
-      v-bind:player="playingPlayer"
-      v-bind:card="playedCard"
-      emitcard="true"
+    <OverlayGiveUpCards v-show="showOverlayType === 'selectcardstogiveup'" v-bind:player="playingPlayer" />
+    <OverlayGiveUpWallet
+      v-show="showOverlayType === 'selectwallettogiveup'"
+      v-bind:playingplayer="playingPlayer"
+      v-bind:affectedplayer="nextPlayer"
     />
   </div>
 </template>
@@ -71,6 +71,7 @@ import NotificationAnimation from './NotificationAnimation'
 import OverlayHandView from './OverlayHandView'
 import OverlayPlayedCard from './OverlayPlayedCard'
 import OverlayGiveUpCards from './OverlayGiveUpCards'
+import OverlayGiveUpWallet from './OverlayGiveUpWallet'
 
 export default {
   name: 'TableMain',
@@ -140,7 +141,7 @@ export default {
         },
         {
           id: 3,
-          name: 'Maria',
+          name: 'Mulan',
           avatar: 'andrea.png',
           adress: 'walletaddress',
           isMe: false,
@@ -185,10 +186,10 @@ export default {
           wallettotal: 8,
           lowestcoinvalues: [3, 3, 3],
           cards: {
-            hand: ['q1', 'wallet', 'q7'],
+            hand: ['q2', 'wallet', 'q7'],
             portfolio: {
-              coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['DOGE']],
+              coins: ['ATOM', 'SHIT', 'SHIT', 'SHIT'],
+              wallets: [['ETH'], ['BTC', 'SHIT'], ['BTC', 'ETH', 'SHIT', 'SHIT', 'SHIT', 'SHIT']],
             },
           },
         },
@@ -206,11 +207,17 @@ export default {
     OverlayHandView,
     OverlayPlayedCard,
     OverlayGiveUpCards,
+    OverlayGiveUpWallet,
   },
   computed: {
     playingPlayer: function () {
       let arr = this.players.filter((player) => player.isPlaying)
       return arr[0]
+    },
+    nextPlayer: function () {
+      // returns the next player in turn. For now it just returns a fixed player.
+      console.log(this.players[this.players.length - 1])
+      return this.players[this.players.length - 1]
     },
     feedbackType: function () {
       // this function selects the right feedback notification series for each
@@ -233,8 +240,8 @@ export default {
         case 'selectcardtopaddtowallet':
           overlaytype = false
           break
-        case 'selectcwallettogiveup':
-          overlaytype = false
+        case 'selectwallettogiveup':
+          overlaytype = 'selectwallettogiveup'
           break
       }
       return overlaytype

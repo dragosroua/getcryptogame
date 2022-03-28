@@ -96,6 +96,10 @@
     padding: 15px 5px 5px;
 }
 
+.over-notifications .button {
+    display: inline-block;
+}
+
 .over-content {
     flex: 1 1 100%;
     display: flex;
@@ -118,34 +122,53 @@
     vertical-align: middle;
 }
 
-.cardholder-container {
+.cardholder-container,
+.walletholder-container {
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-.cardholder {
-    background-color: rgba(238,238,238,0.6);
-    border-radius: 8%;
+.cardholder,
+.walletholder {
+    background-color: $overlayplaceholder;
+    border-radius: 10px;
     display: inline-block;
-    height: 106px;
     margin: 5px;
+    position: relative;
+}
+.cardholder {
+    height: 106px;
     width: 70px;
 }
-.cardholder.selected:after {
+.walletholder {
+    height: 106px;
+    min-width: 126px;
+    padding: 0 35px;
+}
+
+.cardholder.deletable.selected:after,
+.walletholder.deletable.selected:after {
     background-color: rgba(225, 225, 225, 0.8);
     box-shadow: $boxshadow; 
     border-radius: 50%;
+    bottom: -20px;
     content: '\00d7';
     display: inline-block;
     font-family:'Times New Roman', Times, serif;
     font-size: 35px;
     height: 35px;
+    left: 50%;
     line-height: 1;
+    margin-left: -18px;
     padding: 3px;
-    position: relative;
-    top: -20px;
+    position: absolute;
     width: 35px;
+}
+
+.walletholder .walletrow {
+    margin-right: -25px;
+    margin-top: 20px;
 }
 
 .selected .cardholder-img {

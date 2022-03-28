@@ -1,5 +1,5 @@
 <template>
-  <aside class="hand-view-select">
+  <aside class="played-card-view">
     <!-- START overlay header: now playing -->
     <section class="over-nowplaying">
       Now playing:

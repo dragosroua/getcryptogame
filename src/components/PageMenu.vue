@@ -32,7 +32,7 @@
         <router-link to="/table/selectcardtopaddtowallet" @click="drawerVisible = false"
           >Select Card To Add to Wallet</router-link
         >
-        <router-link to="/table/selectcwallettogiveup" @click="drawerVisible = false"
+        <router-link to="/table/selectwallettogiveup" @click="drawerVisible = false"
           >Select Wallet to Give up</router-link
         >
       </div>
