@@ -55,6 +55,12 @@
       v-bind:player="playingPlayer"
       v-bind:card="playedCard"
     />
+    <OverlayGiveUpCards
+      v-show="showOverlayType === 'selectcardstogiveup'"
+      v-bind:player="playingPlayer"
+      v-bind:card="playedCard"
+      emitcard="true"
+    />
   </div>
 </template>
 
@@ -64,6 +70,7 @@ import TablePortfolio from './TablePortfolio'
 import NotificationAnimation from './NotificationAnimation'
 import OverlayHandView from './OverlayHandView'
 import OverlayPlayedCard from './OverlayPlayedCard'
+import OverlayGiveUpCards from './OverlayGiveUpCards'
 
 export default {
   name: 'TableMain',
@@ -83,7 +90,7 @@ export default {
           avatar: 'ron.png',
           adress: 'walletaddress',
           isMe: true,
-          isPlaying: true,
+          isPlaying: false,
           total: 18,
           wallettotal: 5,
           lowestcoinvalues: [3, 3, 3],
@@ -106,7 +113,7 @@ export default {
           wallettotal: 12,
           lowestcoinvalues: [1, 1],
           cards: {
-            hand: ['q20', 'seed', 'q08'],
+            hand: ['q3', 'wallet', 'q1'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
               wallets: [['DOGE'], ['XMR', 'SHIT']],
@@ -124,7 +131,7 @@ export default {
           wallettotal: 8,
           lowestcoinvalues: [3, 3],
           cards: {
-            hand: ['q20', 'seed', 'q08'],
+            hand: ['q4', 'keys', 'wallet'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
               wallets: [['DOGE']],
@@ -142,7 +149,7 @@ export default {
           wallettotal: 8,
           lowestcoinvalues: [3, 3, 1],
           cards: {
-            hand: ['q20', 'seed', 'q08'],
+            hand: ['q2', 'keys', 'q1'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
               wallets: [['DOGE']],
@@ -151,7 +158,7 @@ export default {
         },
         {
           id: 4,
-          name: 'Maria',
+          name: 'Edward',
           avatar: 'ron.png',
           adress: 'walletaddress',
           isMe: false,
@@ -160,25 +167,25 @@ export default {
           wallettotal: 8,
           lowestcoinvalues: [1, 1, 1],
           cards: {
-            hand: ['q20', 'seed', 'q08'],
+            hand: ['q4', 'wallet', 'q5'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['DOGE']],
+              wallets: [['AAVE']],
             },
           },
         },
         {
           id: 5,
-          name: 'Maria',
+          name: 'Natalia',
           avatar: 'natalia.png',
           adress: 'walletaddress',
           isMe: false,
-          isPlaying: false,
+          isPlaying: true,
           total: 20,
           wallettotal: 8,
           lowestcoinvalues: [3, 3, 3],
           cards: {
-            hand: ['q20', 'seed', 'q08'],
+            hand: ['q1', 'wallet', 'q7'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
               wallets: [['DOGE']],
@@ -198,6 +205,7 @@ export default {
     NotificationAnimation,
     OverlayHandView,
     OverlayPlayedCard,
+    OverlayGiveUpCards,
   },
   computed: {
     playingPlayer: function () {
@@ -220,7 +228,7 @@ export default {
           overlaytype = 'showplayedcard'
           break
         case 'selectcardstogiveup':
-          overlaytype = false
+          overlaytype = 'selectcardstogiveup'
           break
         case 'selectcardtopaddtowallet':
           overlaytype = false

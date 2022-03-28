@@ -12,7 +12,7 @@
     <div>
       <!-- feedback notifications -->
       <section class="over-notifications">
-        <NotificationMsg feedback="{{ player.name }} has played the following card:" />
+        <NotificationMsg show="true" v-bind:feedback="player.name + ' has played the following card:'" />
       </section>
       <!-- print played card -->
       <VueImg v-bind:imgsrc="card + '-grid.png'" class="card full" />
