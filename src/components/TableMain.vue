@@ -188,7 +188,7 @@ export default {
           cards: {
             hand: ['q2', 'wallet', 'q7'],
             portfolio: {
-              coins: ['ATOM', 'SHIT', 'SHIT', 'SHIT'],
+              coins: ['ATOM', 'SHIT', 'SHIT'],
               wallets: [['ETH'], ['BTC', 'SHIT'], ['BTC', 'ETH', 'SHIT', 'SHIT', 'SHIT', 'SHIT']],
             },
           },
