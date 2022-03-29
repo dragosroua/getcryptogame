@@ -29,9 +29,7 @@
         <router-link to="/table/selectcardstogiveup" @click="drawerVisible = false"
           >Select Cards To Give Up</router-link
         >
-        <router-link to="/table/selectcardtopaddtowallet" @click="drawerVisible = false"
-          >Select Card To Add to Wallet</router-link
-        >
+        <router-link to="/table/savecardtowallet" @click="drawerVisible = false">Save Card To Wallet</router-link>
         <router-link to="/table/selectwallettogiveup" @click="drawerVisible = false"
           >Select Wallet to Give up</router-link
         >

@@ -56,6 +56,11 @@
       v-bind:card="playedCard"
     />
     <OverlayGiveUpCards v-show="showOverlayType === 'selectcardstogiveup'" v-bind:player="playingPlayer" />
+    <OverlaySaveCardToWallet
+      v-show="showOverlayType === 'savecardtowallet'"
+      v-bind:playingplayer="playingPlayer"
+      v-bind:affectedplayer="nextPlayer"
+    />
     <OverlayGiveUpWallet
       v-show="showOverlayType === 'selectwallettogiveup'"
       v-bind:playingplayer="playingPlayer"
@@ -72,6 +77,7 @@ import OverlayHandView from './OverlayHandView'
 import OverlayPlayedCard from './OverlayPlayedCard'
 import OverlayGiveUpCards from './OverlayGiveUpCards'
 import OverlayGiveUpWallet from './OverlayGiveUpWallet'
+import OverlaySaveCardToWallet from './OverlaySaveCardToWallet'
 
 export default {
   name: 'TableMain',
@@ -208,6 +214,7 @@ export default {
     OverlayPlayedCard,
     OverlayGiveUpCards,
     OverlayGiveUpWallet,
+    OverlaySaveCardToWallet,
   },
   computed: {
     playingPlayer: function () {
@@ -237,8 +244,8 @@ export default {
         case 'selectcardstogiveup':
           overlaytype = 'selectcardstogiveup'
           break
-        case 'selectcardtopaddtowallet':
-          overlaytype = false
+        case 'savecardtowallet':
+          overlaytype = 'savecardtowallet'
           break
         case 'selectwallettogiveup':
           overlaytype = 'selectwallettogiveup'

@@ -122,6 +122,11 @@
     vertical-align: middle;
 }
 
+.double-slection-container {
+    display: flex;
+    justify-content: center;
+}
+
 .cardholder-container,
 .walletholder-container {
     position: relative;

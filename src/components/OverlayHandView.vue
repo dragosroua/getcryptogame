@@ -3,7 +3,7 @@
     <!-- START overlay header: now playing -->
     <section class="over-nowplaying">
       Now playing:
-      <em class="name">{{ playingPlayer.name }}</em>
+      <em class="name">Me</em>
 
       <!-- IF portfolio is showing, show back button -->
       <div v-if="showportfolio" class="portfolio-viewer">
