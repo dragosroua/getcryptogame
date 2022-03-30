@@ -59,7 +59,7 @@
     <OverlaySaveCardToWallet
       v-show="showOverlayType === 'savecardtowallet'"
       v-bind:playingplayer="playingPlayer"
-      v-bind:affectedplayer="nextPlayer"
+      v-bind:affectedplayer="playingPlayer"
     />
     <OverlayGiveUpWallet
       v-show="showOverlayType === 'selectwallettogiveup'"
@@ -151,7 +151,7 @@ export default {
           avatar: 'andrea.png',
           adress: 'walletaddress',
           isMe: false,
-          isPlaying: false,
+          isPlaying: true,
           total: 20,
           wallettotal: 8,
           lowestcoinvalues: [3, 3, 1],
@@ -159,7 +159,7 @@ export default {
             hand: ['q2', 'keys', 'q1'],
             portfolio: {
               coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
-              wallets: [['DOGE']],
+              wallets: [['XMR', 'SHIT']],
             },
           },
         },
@@ -187,7 +187,7 @@ export default {
           avatar: 'natalia.png',
           adress: 'walletaddress',
           isMe: false,
-          isPlaying: true,
+          isPlaying: false,
           total: 20,
           wallettotal: 8,
           lowestcoinvalues: [3, 3, 3],

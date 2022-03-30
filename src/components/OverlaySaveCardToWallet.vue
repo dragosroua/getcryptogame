@@ -22,8 +22,16 @@
     <!-- START overlay main content -->
     <div>
       <!-- START:IF one or no wallet feedback notifications -->
-      <section v-if="affectedplayer.cards.portfolio.wallets.length <= 1" class="over-notifications">
-        <NotificationMsg feedback="Add a new card to your wallet" show="true" />
+      <section
+        v-if="affectedplayer.cards.portfolio.wallets.length <= 1 || affectedplayer.isPlaying === true"
+        class="over-notifications"
+      >
+        <NotificationMsg feedback="Add a new card to your wallet" v-bind:show="selectedCard === ''" />
+        <span
+          v-bind:class="selectedWallet >= 0 && selectedCard !== '' ? 'button pulsate show' : 'button pulsate'"
+          @click="emitselectedWalletAndClose"
+          >Confirm choice</span
+        >
       </section>
       <!-- END:IF only one wallet feedback notifications -->
 
@@ -31,10 +39,10 @@
       <section v-else class="over-notifications">
         <NotificationMsg
           feedback="Select a wallet and a card to add"
-          v-bind:show="selectedWallet === false || selectedCard === ''"
+          v-bind:show="selectedWallet < 0 || selectedCard === ''"
         />
         <span
-          v-bind:class="selectedWallet !== false && selectedCard !== '' ? 'button pulsate show' : 'button pulsate'"
+          v-bind:class="selectedWallet >= 0 && selectedCard !== '' ? 'button pulsate show' : 'button pulsate'"
           @click="emitselectedWalletAndClose"
           >Confirm choice</span
         >
@@ -47,13 +55,13 @@
           <span
             class="walletholder"
             v-bind:class="{
-              selected: selectedWallet !== false,
-              deletable: affectedplayer.cards.portfolio.wallets.length >= 1,
+              selected: selectedWallet >= 0,
+              deletable: affectedplayer.cards.portfolio.wallets.length > 1,
             }"
             @click="removeSelected('wallet')"
           >
             <PortfolioCardRow
-              v-if="selectedWallet !== false"
+              v-if="selectedWallet >= 0"
               v-bind:coins="affectedplayer.cards.portfolio.wallets[selectedWallet]"
               isWallet="true"
             />
@@ -113,7 +121,7 @@ export default {
   methods: {
     addSelected: function (event) {
       console.log(event)
-      // if (this.selectedWallet === false) {
+      // if (this.selectedWallet < 0) {
       if (event.eventtype === 'walletselected') {
         this.selectedWallet = event.index
         this.selectedWalletCards = this.playerWallets[event.index]
@@ -126,10 +134,10 @@ export default {
     },
     removeSelected: function (type) {
       console.log(type)
-      if (type === 'wallet' && this.selectedWallet !== false) {
+      if (type === 'wallet' && this.selectedWallet >= 0) {
         this.playerWallets.splice(this.selectedWallet, 0, this.selectedWalletCards)
         this.selectedWalletCards = []
-        this.selectedWallet = false
+        this.selectedWallet = -1
       }
       if (type === 'card' && this.selectedCard !== '') {
         this.playerCoins.push(this.selectedCard)
@@ -144,15 +152,16 @@ export default {
       this.$emit('cardsavedtowallet', this.selectedWallet, this.selectedWalletCards)
       this.$router.push('/table')
       this.selectedCard = ''
-      this.selectedWallet = false
+      this.selectedWallet = -1
       this.selectedWalletCards = []
+      // these need to receive the updated version of the player array, maybe set them in onmount?
       this.playerWallets = [...this.affectedplayer.cards.portfolio.wallets]
       this.playerCoins = [...this.affectedplayer.cards.portfolio.coins]
     },
   },
   data() {
     return {
-      selectedWallet: this.affectedplayer.cards.portfolio.wallets.length === 1 ? 0 : false,
+      selectedWallet: this.affectedplayer.cards.portfolio.wallets.length <= 1 ? 0 : -1,
       selectedWalletCards:
         this.affectedplayer.cards.portfolio.wallets.length === 1 ? this.affectedplayer.cards.portfolio.wallets[0] : [],
       playerWallets:
