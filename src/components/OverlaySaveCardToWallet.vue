@@ -148,24 +148,41 @@ export default {
       // this function emits an event with the array of the tickers of the selected cards.
       // than it navigates back to table.
       this.selectedWalletCards.push(this.selectedCard)
-      console.log(this.selectedWalletCards)
+      console.log('cardsavedtowallet', this.selectedWallet, this.selectedWalletCards)
       this.$emit('cardsavedtowallet', this.selectedWallet, this.selectedWalletCards)
       this.$router.push('/table')
       this.selectedCard = ''
-      this.selectedWallet = -1
-      this.selectedWalletCards = []
+      this.selectedWallet = this.affectedplayer.isPlaying
+        ? this.affectedplayer.cards.portfolio.wallets.length
+        : this.affectedplayer.cards.portfolio.wallets.length <= 1
+        ? 0
+        : -1
+      this.selectedWalletCards =
+        this.affectedplayer.cards.portfolio.wallets.length === 1 && !this.affectedplayer.isPlaying
+          ? this.affectedplayer.cards.portfolio.wallets[0]
+          : []
       // these need to receive the updated version of the player array, maybe set them in onmount?
-      this.playerWallets = [...this.affectedplayer.cards.portfolio.wallets]
-      this.playerCoins = [...this.affectedplayer.cards.portfolio.coins]
+      ;(this.playerWallets =
+        this.affectedplayer.cards.portfolio.wallets.length === 1 && !this.affectedplayer.isPlaying
+          ? []
+          : [...this.affectedplayer.cards.portfolio.wallets]),
+        (this.playerCoins = [...this.affectedplayer.cards.portfolio.coins])
     },
   },
   data() {
     return {
-      selectedWallet: this.affectedplayer.cards.portfolio.wallets.length <= 1 ? 0 : -1,
+      // selectedWallet: this.affectedplayer.cards.portfolio.wallets.length <= 1 ? 0 : -1,
+      selectedWallet: this.affectedplayer.isPlaying
+        ? this.affectedplayer.cards.portfolio.wallets.length
+        : this.affectedplayer.cards.portfolio.wallets.length <= 1
+        ? 0
+        : -1,
       selectedWalletCards:
-        this.affectedplayer.cards.portfolio.wallets.length === 1 ? this.affectedplayer.cards.portfolio.wallets[0] : [],
+        this.affectedplayer.cards.portfolio.wallets.length === 1 && !this.affectedplayer.isPlaying
+          ? this.affectedplayer.cards.portfolio.wallets[0]
+          : [],
       playerWallets:
-        this.affectedplayer.cards.portfolio.wallets.length === 1
+        this.affectedplayer.cards.portfolio.wallets.length === 1 && !this.affectedplayer.isPlaying
           ? []
           : [...this.affectedplayer.cards.portfolio.wallets],
       selectedCard: '',

@@ -59,7 +59,7 @@
     <OverlaySaveCardToWallet
       v-show="showOverlayType === 'savecardtowallet'"
       v-bind:playingplayer="playingPlayer"
-      v-bind:affectedplayer="playingPlayer"
+      v-bind:affectedplayer="nextPlayer"
     />
     <OverlayGiveUpWallet
       v-show="showOverlayType === 'selectwallettogiveup'"
@@ -223,8 +223,8 @@ export default {
     },
     nextPlayer: function () {
       // returns the next player in turn. For now it just returns a fixed player.
-      console.log(this.players[this.players.length - 1])
-      return this.players[this.players.length - 1]
+      console.log(this.players[this.players.length - 3])
+      return this.players[this.players.length - 3]
     },
     feedbackType: function () {
       // this function selects the right feedback notification series for each
