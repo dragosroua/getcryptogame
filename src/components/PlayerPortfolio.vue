@@ -14,17 +14,15 @@ import PortfolioCardRow from './PortfolioCardRow'
 
 export default {
   name: 'PlayerPortfolio',
-  props: ['wallets', 'coins', 'emits'],
+  props: ['wallets', 'coins'],
   emits: ['walletselected', 'cardselected'],
   components: {
     PortfolioCardRow,
   },
   methods: {
     emitEvent: function (event) {
-      if (this.emits == 'all' || this.emits == event.eventtype) {
-        let eventtype = event.eventtype
-        this.$emit(eventtype, event)
-      }
+      let eventtype = event.eventtype
+      this.$emit(eventtype, event)
     },
   },
   data() {
