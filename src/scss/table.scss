@@ -2,12 +2,17 @@
     bottom: 0;
     left: 50%;
     margin-right: calc(50vw - 200px);
+    max-height: 75px;
     max-width: 50vw;
     overflow: hidden;
     padding-left: calc(150px - 50vw);
     position: absolute;
     text-align: left;
     width: 200px;
+}
+
+.table-container.isplaying--1 .hand {
+    max-height: none;
     @media (max-height: 610px) {
         max-height: 100px;
     }
@@ -45,6 +50,9 @@
     position: fixed;
     top: calc(85% - 200px);
     width: 90vw;
+    @media (max-height: 600px) {
+        top: calc(85% - 160px);
+    }
 }
 
 .isplaying--1 .stack,
