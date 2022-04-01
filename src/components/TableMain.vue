@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="'table-container player-count--' + players.length">
+  <div v-bind:class="'table-container player-count--' + players.length + ' isplaying--' + (playingPlayer.id + 1)">
     <!-- printing portfolio for the isPlaying player -->
     <TablePortfolio
       v-bind:player="playingPlayer.id + 1"
@@ -12,10 +12,14 @@
       v-bind:coins="playingPlayer.cards.portfolio.coins"
     />
 
-    <div v-bind:class="'hand isplaying--' + (playingPlayer.id + 1)">
-      <img src="../assets/img/wallet-hand.png" class="card" />
-      <img src="../assets/img/keys-hand.png" class="card" />
-      <img src="../assets/img/q2-hand.png" class="card" />
+    <!-- printing hand for the isMe player -->
+    <div class="hand">
+      <VueImg
+        v-for="(card, index) in players[0].cards.hand"
+        :key="index"
+        v-bind:imgsrc="card + '-hand.png'"
+        class="card"
+      />
     </div>
 
     <!-- printing all player tags in the right order and positions, except the isPlaying player -->
@@ -30,7 +34,8 @@
       />
     </template>
 
-    <div v-bind:class="'stack isplaying--' + (playingPlayer.id + 1)">
+    <!-- printing the stack -->
+    <div class="stack">
       <div class="notification-container">
         <NotificationAnimation v-bind:feedback="feedbackType" />
       </div>
@@ -44,6 +49,7 @@
     </div>
   </div>
 
+  <!-- printing all possible overlays -->
   <div class="overlay" v-bind:class="{ show: showOverlayType }">
     <OverlayHandView
       v-show="showOverlayType === 'selectcardtoplay'"
@@ -70,6 +76,7 @@
 </template>
 
 <script>
+import VueImg from './VueImg'
 import PlayerTag from './PlayerTag'
 import TablePortfolio from './TablePortfolio'
 import NotificationAnimation from './NotificationAnimation'
@@ -97,7 +104,7 @@ export default {
           avatar: 'ron.png',
           adress: 'walletaddress',
           isMe: true,
-          isPlaying: false,
+          isPlaying: true,
           total: 18,
           wallettotal: 5,
           lowestcoinvalues: [3, 3, 3],
@@ -151,7 +158,7 @@ export default {
           avatar: 'andrea.png',
           adress: 'walletaddress',
           isMe: false,
-          isPlaying: true,
+          isPlaying: false,
           total: 20,
           wallettotal: 8,
           lowestcoinvalues: [3, 3, 1],
@@ -207,6 +214,7 @@ export default {
     }
   },
   components: {
+    VueImg,
     PlayerTag,
     TablePortfolio,
     NotificationAnimation,

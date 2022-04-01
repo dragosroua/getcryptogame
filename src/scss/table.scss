@@ -2,13 +2,21 @@
     bottom: 0;
     left: 50%;
     margin-right: calc(50vw - 200px);
-    max-height: 75px;
     max-width: 50vw;
     overflow: hidden;
     padding-left: calc(150px - 50vw);
     position: absolute;
     text-align: left;
     width: 200px;
+    @media (max-height: 610px) {
+        max-height: 100px;
+    }
+    @media (max-height: 560px) {
+        max-height: 70px;
+    }
+    @media (max-height: 510px) {
+        max-height: 50px;
+    }
 }
 
 .hand .card {
@@ -19,7 +27,7 @@
     width: 42%;
 }
 
-.hand.isplaying--1 {
+.isplaying--1 .hand {
     bottom: 45%;
     margin-bottom: -15px;
     max-width: none;
@@ -39,11 +47,11 @@
     width: 90vw;
 }
 
-.stack.isplaying--1,
-.player-count--5 .stack.isplaying--2,
-.player-count--6 .stack.isplaying--2,
-.player-count--5 .stack.isplaying--5,
-.player-count--6 .stack.isplaying--6 {
+.isplaying--1 .stack,
+.player-count--5.isplaying--2 .stack,
+.player-count--6.isplaying--2 .stack,
+.player-count--5.isplaying--5 .stack,
+.player-count--6.isplaying--6 .stack {
     top: 85px;
 }
 
