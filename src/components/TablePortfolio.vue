@@ -79,9 +79,10 @@ export default {
 }
 
 .portfolio .info .pic {
-  vertical-align: middle;
   border-radius: 20px;
   width: 40px;
+  vertical-align: middle;
+  margin-left: -5px;
 }
 
 .portfolio .info .name {
