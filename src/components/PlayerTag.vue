@@ -120,6 +120,7 @@ export default {
   overflow: hidden;
   position: absolute;
   text-align: center;
+  z-index: 1;
 }
 
 //position specific styles with mixins

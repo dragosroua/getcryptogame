@@ -1,4 +1,5 @@
 <template>
+  <!-- START table-container -->
   <div v-bind:class="'table-container player-count--' + players.length + ' isplaying--' + (playingPlayer.id + 1)">
     <!-- printing portfolio for the isPlaying player -->
     <TablePortfolio
@@ -34,20 +35,13 @@
       />
     </template>
 
+    <!-- printing notification container -->
+    <NotificationAnimation v-bind:feedback="feedbackType" />
+
     <!-- printing the stack -->
-    <div class="stack">
-      <div class="notification-container">
-        <NotificationAnimation v-bind:feedback="feedbackType" />
-      </div>
-      <img src="../assets/img/anverso-questions.png" class="card" />
-      <img src="../assets/img/anverso-coins.png" class="card" />
-      <div class="cardstack">
-        <img src="../assets/img/anverso-coins.png" class="card" />
-        <img src="../assets/img/anverso-coins.png" class="card" />
-        <img src="../assets/img/anverso-coins.png" class="card" />
-      </div>
-    </div>
+    <CardStack v-bind:animation="stackanimation" @click="animateStack('pickup3coins')" />
   </div>
+  <!-- END table-container -->
 
   <!-- printing all possible overlays -->
   <div class="overlay" v-bind:class="{ show: showOverlayType }">
@@ -80,6 +74,7 @@ import VueImg from './VueImg'
 import PlayerTag from './PlayerTag'
 import TablePortfolio from './TablePortfolio'
 import NotificationAnimation from './NotificationAnimation'
+import CardStack from './CardStack'
 import OverlayHandView from './OverlayHandView'
 import OverlayPlayedCard from './OverlayPlayedCard'
 import OverlayGiveUpCards from './OverlayGiveUpCards'
@@ -211,6 +206,7 @@ export default {
       nexteventcard: 'u1',
       // next3coincards contains the type of the 3 next card on the coin stack
       next3coincards: ['BTC', 'FIL', 'SHIT'],
+      stackanimation: '',
     }
   },
   components: {
@@ -218,6 +214,7 @@ export default {
     PlayerTag,
     TablePortfolio,
     NotificationAnimation,
+    CardStack,
     OverlayHandView,
     OverlayPlayedCard,
     OverlayGiveUpCards,
@@ -265,6 +262,14 @@ export default {
       // this function will listen to the card-played event and return the played card.
       // For now it just retuns something static
       return 'q1'
+    },
+  },
+  methods: {
+    animateStack: function (move) {
+      // this function will add an animation to the stack according to move.
+      // For now it just resets animationsStack and then sets a timeout with the animation
+      let t = setTimeout(() => (this.stackanimation = move), 100)
+      let u = setTimeout(() => (this.stackanimation = ''), 1600)
     },
   },
 }
@@ -357,12 +362,13 @@ export default {
   top: $appheaderheight;
   transition: all 0.1s 0s ease-out;
   width: 100vw;
-  z-index: 5;
+  z-index: -1;
 }
 
 .overlay.show {
+  display: block;
   opacity: 1;
   transition: all 0.3s 0s ease-in;
-  display: block;
+  z-index: 5;
 }
 </style>

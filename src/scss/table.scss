@@ -11,19 +11,6 @@
     width: 200px;
 }
 
-.table-container.isplaying--1 .hand {
-    max-height: none;
-    @media (max-height: 610px) {
-        max-height: 100px;
-    }
-    @media (max-height: 560px) {
-        max-height: 70px;
-    }
-    @media (max-height: 510px) {
-        max-height: 50px;
-    }
-}
-
 .hand .card {
     left: calc(15% + 20px);
     margin-left: -20%;
@@ -33,106 +20,23 @@
 }
 
 .isplaying--1 .hand {
-    bottom: 45%;
+    bottom: 51%;
     margin-bottom: -15px;
+    max-height: none;
     max-width: none;
     padding-left: 0px;
     margin-left: -100px;
     text-align: center;
+    @media (max-height: 800px) {
+        max-height: 12vh;
+    }
+    @media (max-height: 540px) {
+        max-height: 10vh;
+    }
     .card {
         left: 20px;
     }
 }
-
-.stack {
-    left: 50%;
-    margin-left: -45vw;
-    position: fixed;
-    top: calc(85% - 200px);
-    width: 90vw;
-    @media (max-height: 600px) {
-        top: calc(85% - 160px);
-    }
-}
-
-.isplaying--1 .stack,
-.player-count--5.isplaying--2 .stack,
-.player-count--6.isplaying--2 .stack,
-.player-count--5.isplaying--5 .stack,
-.player-count--6.isplaying--6 .stack {
-    top: 85px;
-}
-
-.stack img {
-    height: auto;
-    margin: 0 5px;
-    max-width: 36%;
-    width: 120px;
-}
-
-.stack .cardstack {
-    display: inline-block;
-    opacity: 0;
-    position: relative;
-    top: -176px;
-}
-
-.stack .cardstack.pulsate {
-    opacity: 1;
-}
-
-.stack .cardstack img {
-    position: absolute;
-    height: auto;
-    width: 120px;
-    margin: 0 5px;
-    top: 0;
-    right: 0;
-}
-.stack .cardstack.pulsate.card-1 img:last-child {
-    top: -20px;
-    right: 30px;
-    transition: all 0.7s 0s ease-out;
-}
-
-.stack .cardstack.pulsate.card-3 img {
-    top: -40px;
-    right: 60px;
-    transition: all 0.7s 0s ease-out;
-}
-.stack .cardstack.pulsate.card-3 img:first-child {
-    top: -20px;
-    right: 30px;
-    transition: all 0.7s 0s ease-out;
-}
-.stack .cardstack.pulsate.card-3 img:last-child {
-    top: -60px;
-    right: 90px;
-    transition: all 0.7s 0s ease-out;
-}
-
-.playing .stack .cardstack.pulsate.card-1 img:last-child {
-    top: 20px;
-    right: 30px;
-    transition: all 0.7s 0s ease-out;
-}
-.playing .stack .cardstack.pulsate.card-3 img {
-    top: 40px;
-    right: 60px;
-    transition: all 0.7s 0s ease-out;
-}
-.playing .stack .cardstack.pulsate.card-3 img:first-child {
-    top: 20px;
-    right: 30px;
-    transition: all 0.7s 0s ease-out;
-}
-.playing .stack .cardstack.pulsate.card-3 img:last-child {
-    top: 60px;
-    right: 90px;
-    transition: all 0.7s 0s ease-out;
-}
-
-
 
 
 
