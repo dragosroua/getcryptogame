@@ -1,5 +1,6 @@
 <template>
-  <div v-bind:class="'table-container player-count--' + players.length">
+  <!-- START table-container -->
+  <div v-bind:class="'table-container player-count--' + players.length + ' isplaying--' + (playingPlayer.id + 1)">
     <!-- printing portfolio for the isPlaying player -->
     <TablePortfolio
       v-bind:player="playingPlayer.id + 1"
@@ -12,10 +13,14 @@
       v-bind:coins="playingPlayer.cards.portfolio.coins"
     />
 
-    <div v-bind:class="'hand isplaying--' + (playingPlayer.id + 1)">
-      <img src="../assets/img/wallet-hand.png" class="card" />
-      <img src="../assets/img/keys-hand.png" class="card" />
-      <img src="../assets/img/q2-hand.png" class="card" />
+    <!-- printing hand for the isMe player -->
+    <div class="hand">
+      <VueImg
+        v-for="(card, index) in players[0].cards.hand"
+        :key="index"
+        v-bind:imgsrc="card + '-hand.png'"
+        class="card"
+      />
     </div>
 
     <!-- printing all player tags in the right order and positions, except the isPlaying player -->
@@ -30,20 +35,15 @@
       />
     </template>
 
-    <div v-bind:class="'stack isplaying--' + (playingPlayer.id + 1)">
-      <div class="notification-container">
-        <NotificationAnimation v-bind:feedback="feedbackType" />
-      </div>
-      <img src="../assets/img/anverso-questions.png" class="card" />
-      <img src="../assets/img/anverso-coins.png" class="card" />
-      <div class="cardstack">
-        <img src="../assets/img/anverso-coins.png" class="card" />
-        <img src="../assets/img/anverso-coins.png" class="card" />
-        <img src="../assets/img/anverso-coins.png" class="card" />
-      </div>
-    </div>
-  </div>
+    <!-- printing notification container -->
+    <NotificationAnimation v-bind:feedback="feedbackType" />
 
+    <!-- printing the stack -->
+    <CardStack v-bind:animation="stackanimation" @click="animateStack('pickup3coins')" />
+  </div>
+  <!-- END table-container -->
+
+  <!-- printing all possible overlays -->
   <div class="overlay" v-bind:class="{ show: showOverlayType }">
     <OverlayHandView
       v-show="showOverlayType === 'selectcardtoplay'"
@@ -70,9 +70,11 @@
 </template>
 
 <script>
+import VueImg from './VueImg'
 import PlayerTag from './PlayerTag'
 import TablePortfolio from './TablePortfolio'
 import NotificationAnimation from './NotificationAnimation'
+import CardStack from './CardStack'
 import OverlayHandView from './OverlayHandView'
 import OverlayPlayedCard from './OverlayPlayedCard'
 import OverlayGiveUpCards from './OverlayGiveUpCards'
@@ -97,7 +99,7 @@ export default {
           avatar: 'ron.png',
           adress: 'walletaddress',
           isMe: true,
-          isPlaying: false,
+          isPlaying: true,
           total: 18,
           wallettotal: 5,
           lowestcoinvalues: [3, 3, 3],
@@ -151,7 +153,7 @@ export default {
           avatar: 'andrea.png',
           adress: 'walletaddress',
           isMe: false,
-          isPlaying: true,
+          isPlaying: false,
           total: 20,
           wallettotal: 8,
           lowestcoinvalues: [3, 3, 1],
@@ -204,12 +206,15 @@ export default {
       nexteventcard: 'u1',
       // next3coincards contains the type of the 3 next card on the coin stack
       next3coincards: ['BTC', 'FIL', 'SHIT'],
+      stackanimation: '',
     }
   },
   components: {
+    VueImg,
     PlayerTag,
     TablePortfolio,
     NotificationAnimation,
+    CardStack,
     OverlayHandView,
     OverlayPlayedCard,
     OverlayGiveUpCards,
@@ -257,6 +262,14 @@ export default {
       // this function will listen to the card-played event and return the played card.
       // For now it just retuns something static
       return 'q1'
+    },
+  },
+  methods: {
+    animateStack: function (move) {
+      // this function will add an animation to the stack according to move.
+      // For now it just resets animationsStack and then sets a timeout with the animation
+      let t = setTimeout(() => (this.stackanimation = move), 100)
+      let u = setTimeout(() => (this.stackanimation = ''), 1600)
     },
   },
 }
@@ -349,12 +362,13 @@ export default {
   top: $appheaderheight;
   transition: all 0.1s 0s ease-out;
   width: 100vw;
-  z-index: 5;
+  z-index: -1;
 }
 
 .overlay.show {
+  display: block;
   opacity: 1;
   transition: all 0.3s 0s ease-in;
-  display: block;
+  z-index: 5;
 }
 </style>

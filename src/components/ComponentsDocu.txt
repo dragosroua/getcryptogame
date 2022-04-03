@@ -6,8 +6,9 @@ PortfolioCardRow: receives an array of card tickers and (only if necessary) the
         indication prop 'isWallet'. 
         Emits: 'cardselected' only on cards NOT in a wallet 
 
-PlayerPortfolio: receive a (multidmensional) array of all wallets (and the card tickers in them) 
+PlayerPortfolio: receives a (multidmensional) array of all wallets (and the card tickers in them) 
         and an array of all unprotected cards (tickers). 
         Emits: 'cardselected' (on card row) and 'walletselected' (on wallet row)
 OverlayGiveUpCards: receives the data of the affected player.
         Emits: 'cardstogiveupselected' before close.
+CardStack: recieves an (optional) animation class ('waitforeventcard', 'pickupcoin' or 'pickup3coins')

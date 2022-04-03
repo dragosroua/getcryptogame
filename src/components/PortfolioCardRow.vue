@@ -43,11 +43,17 @@ export default {
   display: inline-block;
   margin: 0.75vh auto;
   position: relative;
+  @media (max-width: 400px) {
+    margin-left: -10px;
+  }
 }
 
 .row .card {
   margin-left: -25px;
   position: relative;
+  @media (max-width: 400px) {
+    margin-left: -20px;
+  }
 }
 
 .walletrow {

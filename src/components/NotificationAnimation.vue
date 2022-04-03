@@ -1,5 +1,7 @@
 <template>
-  <NotificationMsg v-bind:msg="feedback" />
+  <div class="notification-container">
+    <NotificationMsg v-bind:feedback="feedback" show="true" />
+  </div>
   <!--
   <span class="round1">
     <span class="notifications">It's Natalia's turn</span>
@@ -37,4 +39,39 @@ export default {
 
 <style scoped lang="scss">
 @import '../scss/variables';
+
+.notification-container {
+  position: fixed;
+  top: 87px;
+  width: 100vw;
+  z-index: 2;
+}
+
+.player-count--2.isplaying--2 .notification-container,
+.player-count--4.isplaying--3 .notification-container,
+.player-count--5.isplaying--3 .notification-container,
+.player-count--5.isplaying--4 .notification-container,
+.player-count--6.isplaying--4 .notification-container,
+.player-count--6.isplaying--3 .notification-container,
+.player-count--6.isplaying--5 .notification-container {
+  bottom: calc(31% + 80px);
+  position: relative;
+  top: auto;
+  @media (min-height: 620px) and (max-height: 690px) {
+    margin-top: -15px;
+  }
+  @media (min-height: 768px) {
+    margin-top: -10px;
+  }
+}
+
+.isplaying--1 .notification-container,
+.player-count--5.isplaying--2 .notification-container,
+.player-count--6.isplaying--2 .notification-container,
+.player-count--5.isplaying--5 .notification-container,
+.player-count--6.isplaying--6 .notification-container {
+  @media (min-height: 560px) {
+    top: calc(2vh + 80px);
+  }
+}
 </style>

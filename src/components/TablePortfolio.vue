@@ -60,11 +60,15 @@ export default {
   border-radius: 10px;
   box-shadow: 0px 0px 20px -3px rgb(0 0 0 / 40%);
   box-sizing: border-box;
-  height: 45%;
+  height: 52%;
   padding: 10px 30px 30px 70px;
   position: absolute;
   text-align: left;
   width: 100%;
+  z-index: 1;
+  @media (max-height: 540px) {
+    height: 51%;
+  }
 }
 
 .portfolio .info {
@@ -79,9 +83,10 @@ export default {
 }
 
 .portfolio .info .pic {
-  vertical-align: middle;
   border-radius: 20px;
   width: 40px;
+  vertical-align: middle;
+  margin-left: -5px;
 }
 
 .portfolio .info .name {
@@ -137,7 +142,7 @@ export default {
   top: 20px;
 }
 @mixin player-portfolio--left-bottom {
-  bottom: 45px;
+  bottom: 20px;
   left: -25px;
 }
 

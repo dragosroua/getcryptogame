@@ -19,104 +19,24 @@
     width: 42%;
 }
 
-.hand.isplaying--1 {
-    bottom: 45%;
+.isplaying--1 .hand {
+    bottom: 51%;
     margin-bottom: -15px;
+    max-height: none;
     max-width: none;
     padding-left: 0px;
     margin-left: -100px;
     text-align: center;
+    @media (max-height: 800px) {
+        max-height: 12vh;
+    }
+    @media (max-height: 540px) {
+        max-height: 10vh;
+    }
     .card {
         left: 20px;
     }
 }
-
-.stack {
-    left: 50%;
-    margin-left: -45vw;
-    position: fixed;
-    top: calc(85% - 200px);
-    width: 90vw;
-}
-
-.stack.isplaying--1,
-.player-count--5 .stack.isplaying--2,
-.player-count--6 .stack.isplaying--2,
-.player-count--5 .stack.isplaying--5,
-.player-count--6 .stack.isplaying--6 {
-    top: 85px;
-}
-
-.stack img {
-    height: auto;
-    margin: 0 5px;
-    max-width: 36%;
-    width: 120px;
-}
-
-.stack .cardstack {
-    display: inline-block;
-    opacity: 0;
-    position: relative;
-    top: -176px;
-}
-
-.stack .cardstack.pulsate {
-    opacity: 1;
-}
-
-.stack .cardstack img {
-    position: absolute;
-    height: auto;
-    width: 120px;
-    margin: 0 5px;
-    top: 0;
-    right: 0;
-}
-.stack .cardstack.pulsate.card-1 img:last-child {
-    top: -20px;
-    right: 30px;
-    transition: all 0.7s 0s ease-out;
-}
-
-.stack .cardstack.pulsate.card-3 img {
-    top: -40px;
-    right: 60px;
-    transition: all 0.7s 0s ease-out;
-}
-.stack .cardstack.pulsate.card-3 img:first-child {
-    top: -20px;
-    right: 30px;
-    transition: all 0.7s 0s ease-out;
-}
-.stack .cardstack.pulsate.card-3 img:last-child {
-    top: -60px;
-    right: 90px;
-    transition: all 0.7s 0s ease-out;
-}
-
-.playing .stack .cardstack.pulsate.card-1 img:last-child {
-    top: 20px;
-    right: 30px;
-    transition: all 0.7s 0s ease-out;
-}
-.playing .stack .cardstack.pulsate.card-3 img {
-    top: 40px;
-    right: 60px;
-    transition: all 0.7s 0s ease-out;
-}
-.playing .stack .cardstack.pulsate.card-3 img:first-child {
-    top: 20px;
-    right: 30px;
-    transition: all 0.7s 0s ease-out;
-}
-.playing .stack .cardstack.pulsate.card-3 img:last-child {
-    top: 60px;
-    right: 90px;
-    transition: all 0.7s 0s ease-out;
-}
-
-
 
 
 
