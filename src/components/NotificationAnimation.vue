@@ -1,6 +1,11 @@
 <template>
-  <div class="notification-container">
-    <NotificationMsg v-bind:feedback="feedback" show="true" />
+  <div class="notification-container animated-feedback">
+    <NotificationMsg
+      v-for="(feed, index) in feedbackArray"
+      :key="index"
+      v-bind:feedback="feed.msg"
+      v-bind:show="feed.show"
+    />
   </div>
   <!--
   <span class="round1">
@@ -31,8 +36,34 @@ export default {
   components: {
     NotificationMsg,
   },
+  computed: {
+    feedbackArray: function () {
+      if (Array.isArray(this.feedback)) {
+        return this.feedback.map((element, index) => {
+          if (index == this.showing) {
+            return { ...element, show: true }
+          } else {
+            return { ...element, show: false }
+          }
+        })
+      } else {
+        return [{ ...this.feedback, show: false }]
+      }
+    },
+  },
+  mounted() {
+    if (Array.isArray(this.feedback)) {
+      for (let i = 0; i < this.feedback.length; i++) {
+        setTimeout(() => {
+          this.showing = i
+        }, this.feedback[i].time)
+      }
+    }
+  },
   data() {
-    return {}
+    return {
+      showing: null,
+    }
   },
 }
 </script>

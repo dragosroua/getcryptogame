@@ -26,7 +26,7 @@ export default {
   max-width: 0;
   opacity: 0;
   padding: 0;
-  transition: all 0.02s 0s ease-in;
+  transition: all 0.15s 0s ease-in;
   white-space: nowrap;
 }
 
@@ -34,6 +34,6 @@ export default {
   max-width: 100vw;
   opacity: 1;
   padding: 3px 10px 4px;
-  transition: all 0.1s 0s ease-out;
+  transition: all 0.15s 0.3s ease-out;
 }
 </style>

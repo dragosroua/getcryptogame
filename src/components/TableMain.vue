@@ -234,7 +234,11 @@ export default {
     feedbackType: function () {
       // this function selects the right feedback notification series for each
       // move in the game. For the moment it just returns something static.
-      return 'otherTurnStart'
+      return [
+        { msg: 'hi, o hey there! --- 1', time: 0 },
+        { msg: 'hi there, oh, hello! --- 2', time: 1500 },
+        { msg: 'oh, hello! hi there! --- 3', time: 3000 },
+      ]
     },
     showOverlayType: function () {
       // this function shows the overlay when needed. For the moment it reads the params of the URL.
