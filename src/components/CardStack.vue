@@ -31,6 +31,7 @@ export default {
   position: fixed;
   top: calc(85% - 200px);
   width: 90vw;
+  z-index: 1; // necessary for coin animations
   @media (max-height: 600px) {
     top: calc(85% - 160px);
   }
@@ -59,7 +60,11 @@ export default {
 }
 
 .player-count--2.isplaying--2 .stack,
+.player-count--3.isplaying--2 .stack,
+.player-count--3.isplaying--3 .stack,
+.player-count--4.isplaying--2 .stack,
 .player-count--4.isplaying--3 .stack,
+.player-count--4.isplaying--4 .stack,
 .player-count--5.isplaying--3 .stack,
 .player-count--5.isplaying--4 .stack,
 .player-count--6.isplaying--4 .stack,
@@ -118,25 +123,158 @@ export default {
 }
 
 .pickupcoin .cardstack img:last-child {
-  top: -20px;
-  right: 30px;
+  top: 20px;
+  right: 15px;
   transition: all 0.7s 0s ease-out;
+  .player-count--2.isplaying--2 &,
+  .player-count--4.isplaying--3 &,
+  .player-count--6.isplaying--4 & {
+    top: -20px;
+  }
+  // player right bottom
+  .player-count--5.isplaying--2 &,
+  .player-count--6.isplaying--2 & {
+    right: -15px;
+  }
+  // player right top
+  .player-count--3.isplaying--2 &,
+  .player-count--4.isplaying--2 &,
+  .player-count--5.isplaying--3 &,
+  .player-count--6.isplaying--3 & {
+    right: -15px;
+    top: -20px;
+  }
+  // player left bottom
+  .player-count--5.isplaying--5 &,
+  .player-count--6.isplaying--6 & {
+    left: auto;
+    right: 15px;
+  }
+  // player left top
+  .player-count--5.isplaying--4 &,
+  .player-count--6.isplaying--5 &,
+  .player-count--3.isplaying--3 &,
+  .player-count--4.isplaying--4 & {
+    left: auto;
+    right: 15px;
+    top: -20px;
+  }
 }
 
 .pickup3coins .cardstack img {
-  top: -40px;
-  right: 60px;
-  transition: all 0.7s 0s ease-out;
-}
-.pickup3coins .cardstack img:first-child {
-  top: -20px;
+  top: 40px;
   right: 30px;
   transition: all 0.7s 0s ease-out;
+  // player top
+  .player-count--2.isplaying--2 &,
+  .player-count--4.isplaying--3 &,
+  .player-count--6.isplaying--4 & {
+    top: -40px;
+  }
+  // player right bottom
+  .player-count--5.isplaying--2 &,
+  .player-count--6.isplaying--2 & {
+    right: -30px;
+  }
+  // player right top
+  .player-count--3.isplaying--2 &,
+  .player-count--4.isplaying--2 &,
+  .player-count--5.isplaying--3 &,
+  .player-count--6.isplaying--3 & {
+    right: -30px;
+    top: -40px;
+  }
+  // player left bottom
+  .player-count--5.isplaying--5 &,
+  .player-count--6.isplaying--6 & {
+    left: auto;
+    right: 30px;
+  }
+  // player left top
+  .player-count--5.isplaying--4 &,
+  .player-count--6.isplaying--5 &,
+  .player-count--3.isplaying--3 &,
+  .player-count--4.isplaying--4 & {
+    left: auto;
+    right: 30px;
+    top: -40px;
+  }
+}
+.pickup3coins .cardstack img:first-child {
+  top: 20px;
+  right: 15px;
+  transition: all 0.7s 0s ease-out;
+  .player-count--2.isplaying--2 &,
+  .player-count--4.isplaying--3 &,
+  .player-count--6.isplaying--4 & {
+    top: -20px;
+  }
+  // player right bottom
+  .player-count--5.isplaying--2 &,
+  .player-count--6.isplaying--2 & {
+    right: -15px;
+  }
+  // player right top
+  .player-count--3.isplaying--2 &,
+  .player-count--4.isplaying--2 &,
+  .player-count--5.isplaying--3 &,
+  .player-count--6.isplaying--3 & {
+    right: -15px;
+    top: -20px;
+  }
+  // player left bottom
+  .player-count--5.isplaying--5 &,
+  .player-count--6.isplaying--6 & {
+    left: auto;
+    right: 15px;
+  }
+  // player left top
+  .player-count--5.isplaying--4 &,
+  .player-count--6.isplaying--5 &,
+  .player-count--3.isplaying--3 &,
+  .player-count--4.isplaying--4 & {
+    left: auto;
+    right: 15px;
+    top: -20px;
+  }
 }
 .pickup3coins .cardstack img:last-child {
-  top: -60px;
-  right: 90px;
+  top: 60px;
+  right: 45px;
   transition: all 0.7s 0s ease-out;
+  .player-count--2.isplaying--2 &,
+  .player-count--4.isplaying--3 &,
+  .player-count--6.isplaying--4 & {
+    top: -60px;
+  }
+  // player right bottom
+  .player-count--5.isplaying--2 &,
+  .player-count--6.isplaying--2 & {
+    right: -45px;
+  }
+  // player right top
+  .player-count--3.isplaying--2 &,
+  .player-count--5.isplaying--3 &,
+  .player-count--4.isplaying--2 &,
+  .player-count--6.isplaying--3 & {
+    right: -45px;
+    top: -60px;
+  }
+  // player left bottom
+  .player-count--5.isplaying--5 &,
+  .player-count--6.isplaying--6 & {
+    left: auto;
+    right: 45px;
+  }
+  // player left top
+  .player-count--5.isplaying--4 &,
+  .player-count--6.isplaying--5 &,
+  .player-count--3.isplaying--3 &,
+  .player-count--4.isplaying--4 & {
+    left: auto;
+    right: 45px;
+    top: -60px;
+  }
 }
 
 /* 

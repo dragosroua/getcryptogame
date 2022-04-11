@@ -79,7 +79,11 @@ export default {
 }
 
 .player-count--2.isplaying--2 .notification-container,
+.player-count--3.isplaying--2 .notification-container,
+.player-count--3.isplaying--3 .notification-container,
+.player-count--4.isplaying--2 .notification-container,
 .player-count--4.isplaying--3 .notification-container,
+.player-count--4.isplaying--4 .notification-container,
 .player-count--5.isplaying--3 .notification-container,
 .player-count--5.isplaying--4 .notification-container,
 .player-count--6.isplaying--4 .notification-container,
