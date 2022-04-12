@@ -39,7 +39,7 @@
     <NotificationAnimation v-bind:feedback="feedbackType" />
 
     <!-- printing the stack -->
-    <CardStack v-bind:animation="stackanimation" @click="animateStack('pickup3coins')" />
+    <CardStack v-bind:animation="stackanimation" @click="animateStack('pickupcoin')" />
   </div>
   <!-- END table-container -->
 
@@ -99,7 +99,7 @@ export default {
           avatar: 'ron.png',
           adress: 'walletaddress',
           isMe: true,
-          isPlaying: true,
+          isPlaying: false,
           total: 18,
           wallettotal: 5,
           lowestcoinvalues: [3, 3, 3],
@@ -189,7 +189,7 @@ export default {
           avatar: 'natalia.png',
           adress: 'walletaddress',
           isMe: false,
-          isPlaying: false,
+          isPlaying: true,
           total: 20,
           wallettotal: 8,
           lowestcoinvalues: [3, 3, 3],
@@ -228,13 +228,17 @@ export default {
     },
     nextPlayer: function () {
       // returns the next player in turn. For now it just returns a fixed player.
-      console.log(this.players[this.players.length - 3])
-      return this.players[this.players.length - 3]
+      console.log(this.players[this.players.length - 2])
+      return this.players[this.players.length - 2]
     },
     feedbackType: function () {
       // this function selects the right feedback notification series for each
       // move in the game. For the moment it just returns something static.
-      return 'otherTurnStart'
+      return [
+        { msg: 'hi, o hey there! --- 1', time: 0 },
+        { msg: 'hi there, oh, hello! --- 2', time: 1500 },
+        { msg: 'oh, hello! hi there! --- 3', time: 3000 },
+      ]
     },
     showOverlayType: function () {
       // this function shows the overlay when needed. For the moment it reads the params of the URL.
@@ -269,7 +273,7 @@ export default {
       // this function will add an animation to the stack according to move.
       // For now it just resets animationsStack and then sets a timeout with the animation
       let t = setTimeout(() => (this.stackanimation = move), 100)
-      let u = setTimeout(() => (this.stackanimation = ''), 1600)
+      let u = setTimeout(() => (this.stackanimation = ''), 3000)
     },
   },
 }

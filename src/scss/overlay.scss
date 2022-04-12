@@ -55,12 +55,12 @@
         top: -100px;
         transform: rotate(-10deg);
 }
-.newcard.slidein {
+.card.ggrid.newcard.slidein {
     left: 0;
     opacity: 1;
     top: 0;
     transform: rotate(0);
-    transition: all 0.2s 0s ease-in;
+    transition: all 0.2s 0.5s ease-in;
 }
 
 .overlay .card.pulsate {
