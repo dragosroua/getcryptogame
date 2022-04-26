@@ -56,12 +56,25 @@ export default {
   }
 }
 
+.row img.card {
+  box-shadow: 0px 0px 10px -2px rgb(0 0 0 / 40%);
+}
+
 .walletrow {
   margin-right: 45px;
 }
 
-.walletrow img.card {
-  border: solid 2px #11de70;
+.walletrow.row:before {
+  content: '';
+  display: block;
+  width: calc(100% + 37px);
+  position: absolute;
+  top: -17px;
+  height: 104px;
+  left: -30px;
+  border-radius: 8px;
+  max-height: calc(9vh + 25px);
+  box-shadow: inset 0px 0px 7px 0px rgb(0 0 0 / 30%);
 }
 
 .walletrow .card:first-child {

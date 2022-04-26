@@ -38,6 +38,12 @@
     }
 }
 
+.player-count--5.isplaying--2 .hand,
+.player-count--6.isplaying--2 .hand,
+.player-count--5.isplaying--5 .hand,
+.player-count--6.isplaying--6 .hand {
+    z-index: 10;
+}
 
 
 .info em {
