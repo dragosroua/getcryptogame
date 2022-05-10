@@ -203,7 +203,7 @@ export default {
         },
       ],
       // nexteventcard contains the type of the next card on the event stack
-      nexteventcard: 'u1',
+      nexteventcard: 'qu1',
       // next3coincards contains the type of the 3 next card on the coin stack
       next3coincards: ['BTC', 'FIL', 'SHIT'],
       stackanimation: '',
