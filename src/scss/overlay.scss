@@ -132,7 +132,8 @@
     padding-bottom: 15px;
 }
 
-.over-nowplaying .pic {
+.over-nowplaying .pic,
+.player-container .pic {
     border-radius: 50%;
     vertical-align: middle;
 }
@@ -203,8 +204,9 @@
     background-color: transparent;
     box-shadow: none;
     display: block;
-    text-align: left;
     margin: 40px;
+    padding: 0 15px;
+    text-align: left;
 }
 
 .over-nowplaying .portfolio-viewer {
@@ -245,4 +247,39 @@
 }
 .over-nowplaying .dropdown-button:first-child {
     border-top: none;
+}
+
+
+.select-player-view .over-notifications .button-container {
+    margin-bottom: -15px;
+}
+
+.player-selection {
+    padding: 15px;
+    text-align: center;
+}
+
+.player-container {
+    display: inline-block;
+    margin: 0 1% 10px;
+    max-width: 150px;
+    text-align: center;
+    width: 48%;
+}
+
+.player-info {
+    padding: 10px;
+    & > em {
+        display: inline-block;
+        margin: 8px auto 5px;
+    }
+}
+
+.player-container .player-info {
+    background-color: rgba(238,238,238,0.2);
+    border-radius: 8px;
+}
+
+.player-container .player-info.selected {
+    background-color: rgba(238,238,238,0.8);
 }

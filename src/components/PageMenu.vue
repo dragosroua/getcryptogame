@@ -33,6 +33,7 @@
         <router-link to="/table/selectwallettogiveup" @click="drawerVisible = false"
           >Select Wallet to Give up</router-link
         >
+        <router-link to="/table/chooseplayer" @click="drawerVisible = false">Choose affected player</router-link>
       </div>
     </div>
     <div

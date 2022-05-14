@@ -147,7 +147,6 @@ export default {
     emitSelectedCardsAndClose: function () {
       // this function emits an event with the array of the tickers of the selected cards.
       // than it navigates back to table.
-      console.log(this.selectedCards)
       this.$emit('cardstogiveupselected', this.selectedCards)
       this.$router.push('/table')
       this.selectedCards = []
