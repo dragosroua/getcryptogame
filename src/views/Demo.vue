@@ -338,7 +338,7 @@
             </section>
             <section id="over-main" class="over-grid">
               <img
-                src="../assets/img/u1-grid.png"
+                src="../assets/img/qu1-grid.png"
                 class="card ggrid newcard"
                 id="new-on-hand1"
                 onclick="toggle_pulsate(this); showNextNotification('over-me-notifi1', 'over-me-not2');"

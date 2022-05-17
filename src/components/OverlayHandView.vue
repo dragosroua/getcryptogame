@@ -132,8 +132,7 @@ export default {
     emitPlayedCardAndClose: function () {
       // this function emits an event with the tickers of the played card.
       // than it navigates back to table.
-      console.log(this.playedCard)
-      this.$emit('cardstogiveupselected', this.playedCard)
+      this.$emit('cardtoplayselected', this.playedCard)
       this.$router.push('/table')
       this.playedCard = ''
     },

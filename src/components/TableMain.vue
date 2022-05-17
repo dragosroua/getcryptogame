@@ -49,13 +49,18 @@
       v-show="showOverlayType === 'selectcardtoplay'"
       v-bind:players="players"
       v-bind:newcard="nexteventcard"
+      @cardtoplayselected="cardPlayed"
     />
     <OverlayPlayedCard
       v-show="showOverlayType === 'showplayedcard'"
       v-bind:player="playingPlayer"
-      v-bind:card="playedCard"
+      v-bind:card="cardPlayedName"
     />
-    <OverlayGiveUpCards v-show="showOverlayType === 'selectcardstogiveup'" v-bind:player="playingPlayer" />
+    <OverlayGiveUpCards
+      v-show="showOverlayType === 'selectcardstogiveup'"
+      v-bind:player="playingPlayer"
+      @cardstogiveupselected="cardsToGiveUp"
+    />
     <OverlaySaveCardToWallet
       v-show="showOverlayType === 'savecardtowallet'"
       v-bind:playingplayer="playingPlayer"
@@ -65,6 +70,13 @@
       v-show="showOverlayType === 'selectwallettogiveup'"
       v-bind:playingplayer="playingPlayer"
       v-bind:affectedplayer="nextPlayer"
+    />
+    <OverlayChoosePlayer
+      v-show="showOverlayType === 'chooseplayer'"
+      v-bind:player="playingPlayer"
+      v-bind:nextplayer="nextPlayer"
+      v-bind:lastplayer="lastPlayer"
+      @affectedplayerselected="playerSelected"
     />
   </div>
 </template>
@@ -80,6 +92,7 @@ import OverlayPlayedCard from './OverlayPlayedCard'
 import OverlayGiveUpCards from './OverlayGiveUpCards'
 import OverlayGiveUpWallet from './OverlayGiveUpWallet'
 import OverlaySaveCardToWallet from './OverlaySaveCardToWallet'
+import OverlayChoosePlayer from './OverlayChoosePlayer'
 
 export default {
   name: 'TableMain',
@@ -207,6 +220,7 @@ export default {
       // next3coincards contains the type of the 3 next card on the coin stack
       next3coincards: ['BTC', 'FIL', 'SHIT'],
       stackanimation: '',
+      cardPlayedName: 'q1',
     }
   },
   components: {
@@ -220,16 +234,32 @@ export default {
     OverlayGiveUpCards,
     OverlayGiveUpWallet,
     OverlaySaveCardToWallet,
+    OverlayChoosePlayer,
   },
   computed: {
+    playingPlayerIndex: function () {
+      // helper function to find current players index
+      return this.players
+        .map(function (e) {
+          return e.isPlaying
+        })
+        .indexOf(true)
+    },
     playingPlayer: function () {
-      let arr = this.players.filter((player) => player.isPlaying)
-      return arr[0]
+      // returns the current player in turn.
+      return this.players[this.playingPlayerIndex]
+    },
+    lastPlayer: function () {
+      // returns the last player in turn.
+      return this.playingPlayerIndex == 0
+        ? this.players[this.players.length]
+        : this.players[this.playingPlayerIndex - 1]
     },
     nextPlayer: function () {
-      // returns the next player in turn. For now it just returns a fixed player.
-      console.log(this.players[this.players.length - 2])
-      return this.players[this.players.length - 2]
+      // returns the next player in turn.
+      return this.playingPlayerIndex == this.players.length - 1
+        ? this.players[0]
+        : this.players[this.playingPlayerIndex + 1]
     },
     feedbackType: function () {
       // this function selects the right feedback notification series for each
@@ -259,13 +289,11 @@ export default {
         case 'selectwallettogiveup':
           overlaytype = 'selectwallettogiveup'
           break
+        case 'chooseplayer':
+          overlaytype = 'chooseplayer'
+          break
       }
       return overlaytype
-    },
-    playedCard: function () {
-      // this function will listen to the card-played event and return the played card.
-      // For now it just retuns something static
-      return 'q1'
     },
   },
   methods: {
@@ -274,6 +302,20 @@ export default {
       // For now it just resets animationsStack and then sets a timeout with the animation
       let t = setTimeout(() => (this.stackanimation = move), 100)
       let u = setTimeout(() => (this.stackanimation = ''), 3000)
+    },
+    cardPlayed: function (payload) {
+      // this function will listen to the card-played event and return the played card.
+      console.log('cardPlayed has been called!', payload)
+      // it also sets the palyed card for continued display in frontend:
+      this.cardPlayedName = payload
+    },
+    playerSelected: function (payload) {
+      // this function will listen to the player-selected event and return the selected palyer to the api.
+      console.log('playerSelected has been called!', payload)
+    },
+    cardsToGiveUp: function (payload) {
+      // this function will listen to the cards-to-give-up event and returns the arrat with the selected cards to the api.
+      console.log('cardsToGiveUp has been called!', payload)
     },
   },
 }

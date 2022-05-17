@@ -41,7 +41,7 @@ export default {
 
 .row {
   display: inline-block;
-  margin: 0.75vh auto;
+  margin: 6px auto;
   position: relative;
   @media (max-width: 400px) {
     margin-left: -10px;
@@ -61,10 +61,10 @@ export default {
 }
 
 .walletrow {
-  margin-right: 45px;
+  margin: 8px 45px 8px -10px;
 }
 
-.walletrow.row:before {
+/* .walletrow.row:before {
   content: '';
   display: block;
   width: calc(100% + 37px);
@@ -75,6 +75,38 @@ export default {
   border-radius: 8px;
   max-height: calc(9vh + 25px);
   box-shadow: inset 0px 0px 7px 0px rgb(0 0 0 / 30%);
+}
+.overlay .walletrow.row:before {
+  max-height: calc(9vh + 42px);
+}
+.walletholder-container .walletrow.row:before {
+  box-shadow: none;
+} */
+
+.walletrow.row:before {
+  content: '';
+  background-color: #eee;
+  border: solid 1px #ccc;
+  display: block;
+  width: calc(100% + 25px);
+  position: absolute;
+  top: -12px;
+  height: 90px;
+  left: -22px;
+  border-radius: 8px;
+  max-height: calc(9vh + 14px);
+}
+.overlay .walletrow.row:before {
+  background-color: rgba(220, 220, 220, 0.8);
+  max-height: none;
+  top: -14px;
+  height: 92px;
+  left: -28px;
+  width: calc(100% + 29px);
+}
+.walletholder-container .walletrow.row:before {
+  background-color: transparent;
+  border: none;
 }
 
 .walletrow .card:first-child {
