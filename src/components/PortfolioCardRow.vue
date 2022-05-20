@@ -1,12 +1,14 @@
 <template>
   <span v-bind:class="[isWallet ? 'walletrow row' : 'cardrow row']">
     <PortfolioCard v-if="isWallet" ticker="wallet" />
-    <PortfolioCard
-      v-for="(ticker, index) in coins"
-      :key="index"
-      v-bind:ticker="ticker"
-      @click="emitEvent({ eventtype: 'cardselected', ticker: ticker, index: index })"
-    />
+    <TransitionGroup name="list">
+      <PortfolioCard
+        v-for="(ticker, index) in coins"
+        :key="index"
+        v-bind:ticker="ticker"
+        @click="emitEvent({ eventtype: 'cardselected', ticker: ticker, index: index })"
+      />
+    </TransitionGroup>
   </span>
 </template>
 
@@ -114,5 +116,14 @@ export default {
   position: relative;
   top: -10px;
   z-index: 0;
+}
+
+.list-enter-active {
+  border: solid 1px rgb(2, 248, 2);
+  transition: all 1s ease;
+}
+.list-enter-from {
+  // border: solid 1px red;
+  transition: all 1s ease;
 }
 </style>

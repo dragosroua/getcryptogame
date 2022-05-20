@@ -34,6 +34,7 @@
           >Select Wallet to Give up</router-link
         >
         <router-link to="/table/chooseplayer" @click="drawerVisible = false">Choose affected player</router-link>
+        <router-link to="/table/animatetable" @click="drawerVisible = false">Animate new cards on table</router-link>
       </div>
     </div>
     <div
