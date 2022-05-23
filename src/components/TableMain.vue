@@ -45,12 +45,14 @@
 
   <!-- printing all possible overlays -->
   <div class="overlay" v-bind:class="{ show: showOverlayType }">
-    <OverlayHandView
-      v-show="showOverlayType === 'selectcardtoplay'"
-      v-bind:players="players"
-      v-bind:newcard="nexteventcard"
-      @cardtoplayselected="cardPlayed"
-    />
+    <Transition>
+      <OverlayHandView
+        v-show="showOverlayType === 'selectcardtoplay'"
+        v-bind:players="players"
+        v-bind:newcard="nexteventcard"
+        @cardtoplayselected="cardPlayed"
+      />
+    </Transition>
     <OverlayPlayedCard
       v-show="showOverlayType === 'showplayedcard'"
       v-bind:player="playingPlayer"
@@ -294,6 +296,122 @@ export default {
           break
       }
       return overlaytype
+    },
+  },
+  watch: {
+    '$route.params.variant': function (variant) {
+      if (variant == 'animatetable') {
+        this.players = [
+          {
+            id: 0,
+            name: 'Dragos',
+            avatar: 'ron.png',
+            adress: 'walletaddress',
+            isMe: true,
+            isPlaying: false,
+            total: 18,
+            wallettotal: 5,
+            lowestcoinvalues: [3, 3, 3],
+            cards: {
+              hand: ['keys', 'wallet', 'q7'],
+              portfolio: {
+                coins: ['ETH', 'AAVE', 'SHIT', 'SHIT'],
+                wallets: [['BTC'], ['ETH', 'UNI']],
+              },
+            },
+          },
+          {
+            id: 1,
+            name: 'Eva',
+            avatar: 'natalia.png',
+            adress: 'walletaddress',
+            isMe: false,
+            isPlaying: false,
+            total: 26,
+            wallettotal: 12,
+            lowestcoinvalues: [1, 1],
+            cards: {
+              hand: ['q3', 'wallet', 'q1'],
+              portfolio: {
+                coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+                wallets: [['DOGE'], ['XMR', 'SHIT']],
+              },
+            },
+          },
+          {
+            id: 2,
+            name: 'Maria',
+            avatar: 'andrea.png',
+            adress: 'walletaddress',
+            isMe: false,
+            isPlaying: false,
+            total: 20,
+            wallettotal: 8,
+            lowestcoinvalues: [3, 3],
+            cards: {
+              hand: ['q4', 'keys', 'wallet'],
+              portfolio: {
+                coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+                wallets: [['DOGE']],
+              },
+            },
+          },
+          {
+            id: 3,
+            name: 'Mulan',
+            avatar: 'andrea.png',
+            adress: 'walletaddress',
+            isMe: false,
+            isPlaying: false,
+            total: 20,
+            wallettotal: 8,
+            lowestcoinvalues: [3, 3, 1],
+            cards: {
+              hand: ['q2', 'keys', 'q1'],
+              portfolio: {
+                coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+                wallets: [['XMR', 'SHIT']],
+              },
+            },
+          },
+          {
+            id: 4,
+            name: 'Edward',
+            avatar: 'ron.png',
+            adress: 'walletaddress',
+            isMe: false,
+            isPlaying: false,
+            total: 20,
+            wallettotal: 8,
+            lowestcoinvalues: [1, 1, 1],
+            cards: {
+              hand: ['q4', 'wallet', 'q5'],
+              portfolio: {
+                coins: ['ETH', 'ATOM', 'SHIT', 'SHIT'],
+                wallets: [['AAVE']],
+              },
+            },
+          },
+          {
+            id: 5,
+            name: 'Natalia',
+            avatar: 'natalia.png',
+            adress: 'walletaddress',
+            isMe: false,
+            isPlaying: true,
+            total: 20,
+            wallettotal: 8,
+            lowestcoinvalues: [3, 3, 3],
+            cards: {
+              hand: ['q2', 'wallet', 'q7'],
+              portfolio: {
+                coins: ['BTC', 'ETH', 'ATOM', 'SHIT', 'SHIT', 'SHIT'],
+                wallets: [['ETH'], ['BTC', 'SHIT'], ['BTC', 'ETH', 'SHIT', 'SHIT', 'SHIT', 'SHIT']],
+              },
+            },
+          },
+        ]
+      }
     },
   },
   methods: {

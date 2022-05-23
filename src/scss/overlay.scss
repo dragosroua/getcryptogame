@@ -11,78 +11,37 @@
         width: 34vw;
     }
 }
-.card.ggrid.newcard {
-    animation: slideintop 0.4s ease-out 0.2s forwards;
-    left: -50px;
-    opacity: 0;
-    position: relative;
-    top: -100px;
-    transform: rotate(-10deg);
+
+// DON'T REMOVE! definitions only to make the transition element add the necessary classes on the whole overlay 
+.v-enter-active,
+.v-leave-active {
+  background-color: inherit;
+  transition: all 0.5s ease;
 }
-.card.ggrid.newcard.stopani {
-    animation: none;
-    left: 0;
-    opacity: 1;
-    top: 0;
-    transform: rotate(0);
-}
-@keyframes slideintop {
-    0% {
-        left: -50px;
-        opacity: 0;
-        position: relative;
-        top: -100px;
-        transform: rotate(-10deg);
-    }
-    100% {
-        left: 0;
-        opacity: 1;
-        top: 0;
-        transform: rotate(0);
-    }
-}
-.card.ggrid.newcard.pulsate {
-    left: 0;
-    opacity: 1;
-    top: 0;
-    transform: rotate(0);
+// DON'T REMOVE! 
+.v-enter-from,
+.v-leave-to {
+  background-color: inherit;
 }
 
-.newcard {
-    left: -50px;
-        opacity: 0;
-        position: relative;
-        top: -100px;
-        transform: rotate(-10deg);
+// actual animation definitions for the newcard object
+.v-enter-active .card.ggrid.newcard,
+.v-leave-active .card.ggrid.newcard {
+  left: 0 !important;
+  opacity: 1;
+  top: 0;
+  position: relative;
+  transform: rotate(0);
+  transition: all 0.5s ease;
 }
-.card.ggrid.newcard.slidein {
-    left: 0;
-    opacity: 1;
-    top: 0;
-    transform: rotate(0);
-    transition: all 0.2s 0.5s ease-in;
+.v-enter-from .card.ggrid.newcard,
+.v-leave-to .card.ggrid.newcard {
+  left: -50px !important;
+  opacity: 0;
+  position: relative;
+  top: -100px;
+  transform: rotate(-10deg);
 }
-
-.overlay .card.pulsate {
-    box-shadow: 0px 0px 30px 0px #9e93ff;
-    animation: pulsate-more 1s ease-out infinite;
-}
-@keyframes pulsate-more {
-    0%   { box-shadow: 0 0 0 #9e93ff; }
-    50%  { box-shadow: 0 0 30px 10px #9e93ff; }
-    100% { box-shadow: 0 0 0 #9e93ff; }
-}
-
-/*
-.card.ggrid.newcard.slidein {
-    left: 0;
-    opacity: 1;
-    top: 0;
-    transform: rotate(0);
-    transition: all 0.2s 0s ease-in;
-}
-*/
-
 
 
 .overlay .aside {
