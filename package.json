@@ -23,7 +23,7 @@
     "core-js": "^3.22.6",
     "follow-redirects": "^1.15.0",
     "ramda": "^0.28.0",
-    "vue": "^3.2.34",
+    "vue": "^3.2.36",
     "vue-advanced-cropper": "^2.8.1",
     "vue-router": "^4.0.15",
     "vue3-notification": "^1.0.0",
