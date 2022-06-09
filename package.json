@@ -52,7 +52,7 @@
     "lint-staged": "^13.0.1",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "prettier": "^2.6.2",
-    "sass": "^1.52.2",
+    "sass": "^1.52.3",
     "sass-loader": "^13.0.0"
   },
   "gitHooks": {
