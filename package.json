@@ -24,7 +24,7 @@
     "follow-redirects": "^1.15.1",
     "ramda": "^0.28.0",
     "vue": "^3.2.37",
-    "vue-advanced-cropper": "^2.8.2",
+    "vue-advanced-cropper": "^2.8.3",
     "vue-router": "^4.0.16",
     "vue3-notification": "^1.0.0",
     "vuex": "^4.0.0"
