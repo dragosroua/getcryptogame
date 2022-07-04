@@ -46,7 +46,7 @@
     "ansi-regex": ">=6.0.1",
     "babel-jest": "^27.5.1",
     "eslint": "^8.18.0",
-    "eslint-plugin-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.1.1",
     "jest": "^27.5.1",
     "lint-staged": "^13.0.3",
