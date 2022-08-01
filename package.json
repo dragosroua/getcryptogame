@@ -50,7 +50,7 @@
     "eslint-plugin-vue": "^9.3.0",
     "jest": "^27.5.1",
     "lint-staged": "^13.0.3",
-    "node-polyfill-webpack-plugin": "^2.0.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
     "prettier": "^2.7.1",
     "sass": "^1.54.0",
     "sass-loader": "^13.0.2"
