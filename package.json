@@ -15,7 +15,7 @@
     "@confio/relayer": "^0.5.1",
     "@cosmjs/launchpad": "^0.27.1",
     "@cosmjs/proto-signing": "^0.28.13",
-    "@cosmjs/stargate": "^0.28.11",
+    "@cosmjs/stargate": "^0.28.13",
     "@kyvg/vue3-notification": "^2.3.6",
     "@starport/vue": "^0.3.5",
     "@starport/vuex": "^0.3.5",
