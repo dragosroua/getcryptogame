@@ -18,7 +18,7 @@
     "@cosmjs/stargate": "^0.28.13",
     "@kyvg/vue3-notification": "^2.4.1",
     "@starport/vue": "^0.3.6",
-    "@starport/vuex": "^0.3.6",
+    "@starport/vuex": "^0.3.10",
     "axios": "^0.27.2",
     "core-js": "^3.25.1",
     "follow-redirects": "^1.15.1",
