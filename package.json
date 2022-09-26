@@ -45,7 +45,7 @@
     "@vue/vue3-jest": "^27.0.0",
     "ansi-regex": ">=6.0.1",
     "babel-jest": "^27.5.1",
-    "eslint": "^8.23.1",
+    "eslint": "^8.24.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.5.1",
     "jest": "^27.5.1",
