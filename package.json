@@ -14,7 +14,7 @@
   "dependencies": {
     "@confio/relayer": "^0.6.1",
     "@cosmjs/launchpad": "^0.27.1",
-    "@cosmjs/proto-signing": "^0.29.0",
+    "@cosmjs/proto-signing": "^0.29.2",
     "@cosmjs/stargate": "^0.29.1",
     "@kyvg/vue3-notification": "^2.4.1",
     "@starport/vue": "^0.3.10",
