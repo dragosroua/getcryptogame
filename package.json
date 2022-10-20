@@ -12,7 +12,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@confio/relayer": "^0.6.1",
+    "@confio/relayer": "^0.7.0",
     "@cosmjs/launchpad": "^0.27.1",
     "@cosmjs/proto-signing": "^0.29.2",
     "@cosmjs/stargate": "^0.29.2",
