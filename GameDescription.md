@@ -21,7 +21,7 @@
 
 *3 “hacked” cards*
 
-*18 general knowledge cards that let you pick up 1 coin card*
+*20 general knowledge cards that let you pick up 1 coin card*
 
 *2 mining/staking cards, you need to own at least one PoW/PoS coin to pick up 2 coin cards*
 
