@@ -616,7 +616,7 @@
 <script>
 import init from '@/store/config.js'
 import store from '../store/index'
-import { createGameDeck } from '../backend/functions.js'
+import { createGameDeck } from '../backend/game-mechanics/functions.js'
 export default {
   name: 'Demo',
   components: {},

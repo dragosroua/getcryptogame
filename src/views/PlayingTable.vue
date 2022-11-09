@@ -6,7 +6,7 @@
 import TableMain from '../components/TableMain'
 
 export default {
-  name: 'Table',
+  name: 'PlayingTable',
   components: {
     TableMain,
   },
