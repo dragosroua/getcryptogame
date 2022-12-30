@@ -19,7 +19,7 @@
     "@kyvg/vue3-notification": "^2.7.0",
     "@starport/vue": "^0.3.10",
     "@starport/vuex": "^0.3.10",
-    "axios": "^1.2.1",
+    "axios": "^1.2.2",
     "core-js": "^3.27.0",
     "follow-redirects": "^1.15.2",
     "ramda": "^0.28.0",
