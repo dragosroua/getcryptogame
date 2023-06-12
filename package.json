@@ -20,7 +20,7 @@
     "@starport/vue": "^0.3.10",
     "@starport/vuex": "^0.3.10",
     "axios": "^1.4.0",
-    "core-js": "^3.30.2",
+    "core-js": "^3.31.0",
     "follow-redirects": "^1.15.2",
     "ramda": "^0.29.0",
     "vue": "^3.3.4",
