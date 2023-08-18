@@ -16,7 +16,7 @@
     "@cosmjs/launchpad": "^0.27.1",
     "@cosmjs/proto-signing": "^0.31.0",
     "@cosmjs/stargate": "^0.31.0",
-    "@kyvg/vue3-notification": "^2.9.1",
+    "@kyvg/vue3-notification": "^3.0.1",
     "@starport/vue": "^0.3.10",
     "@starport/vuex": "^0.3.10",
     "axios": "^1.4.0",
