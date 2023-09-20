@@ -21,7 +21,7 @@
     "@starport/vuex": "^0.3.10",
     "axios": "^1.5.0",
     "core-js": "^3.32.2",
-    "follow-redirects": "^1.15.2",
+    "follow-redirects": "^1.15.3",
     "ramda": "^0.29.0",
     "vue": "^3.3.4",
     "vue-advanced-cropper": "^2.8.8",
