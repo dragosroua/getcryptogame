@@ -30,7 +30,7 @@
     "vuex": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.3",
+    "@babel/core": "^7.23.5",
     "@babel/eslint-parser": "^7.23.3",
     "@babel/plugin-transform-runtime": "^7.23.4",
     "@vue/cli-plugin-babel": "~5.0.8",
